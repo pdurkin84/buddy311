@@ -1,0 +1,12 @@
+[Unit]
+Description=buddy311consumer
+After=multi-user.target
+
+[Service]
+Type=idle
+WorkingDirectory=/etc/buddy311/
+ExecStart=/usr/bin/python3.6 /etc/buddy311/buddy311_consumer.py 2>&1 1>/var/log/buddy311consumer.log
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

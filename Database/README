@@ -1,0 +1,20 @@
+Create Table requests
+	(service_request_id int(10) not null auto_increment,
+		dt timestamp not null default CURRENT_TIMESTAMP,
+		jurisdiction_id varchar(20) default "buddy311",
+		service_code varchar(50) default "Unknown",
+		latitude float(10,10),
+		longitude float(10,10),
+		address_string varchar(500) default NULL,
+		address_id varchar(500) default NULL,
+		email varchar(500) default NULL,
+		device_id varchar(500) default NULL,
+		account_id varchar(500) default NULL,
+		first_name varchar(100) default NULL,
+		last_name varchar(100) default NULL,
+		phone varchar(100) default NULL,
+		description varchar(1000) default NULL,
+		media_url varchar(1000) default NULL,
+		primary key (service_request_id)
+);
+

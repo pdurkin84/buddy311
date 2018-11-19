@@ -1,0 +1,13 @@
+{ 
+	"homedir" : "/W210_Gov_Complaints_Portal/Code/REST",
+	"logfile" : "buddy311.log",
+	"service_type_mappings" : "mappings",
+	"port" : "31102",
+	"hostip" : "0.0.0.0",
+	"logfile" : "buddy311.log",
+	"crtfile" : "/etc/ssl/certs/www_buddy311_org.crt",
+	"keyfile" : "/etc/ssl/private/www.buddy311.org.key",
+	"cafile" : "/etc/ssl/certs/www_buddy311_org.ca-bundle",
+	"modelfile" : "/root/combined_model_20181021"
+}
+

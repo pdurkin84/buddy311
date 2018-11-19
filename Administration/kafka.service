@@ -1,0 +1,16 @@
+[Unit]
+Description=Kafka with broker id (%i)
+After=network.target
+After=zk.service
+
+[Service]
+Type=forking
+
+SyslogIdentifier=kafka (%i)
+Restart=on-failure
+LimitNOFILE=16384:163840
+
+ExecStart=/opt/kafka/bin/kafka-server-start.sh -daemon /opt/kafka/config/server.properties
+
+[Install]
+WantedBy=multi-user.target

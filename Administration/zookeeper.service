@@ -1,0 +1,15 @@
+[Unit]
+Description=Kafka zookeeper with broker id (%i)
+After=network.target
+
+[Service]
+Type=forking
+
+SyslogIdentifier=zookeper (%i)
+Restart=on-failure
+LimitNOFILE=16384:163840
+
+ExecStart=/opt/kafka/bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+[Install]
+WantedBy=multi-user.target
