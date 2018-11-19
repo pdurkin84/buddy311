@@ -174,7 +174,7 @@ async def processGoogleActionRequest(request):
 	logging.info("received: ", complaint)
 
 	sr = save({'description':complaint})
-	return json({'fulfillmentText': "Thank you, your complaint " + sr + " has been recorded and is being processed"})
+	return json({'fulfillmentText': "Thank you, your complaint number " + sr + " has been recorded and is being processed"})
 
 @app.route('/tokens/<token>.<format>')
 def token(token, format):
