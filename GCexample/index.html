@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Buddy311</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<!-- <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css"> -->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="input-wrap">
+
+			<div class="input">
+			<span class="input-title">
+					Buddy311
+			</span>
+
+			<div class="info-wrap">
+			  	<!-- <h1 class="center" id="headline"><a href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">Web Speech API</a> Demonstration</h1> -->
+
+			  	<div id="info">
+				    <p id="info_start">Click on the microphone icon and begin speaking.</p>
+				    <p id="info_speak_now">Speak now.</p>
+				    <p id="info_no_speech">No speech was detected. You may need to adjust your
+				      <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+				        microphone settings</a>.</p>
+				    <p id="info_no_microphone" style="display:none">
+				      No microphone was found. Ensure that a microphone is installed and that
+				      <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+				      microphone settings</a> are configured correctly.</p>
+				    <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+				    <p id="info_denied">Permission to use microphone was denied.</p>
+				    <p id="info_blocked">Permission to use microphone is blocked. To change,
+				      go to chrome://settings/contentExceptions#media-stream</p>
+				    <p id="info_upgrade">Web Speech API is not supported by this browser.
+				       Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+				       version 25 or later.</p>
+			  	</div>
+			</div>
+
+
+			<div class="info-wrap">
+				<div class="right">
+					<button id="start_button" onclick="startButton(event)">
+					<img id="start_img" src="mic.gif" alt="Start"></button>
+				</div>
+
+			  	<div id="results">
+				    <span id="final_span" class="final"></span>
+				    <span id="interim_span" class="interim"></span>
+				    <p>
+			  	</div>
+				<div id="textEntryBox">
+					<input type="text" id="myTextBox" cols="50" rows="1" placeholder="Manually enter text here"></input>
+				</div>
+			</div>
+
+			  	<!-- <div class="center"> -->
+			  	<div class="info-wrap">
+
+					<div class="container-contact100-form-btn">
+						<!--23/oct updated to call the buddy311buttonClick function pauld-->
+						<button class="contact100-form-btn" onclick="buddy311buttonClick()">
+							<span>
+								Submit
+								<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+							</span>
+						</button>
+					</div>
+
+			    	<p>
+				    <div id="div_language">
+					    <select id="select_language" onchange="updateCountry()"></select>
+					    &nbsp;&nbsp;
+					    <select id="select_dialect"></select>
+				    </div>
+						
+				</div>
+
+					<!--23/oct added pauld-->
+					<p>
+					<div id="returnclass-wrap">
+						<span id="returnclass-type" style="visibility: hidden">
+							nothing
+						</span>
+						<p>
+						<span id="returnclass-subtype" style="visibility: hidden">
+							nothing
+						</span>
+					</div>
+					<!--23/oct end pauld-->
+		  	
+		  	</div>
+		</div>
+	</div>
+
+<script src="js/main.js"></script>
+<!--23/oct added pauld-->
+<script src="js/buddy311.js"></script>
+<!--23/oct end pauld-->
+  
+</body>
+</html>
