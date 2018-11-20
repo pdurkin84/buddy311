@@ -69,7 +69,13 @@ async def classifyOpen311Complaint(request):
 		prediction = model.predict(processedComplaints).tolist()
 	else:
 		print("Doing simple prediction")
-		prediction = model.predict([preProcess(request.json.get('description'))])[0]
+		#prediction = model.predict([preProcess(request.json.get('description'))])[0]
+		prediction_proba=model.predict_proba([preProcess(request.json.get('description'))])[0]
+		print("Probabilities: ", prediction_proba)
+		prediction = max(prediction_proba, key=prediction_proba.get)
+		# has to be a string otherwise sanic crashes
+		prediction_value = str(prediction_proba[prediction])
+		print("Top probability: %s, at %s" % (prediction, prediction_value))
 
 	print("Prediction is: ", prediction)
 
@@ -78,10 +84,12 @@ async def classifyOpen311Complaint(request):
 	# back a new message with the service_code only
 	if request.json.get('service_code') == None:
 		print("No service code provided, returning one")
-		return json({'service_code': prediction})
+		return json({'service_code': prediction, 'service_code_proba': prediction_value})
 	else:
 		print("Service_code was provided so updating it")
 		request.json['service_code'] = prediction
+		request.json['service_code_proba'] = prediction_value
+		print(request.json)
 		return json(request.json)
 
 """
