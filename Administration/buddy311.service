@@ -1,0 +1,14 @@
+[Unit]
+Description=buddy311
+After=multi-user.target
+
+[Service]
+Type=idle
+WorkingDirectory=/opt/buddy311/Classifier
+StandardOutput=/var/log/buddy311.log
+StandardError=/var/log/buddy311.log
+ExecStart=/usr/bin/python3.6 /opt/buddy311/Classifier/buddy311.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
