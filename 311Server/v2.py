@@ -64,12 +64,12 @@ def admin():
 	json_data = json.loads(response)
 
 	api_url_base = 'https://buddy311.org:31102/requests/get'
-	params = {'page': 0, 'per_page':1000}
+	params = {'page': 0, 'per_page':1}
 	response = requests.get(api_url_base, params=params).content
 # 	https://buddy311.org:31102/requests/get?page=0&per_page=1000
-	response = response.decode('utf-8')
-	json_data = json.loads(response)
-	all_tickets = json_data
+# 	response = response.decode('utf-8')
+# 	json_data = json.loads(response)
+	all_tickets = response
 
 
 	# return render_template('admin.html')
