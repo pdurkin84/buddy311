@@ -302,24 +302,26 @@ def save(service_request):
 def pending_query():
 	"""Query service requests where `service_code` == 'UNKNOWN'"""
 	return_request = {}
-	cursor.execute("""SELECT jurisdiction_id, service_code, latitude, longitude, address_string,
+	cursor.execute("""SELECT service_request_id, jurisdiction_id, service_code, latitude, longitude, address_string,
 					address_id, email, device_id, account_id, first_name, last_name, phone,
 					description, media_url FROM requests WHERE service_code='UNKNOWN'""")
-	for jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description, media_url in cursor:
-		return_request['jurisdiction_id'] = jurisdiction_id
-		return_request['service_code'] = service_code
-		return_request['latitude'] = latitude
-		return_request['longitude'] = longitude
-		return_request['address_string'] = address_string
-		return_request['address_id'] = address_id
-		return_request['email'] = email
-		return_request['device_id'] = device_id
-		return_request['account_id'] = account_id
-		return_request['first_name'] = first_name
-		return_request['last_name'] = last_name
-		return_request['phone'] = phone
-		return_request['description'] = description
-		return_request['media_url'] = media_url
+	for record in cursor:
+		return_request[record[service_request_id]] = {}
+		for jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description, media_url in cursor:
+			return_request[service_request_id]['jurisdiction_id'] = jurisdiction_id
+			return_request[service_request_id]['service_code'] = service_code
+			return_request[service_request_id]['latitude'] = latitude
+			return_request[service_request_id]['longitude'] = longitude
+			return_request[service_request_id]['address_string'] = address_string
+			return_request[service_request_id]['address_id'] = address_id
+			return_request[service_request_id]['email'] = email
+			return_request[service_request_id]['device_id'] = device_id
+			return_request[service_request_id]['account_id'] = account_id
+			return_request[service_request_id]['first_name'] = first_name
+			return_request[service_request_id]['last_name'] = last_name
+			return_request[service_request_id]['phone'] = phone
+			return_request[service_request_id]['description'] = description
+			return_request[service_request_id]['media_url'] = media_url
 	return return_request
 
 context = ssl.create_default_context(purpose=ssl.Purpose.CLIENT_AUTH)
