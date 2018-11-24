@@ -63,12 +63,18 @@ def admin():
 	response = response.decode('utf-8')
 	json_data = json.loads(response)
 
-	# pending_reqs = pending_query()
+	api_url_base = 'https://buddy311.org:31102/requests/get'
+	params = {'page': 0, 'per_page':1000}
+	response = requests.get(api_url_base, params=params).content
+# 	https://buddy311.org:31102/requests/get?page=0&per_page=1000
+	response = response.decode('utf-8')
+	json_data = json.loads(response)
+	all_tickets = json_data
 
 
 	# return render_template('admin.html')
-	return render_template('admin.html', json_data = json_data)
-	# return render_template('admin.html', json_data = json_data, pending_reqs=pending_reqs)
+# 	return render_template('admin.html', json_data = json_data)
+	return render_template('admin.html', json_data = all_tickets)
 
 @app.route('/version')
 def index():
