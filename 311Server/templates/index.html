@@ -1,320 +1,525 @@
-
 {% extends "layout.html" %}
-{% block title %}GeoReport v2 Server{% endblock %}
 {% block content %}
 
-      <div class="hero-unit">
-        <h1>GeoReport <em>v2</em> Server</h1>
-        <p>The <em>GeoReport API</em> allows developers to build applications
-        to report non-emergency issues such as graffiti, potholes, and
-        street cleaning directly to government organizations like
-        cities and counties.</p>
-        <p><a href="http://open311.org/learn/" class="btn success large">Learn more &raquo;</a></p>
-      </div>
-
-      <div class="row">
-        <div class="span5">
-          <h6>API</h6>
-            <ul>
-              <li><a href="#service-list">Service List</a></li>
-              <li><a href="#service-definition">Service Definition</a></li>
-              <li><a href="#create-sr">Create Service Request</a></li>
-              <li><a href="#get-requests">Query Multiple Service Requests</a></li>
-              <li><a href="#get-request">Query a Single Service Request</a></li>
-              <li><a href="#tokens">Lookup Request ID from Token</a></li>
-            </ul>
+            <!--Logo/-->
+            <nav class="collapse navbar-collapse" id="primary-menu">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#home-page">Home</a></li>
+                    <li><a href="#feature-page">Features</a></li>
+                    <li><a href="#demo-page">Demo</a></li>
+                    <li><a href="#business-case-page">User Story</a></li>
+                    <li><a href="#tech-page">Technology</a></li>
+                    <li><a href="#team-page">Team</a></li>
+<!--                     <li><a href="#faq-page">FAQ</a></li>
+                    <li><a href="#blog-page">Blog</a></li> -->
+                    <!-- <li><a href="#contact-page">Contact</a></li> -->
+                    <li><a href="#contact-page">Contact</a></li>
+                    <!-- <li><a href='admin.html#admin-page'>Admin</a></li> -->
+                    <li><a href='{{ url_for("admin") }}'>Admin</a></li>
+                </ul>
+            </nav>
         </div>
-        <div class="span5">
-          <h6>Register for an API Key</h6>
-           <p>Register for an API key to report non-emergency issues
-           directly to {{ org }}.</p>
-          <p><a class="btn primary" href="#">Register &raquo;</a></p>
-       </div>
-        <div class="span6">
-          <h6>Fork on GitHub</h6>
-          <p>Download, fork, pull, file issues, and more with the
-          GeoReport v2 Server repository on Github.</p>
-          <p><a href="https://github.com/miamidade/georeport-server" class="btn primary">GeoReport on GitHub »</a></p>
-        </div>
-      </div>
-
-      <section id="service-list">
-        <div class="page-header">
-          <h1>Service List <small>Available service request types</small></h1>
-        </div>
-        <div class="row">
-          <div class="span4">
-            <dl>
-              <dt>Formats</dt>
-              <dd><code>JSON, XML</code></dd>
-              <dt>HTTP Method</dt>
-              <dd><span class="label notice">GET</span></dd>
-              <dt>API Key Required</dt>
-              <dd><span class="label">No</span></dd>
-            </dl>
-          </div>
-          <div class="span12">
-            <h5>Request</h5>
-            <pre>GET <a href="services.json?jurisdiction_id={{ jurisdiction }}">/services.json?jurisdiction_id={{ jurisdiction }}</a></pre>
-            <h5>Response</h5>
-            <pre>
-[
-  {
-    "service_code":001,
-    "service_name":"Cans left out 24x7",
-    "description":"Garbage or recycling cans that have been left out for more than 24 hours after collection. Violators will be cited.",
-    "metadata":true,
-    "type":"realtime",
-    "keywords":"lorem, ipsum, dolor",
-    "group":"sanitation"
-  },
-  {
-    "service_code":002,
-    "metadata":true,
-    "type":"realtime",
-    "keywords":"lorem, ipsum, dolor",
-    "group":"street",
-    "service_name":"Construction plate shifted",
-    "description":"Metal construction plate covering the street or sidewalk has been moved."
-  },
-  {
-    "service_code":003,
-    "metadata":true,
-    "type":"realtime",
-    "keywords":"lorem, ipsum, dolor",
-    "group":"street",
-    "service_name":"Curb or curb ramp defect",
-    "description":"Sidewalk curb or ramp has problems such as cracking, missing pieces, holes, and/or chipped curb."
-  }
-]
-            </pre>
-          </div>
-        </div>
-      </section>
-
-      <section id="service-definition">
-        <div class="page-header">
-          <h1>Service Definition <small>Questions associated with a service request</small></h1>
-        </div>
-        <div class="row">
-          <div class="span4">
-            <dl>
-              <dt>Formats</dt>
-              <dd><code>JSON, XML</code></dd>
-              <dt>HTTP Method</dt>
-              <dd><span class="label notice">GET</span></dd>
-              <dt>API Key Required</dt>
-              <dd><span class="label">No</span></dd>
-            </dl>
-          </div>
-          <div class="span12">
-            <h5>Request</h5>
-            <pre>GET <a href="/services/DMV66.json?jurisdiction_id={{ jurisdiction }}">/services/DMV66.json?jurisdiction_id={{ jurisdiction }}</a></pre>
-            <h5>Response</h5>
-            <pre>
-{
-  "service_code":"DMV66",
-  "attributes":[
-    {
-      "variable":true,
-      "code":"WHISHETN",
-      "datatype":"singlevaluelist",
-      "required":true,
-      "datatype_description":null,
-      "order":1,
-      "description":"What is the ticket/tag/DL number?",
-      "values":[
-        {
-          "key":123,
-          "name":"Ford"
-        },
-        {
-          "key":124,
-          "name":"Chrysler"
-        }
-      ]
-    }
-  ]
-}
-            </pre>
-          </div>
-        </div>
-      </section>
-
-      <section id="create-sr">
-        <div class="page-header">
-          <h1>Create Service Request <small>Report a service request</small></h1>
-        </div>
-        <div class="row">
-          <div class="span4">
-            <dl>
-              <dt>Formats</dt>
-              <dd><code>JSON, XML</code></dd>
-              <dt>HTTP Method</dt>
-              <dd><span class="label warning">POST</span></dd>
-              <dt>API Key Required</dt>
-              <dd><span class="label important">Yes</span></dd>
-            </dl>
-          </div>
-          <div class="span12">
-            <h5>Request</h5>
-            <pre>POST /requests.json?jurisdiction_id={{ jurisdiction }}&api_key=xyz</pre>
-            <h5>Response</h5>
-            <pre>
-[
-  {
-    "service_request_id":293944,
-    "service_notice":"The City will inspect and require the responsible party to correct within 24 hours and/or issue a Correction Notice or Notice of Violation of the Public Works Code",
-    "account_id":null
-  }
-]
-            </pre>
-          </div>
-        </div>
-      </section>
-
-      <section id="get-requests">
-        <div class="page-header">
-          <h1>Get Service Requests <small>Query status of multiple service requests</small></h1>
-        </div>
-        <div class="row">
-          <div class="span4">
-            <dl>
-              <dt>Formats</dt>
-              <dd><code>JSON, XML</code></dd>
-              <dt>HTTP Method</dt>
-              <dd><span class="label notice">GET</span></dd>
-              <dt>API Key Required</dt>
-              <dd><span class="label">No</span></dd>
-            </dl>
-          </div>
-          <div class="span12">
-            <h5>Request</h5>
-            <pre>GET <a href="/requests.json?start_date=2010-05-24T00:00:00Z&end_date=2010-06-24T00:00:00Z&status=open&jurisdiction_id=city.gov">/requests.xml?start_date=2010-05-24T00:00:00Z&end_date=2010-06-24T00:00:00Z&status=open&jurisdiction_id={{ jurisdiction }}</a></pre>
-            <h5>Response</h5>
-            <pre>
-[
-  {
-    "service_request_id":638344,
-    "status":"closed",
-    "status_notes":"Duplicate request.",
-    "service_name":"Sidewalk and Curb Issues",
-    "service_code":006,
-    "description":null,
-    "agency_responsible":null,
-    "service_notice":null,
-    "requested_datetime":"2010-04-14T06:37:38-08:00",
-    "updated_datetime":"2010-04-14T06:37:38-08:00",
-    "expected_datetime":"2010-04-15T06:37:38-08:00",
-    "address":"8TH AVE and JUDAH ST",
-    "address_id":545483,
-    "zipcode":94122,
-    "lat":37.762221815,
-    "long":-122.4651145,
-    "media_url":"http://city.gov.s3.amazonaws.com/requests/media/638344.jpg "
-  },
-  {
-    "service_request_id":638349,
-    "status":"open",
-    "status_notes":null,
-    "service_name":"Sidewalk and Curb Issues",
-    "service_code":006,
-    "description":null,
-    "agency_responsible":null,
-    "service_notice":null,
-    "requested_datetime":"2010-04-19T06:37:38-08:00",
-    "updated_datetime":"2010-04-19T06:37:38-08:00",
-    "expected_datetime":"2010-04-19T06:37:38-08:00",
-    "address":"8TH AVE and JUDAH ST",
-    "address_id":545483,
-    "zipcode":94122,
-    "lat":37.762221815,
-    "long":-122.4651145,
-    "media_url":"http://city.gov.s3.amazonaws.com/requests/media/638349.jpg"
-  }
-]
-            </pre>
-          </div>
-        </div>
-      </section>
-
-      <section id="get-request">
-        <div class="page-header">
-          <h1>Get a Service Request <small>Query status of a single service request</small></h1>
-        </div>
-        <div class="row">
-          <div class="span4">
-            <dl>
-              <dt>Formats</dt>
-              <dd><code>JSON, XML</code></dd>
-              <dt>HTTP Method</dt>
-              <dd><span class="label notice">GET</span></dd>
-              <dt>API Key Required</dt>
-              <dd><span class="label">No</span></dd>
-            </dl>
-          </div>
-          <div class="span12">
-            <h5>Request</h5>
-            <pre>GET <a href="/requests/638344.json?jurisdiction_id={{ jurisdiction }}">/requests/638344.json?jurisdiction_id={{ jurisdiction }}</a></pre>
-            <h5>Response</h5>
-            <pre>
-[
-  {
-    "service_request_id":638344,
-    "status":"closed",
-    "status_notes":"Duplicate request.",
-    "service_name":"Sidewalk and Curb Issues",
-    "service_code":006,
-    "description":null,
-    "agency_responsible":null,
-    "service_notice":null,
-    "requested_datetime":"2010-04-14T06:37:38-08:00",
-    "updated_datetime":"2010-04-14T06:37:38-08:00",
-    "expected_datetime":"2010-04-15T06:37:38-08:00",
-    "address":"8TH AVE and JUDAH ST",
-    "address_id":545483,
-    "zipcode":94122,
-    "lat":37.762221815,
-    "long":-122.4651145,
-    "media_url":"http://city.gov.s3.amazonaws.com/requests/media/638344.jpg"
-  }
-]
-            </pre>
-          </div>
-        </div>
-      </section>
-
-      <section id="tokens">
-        <div class="page-header">
-          <h1>Token <small>Lookup a service request from a temporary token</small></h1>
-        </div>
-        <div class="row">
-          <div class="span4">
-            <dl>
-              <dt>Formats</dt>
-              <dd><code>JSON, XML</code></dd>
-              <dt>HTTP Method</dt>
-              <dd><span class="label notice">GET</span></dd>
-              <dt>API Key Required</dt>
-              <dd><span class="label">No</span></dd>
-            </dl>
-          </div>
-          <div class="span12">
-            <h5>Request</h5>
-            <pre>GET <a href="/tokens/123.json?jurisdiction_id={{ jurisdiction }}">/tokens/123.json?jurisdiction_id={{ jurisdiction }}</a></pre>
-            <h5>Response</h5>
-            <pre>
-[
-  {
-    "service_request_id":638344,
-    "token":12345
-  }
-]
-            </pre>
-          </div>
-        </div>
-      </section>
-
-{% endblock %}
+    </div>
+    <!--Mainmenu-area/-->
 
 
+
+    <!--Header-area-->
+    <header class="header-area overlay full-height relative v-center" id="home-page">
+        <div class="absolute angle-bg"></div>
+        <div class="container">
+            <div class="row v-center">
+                <div class="col-xs-12 col-md-7 header-text">
+                    <!-- <h2>buddy311</h2> -->
+                    <h1 class="header-tag">Empowering citizen engagement. Streamlining government response.</h1>
+                    <p id="header-copy">Buddy311 is the simplest way to report a problem in your city - period. Skip the confusing menus and tell the city what's wrong by talking naturally into your phone. Buddy311 also supports cities through AI and big data, helping governments spend less time processing requests and more time fixing problems for their residents. </p>
+<!--                     <a href="#" class="button white">Watch video</a> -->
+                </div>
+                <!-- <div class="hidden-xs hidden-sm col-md-5 text-right">
+                    <div class="screen-box screen-slider">
+                        <div class="item">
+                            <img src="images/screen-1.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/screen-2.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/screen-3.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/screen-4.jpg" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/screen-5.jpg" alt="">
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </header>
+    <!--Header-area/-->
+
+
+
+    <!--Feature-area-->
+    <section class="gray-bg section-padding" id="feature-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                    <div class="page-title">
+                        <h2>buddy311 is Here to Help You</h2>
+                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates, temporibus at, facere harum fugiat!</p> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="{{ url_for('static', filename='images/service-icon-1.png') }}" alt="">
+                        </div>
+                        <h4>JUST SPEAK YOUR MIND</h4>
+                        <p>Reporting a problem in your city is as simple as talking into your phone. Buddy311 creates a ticket with your speech and notifies your local government.</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="{{ url_for('static', filename='images/service-icon-2.png') }}" alt="">
+                        </div>
+                        <h4>AUTOMATED CLASSIFICATION</h4>
+                        <p>Users no longer need to wade through multiple menus trying to decide which category their problem fits into. Buddy311 does the heavy lifting for you, and chooses the appropriate category based on your problem.</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="{{ url_for('static', filename='images/service-icon-3.png') }}" alt="">
+                        </div>
+                        <h4>EFFICIENT INSIGHTS</h4>
+                        <p>Government 311 services spend less time rerouting misclassified tickets, and more time solving problems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Feature-area/-->
+
+    <!-- Demo -->
+    <section class="sky-bg section-padding" id="demo-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                    <div class="page-title">
+                        <h2>Demo</h2>
+                        <p class="section-subtitle">Take Buddy311 for a spin! Click the microphone button to begin recording a problem in your city, and hit submit.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                    <button id="start_button" class="btn" onclick="startButton(event)">
+                    <img id="start_img" src="{{ url_for('static', filename='images/mic.gif') }}" alt="Start"></button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                    <div id="div_language">
+                        <select id="select_language" onchange="updateCountry()"></select>
+                        &nbsp;&nbsp;
+                        <select id="select_dialect"></select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Troubleshooting messages to user -->
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                    <div class="info-wrap">
+                        <!-- <h1 class="center" id="headline"><a href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">Web Speech API</a> Demonstration</h1> -->
+
+                        <div id="info">
+                            <p id="info_start">Click on the microphone icon and begin speaking.</p>
+                            <p id="info_speak_now">Speak now.</p>
+                            <p id="info_no_speech">No speech was detected. You may need to adjust your
+                              <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+                                microphone settings</a>.</p>
+                            <p id="info_no_microphone" style="display:none">
+                              No microphone was found. Ensure that a microphone is installed and that
+                              <a href="//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">
+                              microphone settings</a> are configured correctly.</p>
+                            <p id="info_allow">Click the "Allow" button above to enable your microphone.</p>
+                            <p id="info_denied">Permission to use microphone was denied.</p>
+                            <p id="info_blocked">Permission to use microphone is blocked. To change,
+                              go to chrome://settings/contentExceptions#media-stream</p>
+                            <p id="info_upgrade">Web Speech API is not supported by this browser.
+                               Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+                               version 25 or later.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form and submit button -->
+            <div class="row">
+                <!-- <form action="process.php" id="demo-form" method="post" class="contact-form"> -->
+                <form id="demo-form" class="contact-form">
+                    <textarea name="message" id="form_message" name="form-message" rows="5" class="form-control" placeholder="Your message" required="required" style="margin-top: 25px;"></textarea>
+                    <!-- <button type="submit" class="button">Submit</button> -->
+                    <div class="row" style="margin-left: 0px;">
+                        <div>
+                            <button type="submit" class="contact-form button" onclick="buddy311buttonClick();;return false;">Submit</button>
+                                        <!-- Return labels from classifier -->
+                        </div>
+                        
+                        <!-- Display predicted label -->
+                        <div class="prediction_div" id="prediction_div" style="display: none;">  <!-- display:none hides div until submit button is run -->
+
+                            <h2 style="margin-bottom: 0px; font-weight: 400; font-size: 1vw;">Problem Category: <span class="label label-info" id="prediction_text" style="letter-spacing: 4px; font-size: 1vw;"></span></h2>
+<!--                           <p id="prediction_header">Predicted Label</p>
+                          <p id="prediction_text"></p> -->
+
+                        </div>
+<!-- 
+                        <div id="results">
+                            <div class="row">
+                                <span id="final_span" class="final" style="visibility: hidden"></span>
+                                <span id="interim_span" class="interim"></span>
+                                <p>
+                            </div>
+                        </div> -->
+
+                    </div>
+                </form>
+            </div>
+
+            <!-- Return labels from classifier -->
+<!--             <div id="results">
+                <span id="final_span" class="final"></span>
+                <span id="interim_span" class="interim"></span>
+                <p>
+            </div> -->
+
+<!--             <p>
+            <div id="returnclass-wrap">
+                <span id="returnclass-type" style="visibility: hidden">
+                    nothing
+                </span>
+                <p>
+                <span id="returnclass-subtype" style="visibility: hidden">
+                    nothing
+                </span>
+            </div> -->
+
+        </div>
+    </section>
+
+
+    <!-- Business Case -->
+    <section class="angle-bg gray-bg section-padding" id="business-case-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                    <div class="page-title">
+                        <h2>User Stories</h2>
+                        <p class="section-subtitle">Buddy311 provides a 360 degree solution helping both city residents and local governments.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <article class="post-single" id = 'business-citizen'>
+                    <figure class="post-media">
+                        <img class="article-img" src="{{ url_for('static', filename='images/pothole.jpg') }}" alt="">
+                    </figure>
+                    <div class="post-body">
+                        <h2 class="article-title">City Residents</h2>
+
+                        <h4>Great cities require constant attention. Engaged residents have taken advantage of cities' 311 reporting systems to quickly notify their governments of issues </h4>
+                        <p>Great cities require constant attention. Engaged residents have taken advantage of cities' 311 reporting systems to quickly notify their governments of issues </p>
+
+
+                    </div>
+                </article>
+            </div>
+
+            <div class="row">
+                <article class="post-single" id = 'business-govt'>
+                    <figure class="post-media">
+                        <img class="article-img" src="{{ url_for('static', filename='images/bloomberg_311.jpg') }}" style="margin-top: 200px" alt="">
+                    </figure>
+                    <div class="post-body">
+                        <h2 class="article-title">City Government</h2>
+
+                        <h4>Great cities require constant attention. Engaged residents have taken advantage of cities' 311 reporting systems to quickly notify their governments of issues </h4>
+                        <p>Great cities require constant attention. Engaged residents have taken advantage of cities' 311 reporting systems to quickly notify their governments of issues </p>
+
+                    </div>
+                </article>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- Business Case/ -->
+
+    <hr style="margin-top: 0; margin-bottom: 0">
+
+    <!--Tech-area-->
+    <section class="gray-bg section-padding" id="tech-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                    <div class="page-title">
+                        <h2>Machine Learning</h2>
+                        <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates, temporibus at, facere harum fugiat!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="{{ url_for('static', filename='images/service-icon-1.png') }}" alt="">
+                        </div>
+                        <h4>JUST SPEAK YOUR MIND</h4>
+                        <p>Lorem ipsum dolor sit amt, consectet adop adipisicing elit, sed do eiusmod tepo raraincididunt ugt labore.</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="{{ url_for('static', filename='images/service-icon-2.png') }}" alt="">
+                        </div>
+                        <h4>AUTOMATED CLASSIFICATION</h4>
+                        <p>Lorem ipsum dolor sit amt, consectet adop adipisicing elit, sed do eiusmod tepo raraincididunt ugt labore.</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="{{ url_for('static', filename='images/service-icon-3.png') }}" alt="">
+                        </div>
+                        <h4>EFFICIENT INSIGHTS</h4>
+                        <p>Lorem ipsum dolor sit amt, consectet adop adipisicing elit, sed do eiusmod tepo raraincididunt ugt labore.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Tech-area/-->
+
+
+    <section class="gray-bg section-padding" id="feature-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                    <div class="page-title">
+                        <h2>System Architecture</h2>
+                        <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates, temporibus at, facere harum fugiat!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="{{ url_for('static', filename='images/portfolio-icon-1.png') }}" alt="">
+                        </div>
+                        <h3>Creative Design</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est adipisci,</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="{{ url_for('static', filename='images/portfolio-icon-2.png') }}" alt="">
+                        </div>
+                        <h3>Unlimited Features</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est adipisci,</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="{{ url_for('static', filename='images/portfolio-icon-3.png') }}" alt="">
+                        </div>
+                        <h3>Full Free Chat</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est adipisci,</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="{{ url_for('static', filename='images/portfolio-icon-4.png') }}" alt="">
+                        </div>
+                        <h3>Retina ready</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est adipisci,</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="{{ url_for('static', filename='images/portfolio-icon-5.png') }}" alt="">
+                        </div>
+                        <h3>High Resolution</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est adipisci,</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="box">
+                        <div class="box-icon">
+                            <img src="{{ url_for('static', filename='images/portfolio-icon-6.png') }}" alt="">
+                        </div>
+                        <h3>Clean Codes</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est adipisci,</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="gray-bg section-padding" id="team-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                    <div class="page-title">
+                        <h2>The buddy311 Team</h2>
+                        <p class="section-subtitle">Your other buddies</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="single-team">
+                        <div class="team-photo">
+                            <img src="{{ url_for('static', filename='images/team-section-1.png') }}" alt="">
+                        </div>
+                        <h4 class="capitalize">Stanimir Vichev</h4>
+                        <!-- <h6>Co. Founder</h6> -->
+                        <ul class="social-menu">
+                            <li><a href="#"><i class="ti-facebook"></i></a></li>
+                            <li><a href="#"><i class="ti-twitter"></i></a></li>
+                            <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                            <li><a href="#"><i class="ti-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="single-team">
+                        <div class="team-photo">
+                            <img src="{{ url_for('static', filename='images/team-section-2.png') }}" alt="">
+                        </div>
+                        <h4>Chris Danicic</h4>
+                        <!-- <h6>UX Designer</h6> -->
+                        <ul class="social-menu">
+                            <li><a href="#"><i class="ti-facebook"></i></a></li>
+                            <li><a href="#"><i class="ti-twitter"></i></a></li>
+                            <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                            <li><a href="#"><i class="ti-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="single-team">
+                        <div class="team-photo">
+                            <img src="{{ url_for('static', filename='images/team-section-3.png') }}" alt="">
+                        </div>
+                        <h4>Paul Durkin</h4>
+                        <!-- <h6>Founder</h6> -->
+                        <ul class="social-menu">
+                            <li><a href="#"><i class="ti-facebook"></i></a></li>
+                            <li><a href="#"><i class="ti-twitter"></i></a></li>
+                            <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                            <li><a href="#"><i class="ti-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-3">
+                    <div class="single-team">
+                        <div class="team-photo">
+                            <img src="{{ url_for('static', filename='images/team-section-4.png') }}" alt="">
+                        </div>
+                        <h4>Alex Lau</h4>
+                        <!-- <h6>Creative Director</h6> -->
+                        <ul class="social-menu">
+                            <li><a href="#"><i class="ti-facebook"></i></a></li>
+                            <li><a href="#"><i class="ti-twitter"></i></a></li>
+                            <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                            <li><a href="#"><i class="ti-pinterest"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team/ -->
+
+
+
+    <!-- Client List -->
+<!--     <section class="section-padding overlay client-area overlay" id="client-page">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-xs-12">
+                    <div class="clients">
+                        <div class="item">
+                            <img src="images/themeforest.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/coadcanyon.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/graphicriver.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/docean.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/audiojungle.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/actividen.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/photodone.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/videgub.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/themeforest.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/coadcanyon.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/graphicriver.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/docean.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/audiojungle.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/actividen.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/photodone.gif" alt="">
+                        </div>
+                        <div class="item">
+                            <img src="images/videgub.gif" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <!-- Client List/ -->
+{% endblock content %}

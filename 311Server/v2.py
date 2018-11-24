@@ -47,9 +47,14 @@ def connectDatabase(phost, puser, ppassword, pdatabase):
 	cursor = mariadb_connection.cursor()
 
 
-@app.route('/')
-def topPage():
-	return "Web server active"
+@app.route("/")
+@app.route("/home")
+def home():
+    return render_template('index.html')
+
+@app.route("/admin")
+def admin():
+	return render_template('admin.html')
 
 @app.route('/version')
 def index():
@@ -156,25 +161,29 @@ handle calls from google assistant
 """
 
 @app.route('/v1/assistant', methods=['POST','GET','OPTIONS'])
-async def processGoogleActionRequest(request):
+def processGoogleActionRequest():
 	logging.info("Received POST request from google assistant")
 
 	# Check if data provided
 	if request.json == None:
-		return json({'fulfillmentText': 'We did not receive a complaint, could you repeat that?'})
+		logging.info("No json message provided")
+		return jsonify({'fulfillmentText': 'We did not receive a complaint, could you repeat that?'})
 	some_json = request.json
 	if some_json.get('queryResult') == None:
 		logging.info("Empty message text")
-		return json({'fulfillmentText': 'We did not receive a complaint, could you repeat that?'})
+		return jsonify({'fulfillmentText': 'We did not receive a complaint, could you repeat that?'})
 	queryResult = some_json.get('queryResult')
 	if queryResult.get('queryText') == None:
 		logging.info("Empty message text")
-		return json({'fulfillmentText': 'We did not receive a complaint, could you repeat that?'})
+		return jsonify({'fulfillmentText': 'We did not receive a complaint, could you repeat that?'})
 	complaint = queryResult.get('queryText')
 	logging.info("received: ", complaint)
 
-	sr = save({'description':complaint})
-	return json({'fulfillmentText': "Thank you, your complaint number " + sr + " has been recorded and is being processed"})
+	# Add the description and unknown field into the message
+	request.json['description'] = complaint
+	request.json['service_code'] = 'Unknown'
+	sr = save(request)
+	return jsonify({'fulfillmentText': "Thank you, your complaint number " + str(sr) + " has been recorded and is being processed"})
 
 @app.route('/tokens/<token>.<format>')
 def token(token, format):
