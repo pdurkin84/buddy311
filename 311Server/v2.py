@@ -66,8 +66,8 @@ def admin():
 	api_url_base = 'https://buddy311.org:31102/requests/get'
 	params = {'page': 0, 'per_page':1}
 	response = requests.get(api_url_base, params=params).content
-	logging.info('Request get:', requests.get(api_url_base, params=params)) 
-	logging.info('Response:', response)
+	logging.critical('Request get:', requests.get(api_url_base, params=params)) 
+	logging.critical('Response:', response)
 # 	https://buddy311.org:31102/requests/get?page=0&per_page=1000
 # 	response = response.decode('utf-8')
 # 	json_data = json.loads(response)
