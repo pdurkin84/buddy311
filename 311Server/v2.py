@@ -305,7 +305,9 @@ def pending_query():
 	cursor.execute("""SELECT service_request_id, jurisdiction_id, service_code, latitude, longitude, address_string,
 					address_id, email, device_id, account_id, first_name, last_name, phone,
 					description, media_url FROM requests WHERE service_code='UNKNOWN'""")
+	logging.info(cursor)
 	for record in cursor:
+		logging.info(record)
 		return_request[record[service_request_id]] = {}
 		for jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description, media_url in cursor:
 			return_request[service_request_id]['jurisdiction_id'] = jurisdiction_id
