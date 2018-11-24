@@ -51,13 +51,11 @@ def connectDatabase(phost, puser, ppassword, pdatabase):
 @app.route("/")
 @app.route("/home")
 def home():
-	# logging.critical('Starting home!')
+    # logging.critical('Starting home!')
     return render_template('index.html')
 
 @app.route("/admin")
 def admin():
-<<<<<<< HEAD
-	
 	# logging.critical('Going to admin!)
 	# Test api json response to datatables.js
 	api_url_base = 'http://mobile311.sfgov.org/open311/v2/services.json'
