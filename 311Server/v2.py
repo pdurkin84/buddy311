@@ -51,13 +51,13 @@ def connectDatabase(phost, puser, ppassword, pdatabase):
 @app.route("/")
 @app.route("/home")
 def home():
-	# logging.info('Starting home!')
+	# logging.critical('Starting home!')
     return render_template('index.html')
 
 @app.route("/admin")
 def admin():
 	
-	# logging.info('going to admin!')
+	# logging.critical('Going to admin!')
 	# Test api json response to datatables.js
 	api_url_base = 'http://mobile311.sfgov.org/open311/v2/services.json'
 	response = requests.get(api_url_base).content
@@ -170,6 +170,64 @@ def service_request(service_request_id, format):
 		return response
 	else:
 		abort(404)
+
+@app.route('/requests/get', methods=['GET'])
+def get_requests():
+	logging.info("Received to retrieve requests")
+	page = request.args.get('page', default = 0, type = int)
+	per_page = request.args.get('per_page', default = 1, type = int)
+	if per_page > 100:
+		per_page = 100
+
+	logging.info("Asking for %d requests from page %d" % (per_page, page))
+	try:
+		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
+	except:
+		# assuming a dropped connection so reconnect and try again
+		logging.warn("Unable to retrieve data, reconnecting to database")
+		connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
+		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
+
+	logging.info("Retrieved data from database")
+	requestList = []
+	requestHolder = {}
+	for service_request_id, dt , jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description , media_url, service_code_proba in cursor:
+		logging.info("%s %s %s %s %s" % ( service_request_id, dt , jurisdiction_id, service_code, latitude))
+		requestHolder['service_request_id'] = service_request_id
+		if jurisdiction_id != None:
+			requestHolder['jurisdiction_id'] = jurisdiction_id
+		if service_code != None:
+			requestHolder['service_code'] = service_code
+		if latitude != None:
+			requestHolder['latitude'] = latitude
+		if longitude != None:
+			requestHolder['longitude'] = longitude
+		if address_string != None:
+			requestHolder['address_string'] = address_string
+		if address_id != None:
+			requestHolder['address_id'] = address_id
+		if email != None:
+			requestHolder['email'] = email
+		if device_id != None:
+			requestHolder['device_id'] = device_id
+		if account_id != None:
+			requestHolder['account_id'] = account_id
+		if first_name != None:
+			requestHolder['first_name'] = first_name
+		if last_name != None:
+			requestHolder['last_name'] = last_name
+		if phone != None:
+			requestHolder['phone'] = phone
+		if description  != None:
+			requestHolder['description '] = description 
+		if media_url != None:
+			requestHolder['media_url'] = media_url
+		if service_code_proba != None:
+			requestHolder['service_code_proba'] = service_code_proba
+		requestList.append(requestHolder)
+	jsonStr = json.dumps(requestList)
+	return jsonify(jsonStr)
+
 
 """
 handle calls from google assistant
