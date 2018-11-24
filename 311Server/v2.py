@@ -9,10 +9,11 @@
 	:license: Apache License v2.0, see LICENSE for more details.
 """
 from data import service_types, service_definitions, service_discovery, srs
-from flask import Flask, render_template, request, abort, json, jsonify, make_response, requests
+from flask import Flask, render_template, request, abort, json, jsonify, make_response
 import ssl
 import mysql.connector as mariadb
 import random
+import requests
 from flask_cors import CORS
 from kafka import SimpleProducer, KafkaClient
 
