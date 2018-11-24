@@ -13,7 +13,7 @@ from flask import Flask, render_template, request, abort, json, jsonify, make_re
 import ssl
 import mysql.connector as mariadb
 import random
-import requests
+import requests, sys
 from flask_cors import CORS
 from kafka import SimpleProducer, KafkaClient
 
