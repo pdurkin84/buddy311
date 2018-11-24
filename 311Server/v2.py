@@ -202,7 +202,7 @@ def get_requests():
 	requestList = {}
 	
 	# Alex test
-	for record in cursor:
+	for record in cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100"):
 		requestHolder = {}
 		requestHolder['service_code'] = record['service_code']
 		requestList[record['service_request_id']] = requestHolder
