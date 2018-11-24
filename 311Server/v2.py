@@ -56,6 +56,7 @@ def home():
 
 @app.route("/admin")
 def admin():
+	
 	# logging.info('going to admin!')
 	# Test api json response to datatables.js
 	api_url_base = 'http://mobile311.sfgov.org/open311/v2/services.json'
@@ -67,7 +68,8 @@ def admin():
 
 
 	# return render_template('admin.html')
-	return render_template('admin.html', json_data = json_data, pending_reqs=pending_reqs)
+	return render_template('admin.html', json_data = json_data)
+	# return render_template('admin.html', json_data = json_data, pending_reqs=pending_reqs)
 
 @app.route('/version')
 def index():
