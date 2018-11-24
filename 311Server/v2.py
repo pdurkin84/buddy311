@@ -387,6 +387,13 @@ def pending_query():
 			return_request[service_request_id]['media_url'] = media_url
 	return return_request
 
+def log_uncaught_exceptions(ex_cls, ex, tb):
+	"""Set custom sys.excepthook behavior to output tracebacks to the log"""
+	logging.critical(''.join(traceback.format_tb(tb)))
+	logging.critical('{0}: {1}'.format(ex_cls, ex))
+
+sys.excepthook = log_uncaught_exceptions
+
 context = ssl.create_default_context(purpose=ssl.Purpose.CLIENT_AUTH)
 context.load_verify_locations('/etc/ssl/certs/www_buddy311_org.ca-bundle')
 context = ('/etc/pki/tls/certs/www_buddy311_org.crt', '/etc/ssl/private/www.buddy311.org.key')
