@@ -73,16 +73,27 @@
                                 <table id="pending" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Service Code</th>
+                                            <th>Service Name</th>
+                                            <th>Description</th>
+                                            <th>Metadata</th>
+                                            <th>Type</th>
+                                            <th>Group</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
+
+                                        {% for ticket in json_data %}
+                                            <tr>
+                                                <td>{{ ticket.service_code }}</td>
+                                                <td>{{ ticket.service_name }}</td>
+                                                <td>{{ ticket.description }}</td>
+                                                <td>{{ ticket.type }}</td>
+                                                <td>{{ ticket.group }}</td>
+                                            </tr>
+                                        {% endfor %}
+
+                                     <!--    <tr>
                                             <td>Tiger Nixon</td>
                                             <td>System Architect</td>
                                             <td>Edinburgh</td>
@@ -537,7 +548,7 @@
                                             <td>27</td>
                                             <td>2011/01/25</td>
                                             <td>$112,000</td>
-                                        </tr>
+                                        </tr> -->
                                     </tbody>
                     <!--                <tfoot>
                                         <tr>
