@@ -181,19 +181,21 @@ def service_request(service_request_id, format):
 @app.route('/requests/get', methods=['GET'])
 def get_requests():
 	logging.info("Received to retrieve requests")
-	page = request.args.get('page', default = 0, type = int)
-	per_page = request.args.get('per_page', default = 1, type = int)
-	if per_page > 100:
-		per_page = 100
+# 	page = request.args.get('page', default = 0, type = int)
+# 	per_page = request.args.get('per_page', default = 1, type = int)
+# 	if per_page > 100:
+# 		per_page = 100
 
-	logging.info("Asking for %d requests from page %d" % (per_page, page))
+# 	logging.info("Asking for %d requests from page %d" % (per_page, page))
 	try:
-		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
+# 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
+		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100)
 	except:
 		# assuming a dropped connection so reconnect and try again
 		logging.warn("Unable to retrieve data, reconnecting to database")
 		connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
-		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
+# 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
+		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100)
 
 	logging.info("Retrieved data from database")
 	requestList = []
