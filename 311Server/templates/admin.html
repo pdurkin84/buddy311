@@ -85,11 +85,16 @@
 
                                         {% for ticket in json_data %}
                                             <tr>
-                                                <td>{{ ticket.service_code }}</td>
+                                                <!-- <td>{{ ticket.service_code }}</td>
                                                 <td>{{ ticket.service_name }}</td>
                                                 <td>{{ ticket.description }}</td>
                                                 <td>{{ ticket.type }}</td>
-                                                <td>{{ ticket.group }}</td>
+                                                <td>{{ ticket.group }}</td> -->
+                                                <td>{{ ticket['service_code'] }}</td>
+                                                <td>{{ ticket['service_name'] }}</td>
+                                                <td>{{ ticket['description'] }}</td>
+                                                <td>{{ ticket['type'] }}</td>
+                                                <td>{{ ticket['group'] }}</td>
                                             </tr>
                                         {% endfor %}
 
