@@ -51,7 +51,7 @@ def connectDatabase(phost, puser, ppassword, pdatabase):
 @app.route("/")
 @app.route("/home")
 def home():
-    # logging.critical('Starting home!')
+    logging.critical('Starting home!')
     return render_template('index.html')
 
 @app.route("/admin")
