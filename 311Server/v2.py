@@ -189,13 +189,13 @@ def get_requests():
 # 	logging.info("Asking for %d requests from page %d" % (per_page, page))
 	try:
 # 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
-		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100)
+		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
 	except:
 		# assuming a dropped connection so reconnect and try again
 		logging.warn("Unable to retrieve data, reconnecting to database")
 		connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
 # 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
-		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100)
+		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
 
 	logging.info("Retrieved data from database")
 	requestList = []
