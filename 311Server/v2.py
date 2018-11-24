@@ -51,19 +51,19 @@ def connectDatabase(phost, puser, ppassword, pdatabase):
 @app.route("/")
 @app.route("/home")
 def home():
-	logging.info('Starting home!')
+	# logging.info('Starting home!')
     return render_template('index.html')
 
 @app.route("/admin")
 def admin():
-	logging.info('going to admin!')
+	# logging.info('going to admin!')
 	# Test api json response to datatables.js
 	api_url_base = 'http://mobile311.sfgov.org/open311/v2/services.json'
 	response = requests.get(api_url_base).content
 	response = response.decode('utf-8')
 	json_data = json.loads(response)
 
-	pending_reqs = pending_query()
+	# pending_reqs = pending_query()
 
 
 	# return render_template('admin.html')
