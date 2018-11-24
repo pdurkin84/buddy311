@@ -58,14 +58,16 @@ def home():
 def admin():
 	# logging.critical('Going to admin!)
 	# Test api json response to datatables.js
-	api_url_base = 'http://mobile311.sfgov.org/open311/v2/services.json'
-	response = requests.get(api_url_base).content
-	response = response.decode('utf-8')
-	json_data = json.loads(response)
+# 	api_url_base = 'http://mobile311.sfgov.org/open311/v2/services.json'
+# 	response = requests.get(api_url_base).content
+# 	response = response.decode('utf-8')
+# 	json_data = json.loads(response)
 
 	api_url_base = 'https://buddy311.org:31102/requests/get'
 	params = {'page': 0, 'per_page':1}
 	response = requests.get(api_url_base, params=params).content
+	logging.info('Request get:', requests.get(api_url_base, params=params)) 
+	logging.info('Response:', response)
 # 	https://buddy311.org:31102/requests/get?page=0&per_page=1000
 # 	response = response.decode('utf-8')
 # 	json_data = json.loads(response)
