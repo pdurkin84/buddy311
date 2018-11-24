@@ -203,11 +203,13 @@ def get_requests():
 	
 	# Alex test
 	logging.info("Cursor: %s" %(cursor))
-	for record in cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100"):
+	for record in cursor:
 		requestHolder = {}
 		requestHolder['service_code'] = record['service_code']
 		requestList[record['service_request_id']] = requestHolder
 		logging.info("Current request list %s" % (requestList))
+	# /test
+	
 # 	requestHolder = {}
 # 	for service_request_id, dt , jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description , media_url, service_code_proba in cursor:
 # 		logging.info("%s %s %s %s %s" % ( service_request_id, dt , jurisdiction_id, service_code, latitude))
