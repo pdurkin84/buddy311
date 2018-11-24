@@ -61,8 +61,11 @@ def admin():
 	response = response.decode('utf-8')
 	json_data = json.loads(response)
 
+	pending_reqs = pending_query()
+
+
 	# return render_template('admin.html')
-	return render_template('admin.html', json_data = json_data)
+	return render_template('admin.html', json_data = json_data, pending_reqs=pending_reqs)
 
 @app.route('/version')
 def index():
@@ -295,6 +298,29 @@ def save(service_request):
 		logging.info("Service code has value ", request_data.get('service_code'))
 	return service_request_id
 
+
+def pending_query():
+	"""Query service requests where `service_code` == 'UNKNOWN'"""
+	return_request = {}
+	cursor.execute("""SELECT jurisdiction_id, service_code, latitude, longitude, address_string,
+					address_id, email, device_id, account_id, first_name, last_name, phone,
+					description, media_url FROM requests WHERE service_code='UNKNOWN'""")
+	for jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description, media_url in cursor:
+		return_request['jurisdiction_id'] = jurisdiction_id
+		return_request['service_code'] = service_code
+		return_request['latitude'] = latitude
+		return_request['longitude'] = longitude
+		return_request['address_string'] = address_string
+		return_request['address_id'] = address_id
+		return_request['email'] = email
+		return_request['device_id'] = device_id
+		return_request['account_id'] = account_id
+		return_request['first_name'] = first_name
+		return_request['last_name'] = last_name
+		return_request['phone'] = phone
+		return_request['description'] = description
+		return_request['media_url'] = media_url
+	return return_request
 
 context = ssl.create_default_context(purpose=ssl.Purpose.CLIENT_AUTH)
 context.load_verify_locations('/etc/ssl/certs/www_buddy311_org.ca-bundle')
