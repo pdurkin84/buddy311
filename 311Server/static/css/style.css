@@ -478,8 +478,7 @@ input:-webkit-autofill:focus {
 }
 
 #select_language {
-    /*color: #515656;*/
-    color: red;
+    color: #515656;
 }
 
 #select_dialect {
