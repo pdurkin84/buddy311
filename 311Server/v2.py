@@ -247,7 +247,9 @@ def get_requests():
 		requestList.append(requestHolder)
 	
 	jsonStr = json.dumps(requestList)
-	return jsonify(jsonStr)
+	logging.info('jsonStr:', jsonStr)
+	return jsonStr
+# 	return jsonify(jsonStr)
 
 
 """
