@@ -80,7 +80,7 @@ def admin():
 # 	print(json_data)
 # 	logging.debug('json data: %s', json_data
 
-	response = 
+# 	response = 
 
 	return render_template('admin.html')
 # 	return render_template('admin.html', json_data = json_data)
