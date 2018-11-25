@@ -67,21 +67,10 @@ def admin():
 # 	params = {'page': 10, 'per_page':10}
 # 	response = requests.get(api_url_base, params=params).text
 	response = requests.get(api_url_base).text
-# 	logging.debug('Request get: %s', requests.get(api_url_base, params=params)) 
-# 	logging.debug('Response: %s', response)
-	
-# 	https://buddy311.org:31102/requests/get?page=0&per_page=1000
-# 	response = response.decode('utf-8')
-# 	json_data = json.loads(response)
-# 	all_tickets = response
-	
-# 	json_data = get_requests()
-# 	print(json_data)
-# 	logging.debug('json data: %s', json_data
 
 	response = json.loads(json.loads(response))
 	logging.debug('response json.loads: %s', response)
-	return render_template('admin.html')
+	return render_template('admin.html', json_data = response)
 # 	return render_template('admin.html', json_data = json_data)
 # 	return render_template('admin.html', json_data = all_tickets)
 
