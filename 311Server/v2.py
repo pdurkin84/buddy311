@@ -51,7 +51,7 @@ def connectDatabase(phost, puser, ppassword, pdatabase):
 @app.route("/")
 @app.route("/home")
 def home():
-    logging.critical('Starting home!')
+    logging.debug('Starting home!')
     return render_template('index.html')
 
 @app.route("/admin")
@@ -66,8 +66,8 @@ def admin():
 	api_url_base = 'https://buddy311.org:31102/requests/get'
 	params = {'page': 0, 'per_page':1}
 	response = requests.get(api_url_base, params=params).content
-	logging.critical('Request get:', requests.get(api_url_base, params=params)) 
-	logging.critical('Response:', response)
+	logging.debug('Request get: %s', requests.get(api_url_base, params=params)) 
+	logging.debug('Response: %s', response)
 # 	https://buddy311.org:31102/requests/get?page=0&per_page=1000
 # 	response = response.decode('utf-8')
 # 	json_data = json.loads(response)
@@ -247,8 +247,8 @@ def get_requests():
 		requestList.append(requestHolder)
 	
 	jsonStr = json.dumps(requestList)
-# 	logging.info("jsonStr: %s" % (jsonStr))
-	logging.info("jsonStr['service_code_proba']: %s" % (jsonStr['service_code_proba']))
+# 	logging.debug("jsonStr: %s" % (jsonStr))
+	logging.debug("jsonStr['service_code_proba']: %s", (jsonStr['service_code_proba']))
 	return jsonStr
 # 	return jsonify(jsonStr)
 
