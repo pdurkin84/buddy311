@@ -247,7 +247,7 @@ def get_requests():
 		requestList.append(requestHolder)
 	
 	jsonStr = json.dumps(requestList)
-	logging.info("jsonStr: %s" % (jsonStr))
+# 	logging.info("jsonStr: %s" % (jsonStr))
 	logging.info("jsonStr['service_code_proba']: %s" % (jsonStr['service_code_proba']))
 	return jsonStr
 # 	return jsonify(jsonStr)
