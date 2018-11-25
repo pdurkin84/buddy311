@@ -80,6 +80,8 @@ def admin():
 # 	print(json_data)
 # 	logging.debug('json data: %s', json_data
 
+	response = 
+
 	return render_template('admin.html')
 # 	return render_template('admin.html', json_data = json_data)
 # 	return render_template('admin.html', json_data = all_tickets)
@@ -254,7 +256,7 @@ def get_requests():
 	
 	jsonStr = json.dumps(requestList)
 # 	logging.debug("jsonStr: %s" % (jsonStr))
-	logging.debug("jsonStr['service_code_proba']: %s", (jsonStr['service_code_proba']))
+# 	logging.debug("jsonStr['service_code_proba']: %s", (jsonStr['service_code_proba']))
 	return jsonStr
 # 	return jsonify(jsonStr)
 
