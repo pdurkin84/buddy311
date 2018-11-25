@@ -84,22 +84,11 @@
 
                                         {% for ticket in pending_json_data %}
                                             <tr>
-                                                <!-- <td>{{ ticket.service_code }}</td>
-                                                <td>{{ ticket.service_name }}</td>
-                                                <td>{{ ticket.description }}</td>
-                                                <td>{{ ticket.type }}</td>
-                                                <td>{{ ticket.group }}</td> -->
-<!--                                                 <td>{{ ticket['service_code'] }}</td>
-                                                <td>{{ ticket['service_name'] }}</td>
-                                                <td>{{ ticket['description'] }}</td>
-                                                <td>{{ ticket['metadata'] }}</td>
-                                                <td>{{ ticket['type'] }}</td>
-                                                <td>{{ ticket['group'] }}</td> -->
                                                 <td>{{ ticket['service_request_id'] }}</td>
                                                 <td>{{ ticket['description '] }}</td>
-                                                <td>{{ ticket['service_code '] }}</td>
+                                                <td>{{ ticket['service_code'] }}</td>
                                                 <td>{{ ticket['service_code_proba'] }}</td>
-                                                <td>{{ ticket['jurisdiction_id '] }}</td>
+                                                <td>{{ ticket['jurisdiction_id'] }}</td>
                                             </tr>
                                         {% endfor %}
 
@@ -140,7 +129,7 @@
                                         {% for ticket in completed_json_data %}
                                             <tr>
                                                 <td>{{ ticket['service_request_id'] }}</td>
-                                                <td>{{ ticket['description'] }}</td>
+                                                <td>{{ ticket['description '] }}</td>
                                                 <td>{{ ticket['service_code'] }}</td>
                                                 <td>{{ ticket['service_code_proba'] }}</td>
                                                 <td>{{ ticket['jurisdiction_id'] }}</td>
