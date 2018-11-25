@@ -70,7 +70,7 @@ def admin():
 
 	response = json.loads(json.loads(response))
 	logging.debug('response json.loads: %s', response)
-	return render_template('admin.html', json_data = response)
+	return render_template('admin.html', completed_json_data = response)
 # 	return render_template('admin.html', json_data = json_data)
 # 	return render_template('admin.html', json_data = all_tickets)
 
