@@ -23,7 +23,7 @@ logging.basicConfig(filename='/var/log/buddy311admin.log',
 	filemode='a',
 	format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
 	datefmt='%H:%M:%S',
-	level=logging.INFO)
+	level=logging.DEBUG)
 
 # Configuration
 DEBUG = True
