@@ -63,80 +63,22 @@ def admin():
 # 	response = response.decode('utf-8')
 # 	json_data = json.loads(response)
 
-	logging.info("Received to retrieve requests")
-	page = request.args.get('page', default = 0, type = int)
-	per_page = request.args.get('per_page', default = 1, type = int)
-	if per_page > 100:
-		per_page = 100
 
-	logging.info("Asking for %d requests from page %d" % (per_page, page))
-	try:
-		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
-# 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
-	except:
-		# assuming a dropped connection so reconnect and try again
-		logging.warn("Unable to retrieve data, reconnecting to database")
-		connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
-		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
-# 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
 
-	logging.info("Retrieved data from database")
-	requestList = []
+# 	api_url_base = 'https://buddy311.org:31102/requests/get'
+# 	params = {'page': 10, 'per_page':10}
+# 	response = requests.get(api_url_base, params=params).text
+# 	logging.debug('Request get: %s', requests.get(api_url_base, params=params)) 
+# 	logging.debug('Response: %s', response)
 	
-	requestHolder = {}
-	for service_request_id, dt , jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description , media_url, service_code_proba in cursor:
-		logging.info("%s %s %s %s %s" % ( service_request_id, dt , jurisdiction_id, service_code, latitude))
-		requestHolder['service_request_id'] = service_request_id
-		if jurisdiction_id != None:
-			requestHolder['jurisdiction_id'] = jurisdiction_id
-		if service_code != None:
-			requestHolder['service_code'] = service_code
-		if latitude != None:
-			requestHolder['latitude'] = latitude
-		if longitude != None:
-			requestHolder['longitude'] = longitude
-		if address_string != None:
-			requestHolder['address_string'] = address_string
-		if address_id != None:
-			requestHolder['address_id'] = address_id
-		if email != None:
-			requestHolder['email'] = email
-		if device_id != None:
-			requestHolder['device_id'] = device_id
-		if account_id != None:
-			requestHolder['account_id'] = account_id
-		if first_name != None:
-			requestHolder['first_name'] = first_name
-		if last_name != None:
-			requestHolder['last_name'] = last_name
-		if phone != None:
-			requestHolder['phone'] = phone
-		if description  != None:
-			requestHolder['description '] = description 
-		if media_url != None:
-			requestHolder['media_url'] = media_url
-		if service_code_proba != None:
-			requestHolder['service_code_proba'] = service_code_proba
-		requestList.append(requestHolder)
-	
-	jsonStr = json.dumps(requestList)
-# 	logging.debug("jsonStr: %s" % (jsonStr))
-	logging.debug("jsonStr['service_code_proba']: %s", (jsonStr['service_code_proba']))
-	return jsonStr
-
-	api_url_base = 'https://buddy311.org:31102/requests/get'
-	params = {'page': 10, 'per_page':10}
-	response = requests.get(api_url_base, params=params).text
-	logging.debug('Request get: %s', requests.get(api_url_base, params=params)) 
-	logging.debug('Response: %s', response)
 # 	https://buddy311.org:31102/requests/get?page=0&per_page=1000
 # 	response = response.decode('utf-8')
 # 	json_data = json.loads(response)
-	all_tickets = response
+# 	all_tickets = response
 
-	# return render_template('admin.html')
+	return render_template('admin.html')
 # 	return render_template('admin.html', json_data = json_data)
-	return render_template('admin.html', json_data = all_tickets)
+# 	return render_template('admin.html', json_data = all_tickets)
 
 @app.route('/version')
 def index():
