@@ -76,9 +76,9 @@ def admin():
 # 	json_data = json.loads(response)
 # 	all_tickets = response
 	
-	json_data = get_requests()
-	print(json_data)
-	logging.debug('json data: %s', json_data
+# 	json_data = get_requests()
+# 	print(json_data)
+# 	logging.debug('json data: %s', json_data
 
 	return render_template('admin.html')
 # 	return render_template('admin.html', json_data = json_data)
