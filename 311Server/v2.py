@@ -63,6 +63,12 @@ def admin():
 # 	response = response.decode('utf-8')
 # 	json_data = json.loads(response)
 
+	logging.info("Received to retrieve requests")
+	page = request.args.get('page', default = 0, type = int)
+	per_page = request.args.get('per_page', default = 1, type = int)
+	if per_page > 100:
+		per_page = 100
+
 	logging.info("Asking for %d requests from page %d" % (per_page, page))
 	try:
 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
