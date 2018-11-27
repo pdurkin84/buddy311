@@ -33,13 +33,28 @@ def loadConfiguration(file):
 
 translator = str.maketrans('', '', string.punctuation) # To remove punctuation
 
+# Alex's
+def clean_specifics(complaint):
+    complaint = re.sub('Request entered through the Web. Refer to Intake Questions for further description.',
+                      '', complaint)
+    complaint = re.sub('Transfer:.+/[A-Z]+', '', complaint)
+    complaint = re.sub('ACCT ', '', complaint)
+    complaint = re.sub('RTC ', '', complaint)
+    return complaint
+
 def preProcess(complaintStart):
+	complaint = clean_specifics(complaintStart)
+	complaint = ' '.join([word for word in complaint.split() if word not in cachedStopWords]) # remove stopwords (alex) early on to make 512 limit 
 	complaint = complaintStart[:512] # cut to 512 characters max
-	complaint = re.sub("\d","N", complaint) # remove numbers
+	complaint = re.sub("\d","", complaint) # remove numbers completely (alex)
 	complaint = complaint.lower().translate(translator) # lower case and remove the punctuation
+	complaint = re.sub('[^\w\s]', ' ', complaint) # Sub puncuation with space (alex)
+	complaint = complaint.strip() # (alex)
+	complaint = re.sub(' +', ' ', complaint) # Remove dupe spaces (alex)
 	complaint = complaint.replace("\n"," ").strip() # remove starting and trailing white spaces
 	if re.search('[a-zA-Z]', complaint) is None:# if there are no letters in the complaint, return empty, will be removed in later processing
 		return ""
+	complaint = ' '.join([word for word in complaint.split() if word not in cachedStopWords]) # remove stopwords at end after preprocessing (alex) 
 	return complaint
 
 @app.route('/', methods=['GET'])
