@@ -72,7 +72,7 @@ def admin():
 # 	response = requests.get(api_url_base, params=params).text
 	response = requests.get(api_url_base).text
 	print(response)
-	response = json.loads(json.loads(response))
+# 	response = json.loads(json.loads(response))
 	logging.debug('response json.loads: %s', response)
 	return render_template('admin.html', completed_json_data = response)
 # 	return render_template('admin.html', json_data = json_data)
