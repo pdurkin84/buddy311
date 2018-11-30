@@ -178,7 +178,7 @@ def service_request(service_request_id, format):
 	else:
 		abort(404)
 
-# @app.route('/requests/get', methods=['GET'])
+@app.route('/requests/get', methods=['GET'])
 def get_requests():
 # 	logging.info("Received to retrieve requests")
 # 	page = request.args.get('page', default = 0, type = int)
@@ -212,7 +212,7 @@ def get_requests():
 
 	connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
 	cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
-	logging.info('cursor: %s' % (cursor)
+	logging.info('cursor: %s' % (cursor))
 	# /test
 
 # 	requestHolder = {}
