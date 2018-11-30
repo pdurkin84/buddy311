@@ -50,13 +50,9 @@ def connectDatabase(phost, puser, ppassword, pdatabase):
 
 @app.route("/")
 @app.route("/home")
-try:
-    def home():
-        logging.debug('Starting home!')
-        return render_template('index.html')
-except:
-    logging.exception('Got exception on main handler')
-    raise
+def home():
+    logging.debug('Starting home!')
+    return render_template('index.html')
 
 @app.route("/admin")
 def admin():
