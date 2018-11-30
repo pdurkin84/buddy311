@@ -70,8 +70,8 @@ def admin():
 	api_url_base = 'https://buddy311.org:31102/requests/get'
 # 	params = {'page': 10, 'per_page':10}
 # 	response = requests.get(api_url_base, params=params).text
-# 	response = requests.get(api_url_base).text
-	response = requests.get(api_url_base)
+	response = requests.get(api_url_base).text
+
 # 	response = json.loads(json.loads(response))
 	logging.debug('response json.loads: %s', response)
 	return render_template('admin.html', completed_json_data = response)
@@ -203,12 +203,16 @@ def get_requests():
 	# Alex test
 	logging.info("Received to retrieve requests")
 	requestList = {}
-	logging.info("Cursor: %s" %(cursor))
-	for record in cursor:
-		requestHolder = {}
-		requestHolder['service_code'] = record['service_code']
-		requestList[record['service_request_id']] = requestHolder
-		logging.info("Current request list %s" % (requestList))
+# 	logging.info("Cursor: %s" %(cursor))
+# 	for record in cursor:
+# 		requestHolder = {}
+# 		requestHolder['service_code'] = record['service_code']
+# 		requestList[record['service_request_id']] = requestHolder
+# 		logging.info("Current request list %s" % (requestList))
+
+	connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
+	cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
+	logging.info('cursor: %s' % (cursor)
 	# /test
 	
 # 	requestHolder = {}
