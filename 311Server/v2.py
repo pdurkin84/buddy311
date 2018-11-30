@@ -213,6 +213,8 @@ def get_requests():
 	connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
 	cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
 	
+	rv = cursor.fetchall()
+	
 	for service_request_id, dt , jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description , media_url, service_code_proba in cursor:
 		logging.info("%s %s %s %s %s" % ( service_request_id, dt , jurisdiction_id, service_code, latitude))
 		request_dict['service_request_id'] = service_request_id
