@@ -255,6 +255,7 @@ Test other db queries
 try:
     def get_requests():
         logging.info("Running test query")
+	print(thiswillerror)
 except:
     logging.exception('Got exception on main handler')
     raise
