@@ -212,10 +212,14 @@ def get_requests():
 
 	connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
 	cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
-	logging.info('cursor: %s' % (cursor))
 	
-	rv = cursor.fetchall()
-	logging.info('cursor.fetchall: %s' % (str(rv)))
+	for record in cursor:
+		loggin.info('record: %s' % (record))
+	
+# 	logging.info('cursor: %s' % (cursor))
+	
+# 	rv = cursor.fetchall()
+# 	logging.info('cursor.fetchall: %s' % (str(rv)))
 	
 	# /test
 
