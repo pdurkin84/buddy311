@@ -214,7 +214,7 @@ def get_requests():
 	cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
 	
 	for record in cursor:
-		loggin.info('record: %s' % (record))
+		logging.info('record: %s' % (record))
 	
 # 	logging.info('cursor: %s' % (cursor))
 	
