@@ -174,7 +174,7 @@ def service_request(service_request_id, format):
 	else:
 		abort(404)
 
-@app.route('/requests/get', methods=['GET'])
+# @app.route('/requests/get', methods=['GET'])
 def get_requests():
 	logging.info("Received to retrieve requests")
 	page = request.args.get('page', default = 0, type = int)
@@ -251,9 +251,9 @@ def get_requests():
 """
 Test other db queries
 """
-# @app.route('/requests/gettest', methods=['GET'])
-# def get_requests():
-# 	logging.info("Running test query")
+@app.route('/requests/get', methods=['GET'])
+def get_requests():
+	logging.info("Running test query")
 # 	page = request.args.get('page', default = 0, type = int)
 # 	per_page = request.args.get('per_page', default = 1, type = int)
 # 	if per_page > 100:
