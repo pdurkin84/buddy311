@@ -136,7 +136,7 @@ def service_definition(service_code, format):
 
 @app.route('/requests.<format>', methods=['GET', 'POST'])
 def service_requests(format):
-	""""Create service requests.
+	"""Create service requests.
 	Query the current status of multiple requests.
 	"""
 	if format not in ('json', 'xml'):
@@ -214,7 +214,7 @@ def get_requests():
 	cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
 	logging.info('cursor: %s' % (cursor)
 	# /test
-	
+
 # 	requestHolder = {}
 # 	for service_request_id, dt , jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description , media_url, service_code_proba in cursor:
 # 		logging.info("%s %s %s %s %s" % ( service_request_id, dt , jurisdiction_id, service_code, latitude))
@@ -250,14 +250,15 @@ def get_requests():
 # 		if service_code_proba != None:
 # 			requestHolder['service_code_proba'] = service_code_proba
 # 		requestList.append(requestHolder)
-	
+
 # 	jsonStr = json.dumps(requestList)
-		     
+
 # 	logging.debug("jsonStr: %s" % (jsonStr))
 # 	logging.debug("jsonStr['service_code_proba']: %s", (jsonStr['service_code_proba']))
 # 	return jsonStr
-		     
+
 # 	return jsonify(jsonStr)
+	return cursor
 
 """
 handle calls from google assistant
