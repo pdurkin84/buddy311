@@ -258,7 +258,7 @@ def get_requests():
 # 	return jsonStr
 		     
 # 	return jsonify(jsonStr)
-
+	return 1
 """
 Test other db queries
 """
