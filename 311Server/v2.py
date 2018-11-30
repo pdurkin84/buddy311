@@ -251,11 +251,13 @@ def get_requests():
 # 			requestHolder['service_code_proba'] = service_code_proba
 # 		requestList.append(requestHolder)
 	
-	jsonStr = json.dumps(requestList)
+# 	jsonStr = json.dumps(requestList)
+		     
 # 	logging.debug("jsonStr: %s" % (jsonStr))
 # 	logging.debug("jsonStr['service_code_proba']: %s", (jsonStr['service_code_proba']))
 # 	return jsonStr
-	return jsonify(jsonStr)
+		     
+# 	return jsonify(jsonStr)
 
 """
 Test other db queries
