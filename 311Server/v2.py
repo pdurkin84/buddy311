@@ -70,8 +70,8 @@ def admin():
 	api_url_base = 'https://buddy311.org:31102/requests/get'
 # 	params = {'page': 10, 'per_page':10}
 # 	response = requests.get(api_url_base, params=params).text
-	response = requests.get(api_url_base).text
-	print(response)
+# 	response = requests.get(api_url_base).text
+	response = requests.get(api_url_base)
 # 	response = json.loads(json.loads(response))
 	logging.debug('response json.loads: %s', response)
 	return render_template('admin.html', completed_json_data = response)
