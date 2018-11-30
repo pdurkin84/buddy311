@@ -218,37 +218,37 @@ def get_requests():
 	for row in rv:
 # 	for service_request_id, dt , jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description , media_url, service_code_proba in rec:
 # 		logging.info("%s %s %s %s %s" % ( service_request_id, dt , jurisdiction_id, service_code, latitude))
-		request_dict['service_request_id'] = row['service_request_id']
+		request_dict['service_request_id'] = row[0]
 		if jurisdiction_id != None:
-			request_dict['jurisdiction_id'] = jurisdiction_id
+			request_dict['jurisdiction_id'] = row[1]
 		if service_code != None:
-			request_dict['service_code'] = service_code
+			request_dict['service_code'] = row[2]
 		if latitude != None:
-			request_dict['latitude'] = latitude
+			request_dict['latitude'] = row[3]
 		if longitude != None:
-			request_dict['longitude'] = longitude
+			request_dict['longitude'] = row[4]
 		if address_string != None:
-			request_dict['address_string'] = address_string
+			request_dict['address_string'] = row[5]
 		if address_id != None:
-			request_dict['address_id'] = address_id
+			request_dict['address_id'] = row[6]
 		if email != None:
-			request_dict['email'] = email
+			request_dict['email'] = row[7]
 		if device_id != None:
-			request_dict['device_id'] = device_id
+			request_dict['device_id'] = row[8]
 		if account_id != None:
-			request_dict['account_id'] = account_id
+			request_dict['account_id'] = row[9]
 		if first_name != None:
-			request_dict['first_name'] = first_name
+			request_dict['first_name'] = row[10]
 		if last_name != None:
-			request_dict['last_name'] = last_name
+			request_dict['last_name'] = row[11]
 		if phone != None:
-			request_dict['phone'] = phone
+			request_dict['phone'] = row[12]
 		if description  != None:
-			request_dict['description '] = description 
+			request_dict['description '] = row[13]
 		if media_url != None:
-			request_dict['media_url'] = media_url
+			request_dict['media_url'] = row[14]
 		if service_code_proba != None:
-			request_dict['service_code_proba'] = service_code_proba
+			request_dict['service_code_proba'] = row[15]
 		requestList.append(request_dict)
 	jsonStr = json.dumps(requestList)
 	return jsonify(jsonStr)
