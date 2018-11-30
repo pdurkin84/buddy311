@@ -198,11 +198,11 @@ def get_requests():
 # # 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
 
 # 	logging.info("Retrieved data from database")
-# 	requestList = []
+	requestList = []
 	
 	# Alex test
 	logging.info("Received to retrieve requests")
-	requestList = {}
+	request_dict = {}
 # 	logging.info("Cursor: %s" %(cursor))
 # 	for record in cursor:
 # 		requestHolder = {}
@@ -214,8 +214,41 @@ def get_requests():
 	cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
 	
 	for service_request_id, dt , jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description , media_url, service_code_proba in cursor:
-		logging.info('record: %s' % (service_request_id))
-	
+		logging.info("%s %s %s %s %s" % ( service_request_id, dt , jurisdiction_id, service_code, latitude))
+		request_dict['service_request_id'] = service_request_id
+		if jurisdiction_id != None:
+			request_dict['jurisdiction_id'] = jurisdiction_id
+		if service_code != None:
+			request_dict['service_code'] = service_code
+		if latitude != None:
+			request_dict['latitude'] = latitude
+		if longitude != None:
+			request_dict['longitude'] = longitude
+		if address_string != None:
+			request_dict['address_string'] = address_string
+		if address_id != None:
+			request_dict['address_id'] = address_id
+		if email != None:
+			request_dict['email'] = email
+		if device_id != None:
+			request_dict['device_id'] = device_id
+		if account_id != None:
+			request_dict['account_id'] = account_id
+		if first_name != None:
+			request_dict['first_name'] = first_name
+		if last_name != None:
+			request_dict['last_name'] = last_name
+		if phone != None:
+			request_dict['phone'] = phone
+		if description  != None:
+			request_dict['description '] = description 
+		if media_url != None:
+			request_dict['media_url'] = media_url
+		if service_code_proba != None:
+			request_dict['service_code_proba'] = service_code_proba
+		requestList.append(request_dict)
+	jsonStr = json.dumps(requestList)
+	return jsonify(jsonStr)
 # 	logging.info('cursor: %s' % (cursor))
 	
 # 	rv = cursor.fetchall()
@@ -266,7 +299,6 @@ def get_requests():
 # 	return jsonStr
 
 # 	return jsonify(jsonStr)
-	return cursor
 
 """
 handle calls from google assistant
