@@ -217,7 +217,7 @@ def get_requests():
 	
 	for row in rv:
 # 	for service_request_id, dt , jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description , media_url, service_code_proba in rec:
-		logging.info("%s %s %s %s %s" % ( service_request_id, dt , jurisdiction_id, service_code, latitude))
+# 		logging.info("%s %s %s %s %s" % ( service_request_id, dt , jurisdiction_id, service_code, latitude))
 		request_dict['service_request_id'] = row['service_request_id']
 		if jurisdiction_id != None:
 			request_dict['jurisdiction_id'] = jurisdiction_id
