@@ -252,8 +252,12 @@ def get_requests():
 Test other db queries
 """
 @app.route('/requests/get', methods=['GET'])
-def get_requests():
-	logging.info("Running test query")
+try:
+    def get_requests():
+        logging.info("Running test query")
+except:
+    logging.exception('Got exception on main handler')
+    raise
 # 	page = request.args.get('page', default = 0, type = int)
 # 	per_page = request.args.get('per_page', default = 1, type = int)
 # 	if per_page > 100:
