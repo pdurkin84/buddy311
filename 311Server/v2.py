@@ -15,6 +15,7 @@ import mysql.connector as mariadb
 import random
 import requests, sys
 import re
+import datetime
 from flask_cors import CORS
 from kafka import SimpleProducer, KafkaClient
 
@@ -66,8 +67,10 @@ def admin():
 
 	response = json.loads(json.loads(response))
 	completed_count = len(response)
+	current_utc_time = datetime.datetime.utcnow().strftime("%I:%M %p UTC - %B %d, %Y")
 # 	logging.debug('response json.loads: %s', response)
-	return render_template('admin.html', completed_json_data = response, completed_count = completed_count)
+	return render_template('admin.html', completed_json_data = response, completed_count = completed_count, 
+			      current_utc_time = current_utc_time)
 
 @app.route('/version')
 def index():
