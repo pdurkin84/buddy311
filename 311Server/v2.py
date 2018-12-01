@@ -61,23 +61,14 @@ def home():
 	
 @app.route("/admin")
 def admin():
-	# logging.critical('Going to admin!)
-	# Test api json response to datatables.js
-# 	api_url_base = 'http://mobile311.sfgov.org/open311/v2/services.json'
-# 	response = requests.get(api_url_base).content
-# 	response = response.decode('utf-8')
-# 	json_data = json.loads(response)
-
 	api_url_base = 'https://buddy311.org:31102/requests/get'
-# 	params = {'page': 10, 'per_page':10}
-# 	response = requests.get(api_url_base, params=params).text
 	response = requests.get(api_url_base).text
 
 	response = json.loads(json.loads(response))
+	count = len(response)
+	print(count)
 	logging.debug('response json.loads: %s', response)
 	return render_template('admin.html', completed_json_data = response)
-# 	return render_template('admin.html', json_data = json_data)
-# 	return render_template('admin.html', json_data = all_tickets)
 
 @app.route('/version')
 def index():
@@ -205,6 +196,11 @@ def get_requests():
 	###############################################
 	
 	jsonStr = json.dumps(requestList)
+	
+# 	query = {'count': len(requestList),
+# 		 'jsonStr': jsonify(jsonStr)
+# 		}
+	
 	return jsonify(jsonStr)
 
 """
