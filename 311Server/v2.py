@@ -181,134 +181,31 @@ def service_request(service_request_id, format):
 
 @app.route('/requests/get', methods=['GET'])
 def get_requests():
-# 	logging.info("Received to retrieve requests")
-# 	page = request.args.get('page', default = 0, type = int)
-# 	per_page = request.args.get('per_page', default = 1, type = int)
-# 	if per_page > 100:
-# 		per_page = 100
-
-# 	logging.info("Asking for %d requests from page %d" % (per_page, page))
-# 	try:
-# 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
-# # 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
-# 	except:
-# 		# assuming a dropped connection so reconnect and try again
-# 		logging.warn("Unable to retrieve data, reconnecting to database")
-# 		connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
-# 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
-# # 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
-
-	# Alex test
 	logging.info("Received get to retrieve requests")
+	try:
+		cursor.execute("SELECT * from requests ORDER BY service_request_id DESC LIMIT 500")
+	except:
+		connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
+		cursor.execute("SELECT * from requests ORDER BY service_request_id DESC LIMIT 500")
 	
-# 	logging.info("Cursor: %s" %(cursor))
-# 	for record in cursor:
-# 		requestHolder = {}
-# 		requestHolder['service_code'] = record['service_code']
-# 		requestList[record['service_request_id']] = requestHolder
-# 		logging.info("Current request list %s" % (requestList))
-
-	connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
-	cursor.execute("SELECT * from requests ORDER BY service_request_id DESC LIMIT 500")
 	row_headers=[x[0] for x in cursor.description]
 	rv = cursor.fetchall()
 	requestList = []
-
 	for row in rv:
 		requestList.append(dict(zip(row_headers, row)))
-# 	for service_request_id, dt , jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description , media_url, service_code_proba in rec:
-# 		logging.info("%s %s %s %s %s" % ( service_request_id, dt , jurisdiction_id, service_code, latitude))
-# 		logging.info('row: %s' % (row,))
-# 		request_dict = {}
-# 		request_dict['service_request_id'] = row[0]
-# 		if row[1] != None:
-# 			request_dict['jurisdiction_id'] = row[1]
-# 		if row[2] != None:
-# 			request_dict['service_code'] = row[2]
-# 		if row[3] != None:
-# 			request_dict['latitude'] = row[3]
-# 		if row[4] != None:
-# 			request_dict['longitude'] = row[4]
-# 		if row[5] != None:
-# 			request_dict['address_string'] = row[5]
-# 		if row[6] != None:
-# 			request_dict['address_id'] = row[6]
-# 		if row[7] != None:
-# 			request_dict['email'] = row[7]
-# 		if row[8] != None:
-# 			request_dict['device_id'] = row[8]
-# 		if row[9] != None:
-# 			request_dict['account_id'] = row[9]
-# 		if row[10] != None:
-# 			request_dict['first_name'] = row[10]
-# 		if row[11] != None:
-# 			request_dict['last_name'] = row[11]
-# 		if row[12] != None:
-# 			request_dict['phone'] = row[12]
-# 		if row[13]  != None:
-# 			request_dict['description '] = row[13]
-# 		if row[14] != None:
-# 			request_dict['media_url'] = row[14]
-# 		if row[15] != None:
-# 			request_dict['service_code_proba'] = row[15]
-# 		requestList.append(request_dict)
+		
+	# DEBUG #######################################
 	print()
 	print('requestList: ')
 	print(requestList)
 	print()
-
+	print('len(completed):')
+	print(len(requestList))
+	print()
+	###############################################
+	
 	jsonStr = json.dumps(requestList)
 	return jsonify(jsonStr)
-# 	logging.info('cursor: %s' % (cursor))
-	
-# 	rv = cursor.fetchall()
-# 	logging.info('cursor.fetchall: %s' % (str(rv)))
-	
-	# /test
-
-# 	requestHolder = {}
-# 	for service_request_id, dt , jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description , media_url, service_code_proba in cursor:
-# 		logging.info("%s %s %s %s %s" % ( service_request_id, dt , jurisdiction_id, service_code, latitude))
-# 		requestHolder['service_request_id'] = service_request_id
-# 		if jurisdiction_id != None:
-# 			requestHolder['jurisdiction_id'] = jurisdiction_id
-# 		if service_code != None:
-# 			requestHolder['service_code'] = service_code
-# 		if latitude != None:
-# 			requestHolder['latitude'] = latitude
-# 		if longitude != None:
-# 			requestHolder['longitude'] = longitude
-# 		if address_string != None:
-# 			requestHolder['address_string'] = address_string
-# 		if address_id != None:
-# 			requestHolder['address_id'] = address_id
-# 		if email != None:
-# 			requestHolder['email'] = email
-# 		if device_id != None:
-# 			requestHolder['device_id'] = device_id
-# 		if account_id != None:
-# 			requestHolder['account_id'] = account_id
-# 		if first_name != None:
-# 			requestHolder['first_name'] = first_name
-# 		if last_name != None:
-# 			requestHolder['last_name'] = last_name
-# 		if phone != None:
-# 			requestHolder['phone'] = phone
-# 		if description  != None:
-# 			requestHolder['description '] = description 
-# 		if media_url != None:
-# 			requestHolder['media_url'] = media_url
-# 		if service_code_proba != None:
-# 			requestHolder['service_code_proba'] = service_code_proba
-# 		requestList.append(requestHolder)
-
-# 	jsonStr = json.dumps(requestList)
-
-# 	logging.debug("jsonStr: %s" % (jsonStr))
-# 	logging.debug("jsonStr['service_code_proba']: %s", (jsonStr['service_code_proba']))
-# 	return jsonStr
-
-# 	return jsonify(jsonStr)
 
 """
 handle calls from google assistant
