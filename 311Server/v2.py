@@ -54,9 +54,6 @@ def connectDatabase(phost, puser, ppassword, pdatabase):
 def home():
 	try:
 		logging.debug('Starting home!')
-		print()
-		print('This is an apache error_log test print')
-		print()
 		return render_template('index.html')
 	except:
 		logging.exception('Got exception on main handler')
@@ -200,12 +197,10 @@ def get_requests():
 # 		connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
 # 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
 # # 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
-
-# 	logging.info("Retrieved data from database")
 	requestList = []
 	
 	# Alex test
-	logging.info("Received to retrieve requests")
+	logging.info("Received get to retrieve requests")
 	
 # 	logging.info("Cursor: %s" %(cursor))
 # 	for record in cursor:
@@ -215,8 +210,10 @@ def get_requests():
 # 		logging.info("Current request list %s" % (requestList))
 
 	connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
-	cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 300")
-	
+	cursor.execute("SELECT * from requests ORDER BY service_request_id DESC LIMIT 500")
+	print()
+	print(cursor.fetchall())
+	print()
 	rv = cursor.fetchall()
 	
 	for row in rv:
