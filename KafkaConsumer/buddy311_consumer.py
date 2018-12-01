@@ -54,6 +54,7 @@ for message in consumer:
 	except:
 		mariadb_connection = mariadb.connect(host='database', user='buddy311dba', password='AlexChrisPaulStan', database='buddy311')
 		cursor = mariadb_connection.cursor()
+		logging.info("update requests set service_code=\"%s\", service_code_proba=%f where service_request_id = %d" % (service_code, service_code_probability, message.value['service_request_id']))
 		cursor.execute("update requests set service_code=\"%s\", service_code_proba=%f where service_request_id = %d" % (service_code, service_code_probability, message.value['service_request_id']))
 		mariadb_connection.commit()
 

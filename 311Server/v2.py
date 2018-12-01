@@ -14,6 +14,7 @@ import ssl
 import mysql.connector as mariadb
 import random
 import requests, sys
+import re
 from flask_cors import CORS
 from kafka import SimpleProducer, KafkaClient
 
@@ -374,6 +375,7 @@ def save(service_request):
 
 	insert_fields_string=""
 	insert_values_string=""
+	service_request_id=""
 	request_data = service_request.get_json()
 	if request_data.get('jurisdiction_id') != None:
 		insert_fields_string += "jurisdiction_id,"
@@ -395,7 +397,7 @@ def save(service_request):
 		insert_values_string += "\"" + request_data.get('email')[:100] + "\","
 	if request_data.get('device_id') != None:
 		insert_fields_string += "device_id,"
-		insert_values_string += "\"" + request_data.get('device_id')[:100] + "\","
+		insert_values_string += "\"" + re.sub(r'\W+', '', request_data.get('device_id')[:100]) + "\","
 	if request_data.get('account_id') != None:
 		insert_fields_string += "account_id,"
 		insert_values_string += "\"" + request_data.get('account_id')[:100] + "\","
@@ -418,22 +420,28 @@ def save(service_request):
 	logging.debug(insert_fields_string)
 	logging.debug(insert_values_string)
 	try:
+		logging.warn("INSERT INTO requests (%s) VALUES (%s)" % (insert_fields_string[:-1], insert_values_string[:-1]))
 		cursor.execute("INSERT INTO requests (%s) VALUES (%s)" % (insert_fields_string[:-1], insert_values_string[:-1]))
 		mariadb_connection.commit()
 		service_request_id=cursor.lastrowid
+		logging.warn("Last request id is %d" % (service_request_id))
 	except:
 		# assuming a dropped connection so reconnect and try again
+		logging.debug("Database connection exception, retrying")
 		connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
 		cursor.execute("INSERT INTO requests (%s) VALUES (%s)" % (insert_fields_string[:-1], insert_values_string[:-1]))
 		mariadb_connection.commit()
 		service_request_id=cursor.lastrowid
 
+	logging.warn("again last request id is %d" % (service_request_id))
 	# If our service code is unknown then send it on to Kafka
 	if request_data.get('service_code').upper() == "UNKNOWN" or request_data.get('service_code') == None:
+		logging.warn("Service code has value ", request_data.get('service_code'))
 		request_data['service_request_id'] = service_request_id
 		sendToKafka(request_data)
 	else:
-		logging.info("Service code has value ", request_data.get('service_code'))
+		logging.warn("Service code has value ", request_data.get('service_code'))
+	logging.debug("Service request id is %d" % (service_request_id))
 	return service_request_id
 
 
