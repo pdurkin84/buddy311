@@ -65,10 +65,9 @@ def admin():
 	response = requests.get(api_url_base).text
 
 	response = json.loads(json.loads(response))
-	count = len(response)
-	print(count)
-	logging.debug('response json.loads: %s', response)
-	return render_template('admin.html', completed_json_data = response)
+	completed_count = len(response)
+# 	logging.debug('response json.loads: %s', response)
+	return render_template('admin.html', completed_json_data = response, completed_count = completed_count)
 
 @app.route('/version')
 def index():
