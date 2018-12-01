@@ -197,8 +197,7 @@ def get_requests():
 # 		connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
 # 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT %d,%d" % (page*per_page, per_page))
 # # 		cursor.execute("SELECT * from requests ORDER BY dt DESC LIMIT 100")
-	requestList = []
-	
+
 	# Alex test
 	logging.info("Received get to retrieve requests")
 	
@@ -211,48 +210,53 @@ def get_requests():
 
 	connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
 	cursor.execute("SELECT * from requests ORDER BY service_request_id DESC LIMIT 500")
-	print()
-	print(cursor.fetchall())
-	print()
+	row_headers=[x[0] for x in cursor.description]
 	rv = cursor.fetchall()
-	
+	requestList = []
+
 	for row in rv:
+		requestList.append(dict(zip(row_headers, row)))
 # 	for service_request_id, dt , jurisdiction_id, service_code, latitude, longitude, address_string, address_id, email, device_id, account_id, first_name, last_name, phone, description , media_url, service_code_proba in rec:
 # 		logging.info("%s %s %s %s %s" % ( service_request_id, dt , jurisdiction_id, service_code, latitude))
-		logging.info('row: %s' % (row,))
-		request_dict = {}
-		request_dict['service_request_id'] = row[0]
-		if row[1] != None:
-			request_dict['jurisdiction_id'] = row[1]
-		if row[2] != None:
-			request_dict['service_code'] = row[2]
-		if row[3] != None:
-			request_dict['latitude'] = row[3]
-		if row[4] != None:
-			request_dict['longitude'] = row[4]
-		if row[5] != None:
-			request_dict['address_string'] = row[5]
-		if row[6] != None:
-			request_dict['address_id'] = row[6]
-		if row[7] != None:
-			request_dict['email'] = row[7]
-		if row[8] != None:
-			request_dict['device_id'] = row[8]
-		if row[9] != None:
-			request_dict['account_id'] = row[9]
-		if row[10] != None:
-			request_dict['first_name'] = row[10]
-		if row[11] != None:
-			request_dict['last_name'] = row[11]
-		if row[12] != None:
-			request_dict['phone'] = row[12]
-		if row[13]  != None:
-			request_dict['description '] = row[13]
-		if row[14] != None:
-			request_dict['media_url'] = row[14]
-		if row[15] != None:
-			request_dict['service_code_proba'] = row[15]
-		requestList.append(request_dict)
+# 		logging.info('row: %s' % (row,))
+# 		request_dict = {}
+# 		request_dict['service_request_id'] = row[0]
+# 		if row[1] != None:
+# 			request_dict['jurisdiction_id'] = row[1]
+# 		if row[2] != None:
+# 			request_dict['service_code'] = row[2]
+# 		if row[3] != None:
+# 			request_dict['latitude'] = row[3]
+# 		if row[4] != None:
+# 			request_dict['longitude'] = row[4]
+# 		if row[5] != None:
+# 			request_dict['address_string'] = row[5]
+# 		if row[6] != None:
+# 			request_dict['address_id'] = row[6]
+# 		if row[7] != None:
+# 			request_dict['email'] = row[7]
+# 		if row[8] != None:
+# 			request_dict['device_id'] = row[8]
+# 		if row[9] != None:
+# 			request_dict['account_id'] = row[9]
+# 		if row[10] != None:
+# 			request_dict['first_name'] = row[10]
+# 		if row[11] != None:
+# 			request_dict['last_name'] = row[11]
+# 		if row[12] != None:
+# 			request_dict['phone'] = row[12]
+# 		if row[13]  != None:
+# 			request_dict['description '] = row[13]
+# 		if row[14] != None:
+# 			request_dict['media_url'] = row[14]
+# 		if row[15] != None:
+# 			request_dict['service_code_proba'] = row[15]
+# 		requestList.append(request_dict)
+	print()
+	print('requestList: ')
+	print(requestList)
+	print()
+
 	jsonStr = json.dumps(requestList)
 	return jsonify(jsonStr)
 # 	logging.info('cursor: %s' % (cursor))
