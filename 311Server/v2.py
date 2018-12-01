@@ -54,6 +54,9 @@ def connectDatabase(phost, puser, ppassword, pdatabase):
 def home():
 	try:
 		logging.debug('Starting home!')
+		print()
+		print('This is an apache error_log test print')
+		print()
 		return render_template('index.html')
 	except:
 		logging.exception('Got exception on main handler')
