@@ -44,7 +44,8 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('#pending').DataTable();
-            $('#completed').DataTable();
+            $('#completed').DataTable( {
+                "order": [[ 0, "desc" ]]);
         } );
     </script>
 
