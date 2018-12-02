@@ -65,10 +65,10 @@ def admin():
 	api_url_base = 'https://buddy311.org:31102/requests/get'
 	response = requests.get(api_url_base).text
 
+	# Seriously ensure it's json
 	response = json.loads(json.loads(response))
 	completed_count = len(response)
 	current_utc_time = datetime.datetime.utcnow().strftime("%I:%M %p UTC - %B %d, %Y")
-# 	logging.debug('response json.loads: %s', response)
 	return render_template('admin.html', completed_json_data = response, completed_count = completed_count, 
 			      current_utc_time = current_utc_time)
 
