@@ -45,7 +45,9 @@
         $(document).ready(function() {
             $('#pending').DataTable();
             $('#completed').DataTable( {
-                "order": [[ 0, "desc" ]]);
+                "order": [[ 0, "desc" ]],
+                "paging":   true,
+                );
         } );
     </script>
 
