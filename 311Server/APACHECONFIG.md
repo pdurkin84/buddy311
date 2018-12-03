@@ -1,5 +1,5 @@
-Listen 31102 https
-<VirtualHost _default_:31102>
+Listen 443 https
+<VirtualHost _default_:443>
     WSGIDaemonProcess buddy311 threads=5
     WSGIScriptAlias / /var/www/html/311Server/adapter.wsgi
     SSLCertificateFile /etc/ssl/certs/www_buddy311_org.crt

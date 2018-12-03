@@ -62,7 +62,7 @@ def home():
 	
 @app.route("/admin")
 def admin():
-	api_url_base = 'https://buddy311.org:31102/requests/get'
+	api_url_base = 'https://buddy311.org/requests/get'
 	response = requests.get(api_url_base).text
 
 	# Seriously ensure it's json
@@ -385,4 +385,4 @@ context = ('/etc/pki/tls/certs/www_buddy311_org.crt', '/etc/ssl/private/www.budd
 connectDatabase(phost='database', puser='buddy311dba', ppassword='AlexChrisPaulStan', pdatabase='buddy311')
 
 if __name__ == '__main__':
-	app.run(debug=False, host='169.63.3.115', port=31102,ssl_context=context)
+	app.run(debug=False, host='169.63.3.115', port=443,ssl_context=context)

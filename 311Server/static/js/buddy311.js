@@ -68,17 +68,8 @@ var buddy311buttonClick = function () {
 		//	typeLocation.style.visibility = "visible";
 		}
 	}
-//	xhttp.open("POST", "https://169.63.3.124:31102/buddy311/v0.1/", true);
-// <<<<<<< HEAD
-	// xhttp.open("POST", "https://169.63.3.115:31102/buddy311/v0.1/", true);
-// =======
-	// xhttp.open("POST", "https://169.63.3.115:31102/requests.json", true);
+	xhttp.open("POST", "https://buddy311.org/buddy311/v0.1/", true);
 
-	// xhttp.open("POST", "https://buddy311.org:31102/requests.json", true);
-	xhttp.open("POST", "https://buddy311.org:31102/buddy311/v0.1/", true);
-
-// >>>>>>> db6bf16a2c91af265fbc502d54410a6362289511
-//	xhttp.open("POST", "https://buddy311.org:31102/buddy311/v0.1/", true);
 	xhttp.setRequestHeader("Content-type", "application/json");
 	xhttp.send('{ "description":"' + results + '", "service_code": "unknown" }');
 
