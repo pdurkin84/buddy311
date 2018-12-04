@@ -43,16 +43,22 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#pending').DataTable();
+//             $('#pending').DataTable();
+            
+            if (typeof $('#completed') !== 'undefined') {
+                $('#completed').destroy();
+            };
             $('#completed').DataTable( {
                 "destroy": True,
                 "order": [[ 0, "desc" ]],
                 "lengthMenu": [ 10, 25, 50, 75, 100 ],
                 "paging": true
             } );
+            
         } );
     </script>
-
+    
+    
 </head>
 
 <body data-spy="scroll" data-target="#primary-menu">
