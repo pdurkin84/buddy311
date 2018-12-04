@@ -251,7 +251,7 @@ input:-webkit-autofill:focus {
 *Accordian
 **/
 
-.accordian {
+.accordion {
     background-color: #003262;
     color: white;
     cursor: pointer;
@@ -266,7 +266,7 @@ input:-webkit-autofill:focus {
     font-size: 15px;
 }
 
-.active, .accordian:hover {
+.active, .accordion:hover {
     background-color: #138fc2;
 }
 
@@ -274,7 +274,7 @@ input:-webkit-autofill:focus {
     padding: 0 18px;
     display: none;
     position: relative;
-    width: 60%
+    width: 60%;
     overflow: hidden;
     white-space:normal;
     color: white;
