@@ -47,6 +47,7 @@
             
             if (typeof $('#completed') !== 'undefined') {
                 $('#completed').destroy();
+                console.log('Existing table found')
             };
             $('#completed').DataTable( {
                 "destroy": True,
