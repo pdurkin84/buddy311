@@ -1,17 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-	<div>
 		<div>
             <!--Logo/-->
             <nav class="collapse navbar-collapse" id="primary-menu">
@@ -30,6 +18,10 @@
     </div>
     <!--Mainmenu-area/-->
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <div class="container">
   <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
     <!-- Indicators -->
@@ -37,39 +29,128 @@
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+      <li data-target="#myCarousel" data-slide-to="6"></li>
+      <li data-target="#myCarousel" data-slide-to="7"></li>
+      <li data-target="#myCarousel" data-slide-to="8"></li>
+      <li data-target="#myCarousel" data-slide-to="9"></li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
+	  <!-- Slide 1 -->
       <div class="item active">
-        <img class="article-img" src="{{ url_for('static', filename='images/pothole.jpg') }}" alt="1" style="width:100%;">
+        <img align="center" class="article-img" src="{{ url_for('static', filename='images/Slide1_Buffer.png') }}" alt="1" style="width:75%;">
 		<div class="container">
 			<div class="carousel-caption text-left">
-				<h1> The First Slide</h1>
-				<p> The description</p>
+				<h3> What is 311?</h3>
+				<p> 311 is the number to call to get access to non-emergency government systems, enabling citizens to report problems.  This helps municipalities to tackle small problems, before they get too big.</p>
 	  		</div>
 		</div>
       </div>
 
+	  <!-- Slide 2 -->
       <div class="item">
-        <img class="article-img" src="{{ url_for('static', filename='images2/Baltimore311.jpg') }}" alt="2" style="width:100%;">
+        <img align="center" class="article-img" src="{{ url_for('static', filename='images/Slide2_Buffer.png') }}" alt="2" style="width:75%;">
 		<div class="container">
 			<div class="carousel-caption text-left">
-				<h1> The Second Slide</h1>
-				<p> The description</p>
+				<h3> Where did 311 come from?</h3>
+				<p> Originally implemented in 1996 in Baltimores 911 call center as a way to use the slack time of the 911 operators.</p>
 	  		</div>
 		</div>
       </div>
     
+	  <!-- Slide 3 -->
       <div class="item">
-        <img class="article-img" src="{{ url_for('static', filename='images2/Cold Pedestrian3.jpg') }}" alt="3" style="width:100%;">
+        <img align="center" class="article-img" src="{{ url_for('static', filename='images/Slide1_Buffer.png') }}" alt="3" style="width:75%;">
 		<div class="container">
 			<div class="carousel-caption text-left">
-				<h1> The Third Slide</h1>
-				<p> The description</p>
+				<h3> Where is 311 now?</h3>
+				<p> Since 1996 311 has been implemented by close to 400 cities in the US and has spread to Europe, Asia, Africa and Australia.  There are 100s of millions of calls and 100s of millions of dollars in the industry</p>
 	  		</div>
 		</div>
       </div>
+
+	  <!-- Slide 4 -->
+      <div class="item">
+        <img align="center" class="article-img" src="{{ url_for('static', filename='images/Slide1_Buffer.png') }}" alt="1" style="width:75%;">
+		<div class="container">
+			<div class="carousel-caption text-left">
+				<h3> What are the pain points in the industry?</h3>
+				<p> Costs, costs, costs.  Municipalities save money by identifying issues early, but call centers are not cheap to run and the number of requests annually is continually growing.</p>
+	  		</div>
+		</div>
+      </div>
+
+	  <!-- Slide 5 -->
+      <div class="item">
+        <img align="center" class="article-img" src="{{ url_for('static', filename='images/Slide5_Buffer.png') }}" alt="1" style="width:75%;">
+		<div class="container">
+			<div class="carousel-caption text-left">
+				<h3> How are municipalities reducing costs?</h3>
+				<p> Several ways including consolidation and shorter hours, however mainly they are using technology to automate the call centers.</p>
+	  		</div>
+		</div>
+      </div>
+
+	  <!-- Slide 6 -->
+      <div class="item">
+        <img align="center" class="article-img" src="{{ url_for('static', filename='images/Slide1_Buffer.png') }}" alt="1" style="width:75%;">
+		<div class="container">
+			<div class="carousel-caption text-left">
+				<h3> What other ways can costs be reduced? </h3>
+				<p> Cities are also investing in their mobile and online platforms.  Calls handled through mobile are estimated at less than $1 per contact, compared with the Pew Charitable Trusts estimate of $3:40 and the Gartner estimate of $5 per-call to the call centers.</p>
+	  		</div>
+		</div>
+      </div>
+
+	  <!-- Slide 7 -->
+      <div class="item">
+        <img align="center" class="article-img" src="{{ url_for('static', filename='images/Slide7_Buffer.png') }}" alt="1" style="width:75%;">
+		<div class="container">
+			<div class="carousel-caption text-left">
+				<h3> How is user engagement with the 311 mobile applications?</h3>
+				<p> User engagement is increasing, but it is still a small fraction of the total contacts.  Given the low costs for this type of contact, municipalities should be looking for ways to increase engagement.  Take the example above from NYC311.  Call volume into the call center is not expected to be reduced by the increase in use of the mobile application.</p>
+	  		</div>
+		</div>
+      </div>
+
+	  <!-- Slide 8 -->
+      <div class="item">
+        <img align="center" class="article-img" src="{{ url_for('static', filename='images/Slide8_Buffer.png') }}" alt="1" style="width:55%;">
+		<div class="container">
+			<div class="carousel-caption text-left">
+				<h3> Why is mobile engagement not more successful? </h3>
+				<p> The main reasons are the effort and opportunity.  The user must engage with the mobile application, selecting the type of issue and providing details.  This is more effort than contacting the call center to describe the problem.  Also citizens, while engaged in other activities such as driving do not have the opportunity to use the mobile application.</p>
+	  		</div>
+		</div>
+      </div>
+
+	  <!-- Slide 9 -->
+      <div class="item">
+        <img align="center" class="article-img" src="{{ url_for('static', filename='images/Slide9_Buffer.png') }}" alt="1" style="width:75%;">
+		<div class="container">
+			<div class="carousel-caption text-left">
+				<h3> Buddy311 can help! </h3>
+				<p> We simplify the submissions process so that users can submit issues hands-free through their favorite digital assistants, or calling in to automated chatbots.  This saves them effort, allows them more opportunities to report issues, and pushes more of the requests through automated solutions reducing the costs of the service for municipalities. </p>
+	  		</div>
+		</div>
+      </div>
+
+	  <!-- Slide 10 -->
+      <div class="item">
+        <img align="center" class="article-img" src="{{ url_for('static', filename='images/Slide1_Buffer.png') }}" alt="1" style="width:75%;" align="middle">
+		<div class="container">
+			<div class="carousel-caption text-left">
+				<h3> How do we do this?</h3>
+				<p> To understand our technologies, visit our technical details section</p>
+				<p><a class="btn btn-lg btn-primary" href="#" role="button">Buddy311, The Technology</a></p>
+	  		</div>
+		</div>
+      </div>
+
     </div>
 
     <!-- Left and right controls -->
@@ -84,7 +165,5 @@
   </div>
 </div>
 
-</body>
-</html>
 
 {% endblock content %}

@@ -72,6 +72,20 @@ def admin():
 	return render_template('admin.html', completed_json_data = response, completed_count = completed_count, 
 			      current_utc_time = current_utc_time)
 
+# added for testing Paul
+@app.route("/about")
+def about():
+	api_url_base = 'https://buddy311.org/requests/get'
+	response = requests.get(api_url_base).text
+
+	# Seriously ensure it's json
+	response = json.loads(json.loads(response))
+	completed_count = len(response)
+	current_utc_time = datetime.datetime.utcnow().strftime("%I:%M %p UTC - %B %d, %Y")
+	return render_template('about.html', completed_json_data = response, completed_count = completed_count, 
+			      current_utc_time = current_utc_time)
+
+
 @app.route('/version')
 def index():
 	return render_template('index.html', org=app.config['ORGANIZATION'], 
@@ -232,7 +246,7 @@ def processGoogleActionRequest():
 	request.json['description'] = complaint
 	request.json['service_code'] = 'Unknown'
 	sr = save(request)
-	return jsonify({'fulfillmentText': "Thank you, your complaint number " + str(sr) + " has been recorded and is being processed"})
+	return jsonify({'fulfillmentText': "Thank you, your complaint number " + str(sr) + " has been recorded and is being processed. Do you want to make another complaint?"})
 
 @app.route('/tokens/<token>.<format>')
 def token(token, format):
