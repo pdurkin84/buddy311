@@ -14,6 +14,7 @@
     <section class="sky-bg section-padding">
 
         <div class="container">
+            <!--Model heading-->
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="text-center">
@@ -23,10 +24,81 @@
                     <p>The model we use to classify complaints is based on an open-source pre-trained transformer model called Finetune, developed by OpenAI and Indico. It is built upon TensorFlow.</p>
                     <p></p>
                     <p>Finetune is a task-agnostic semi-supervised Natural Language Processing algorithm. Word representations are pre-trained on a very large corpus of media of different styles and subjects to obtain a generalized representation of the English language. The pre-trained language model can predict the next word in a sentence, given all the words that came before it. Finetune uses the “Multi-Layer Transformer Decoder” model architecture, which is a deep-learning model that utilizes the concept of attention to selectively focus on different parts of the input while training. For this step, Finetune trained their model on the BooksCorpus dataset, which contains seven thousand unique books. </p>
-                    <p></p>
-                    <h3>FineTune:</h3>
                 </div>
             </div>
+
+            <!--Baseline heading-->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="text-center">
+                        <h3>Baseline:</h3>
+                        <p></p>
+                        <p>For our baseline models we used a multi-class Linear SVM from the sklearn python package and FastText, an NPL package provided by Facebook. While both baselines performed well, our final model based on Finetune did perform that best and is our foundational model for the Buddy311 complaint classifier.</p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <!--/Basline End-->
+
+            <!--Baseline panels-->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <!--panel 1-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBLOne" aria-expanded="true" aria-controls="collapse">sklearn Support Vector Machine classifier</a>
+                                </h4>
+                            </div>
+                            <div id="collapseBLOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li>TF-IDF vectors</li>
+                                        <li>Only complaints from complaint sub_classes with 100 or more occurances</li> 
+                                        <li>81.1% accuracy on SUB_CLASS</li>
+                                        <li>87.4% accuracy on MAIN_CLASS</li> 
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                <!--panel 2-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFTTwo" aria-expanded="true" aria-controls="collapse">Pre-training</a>
+                                </h4>
+                            </div>
+                            <div id="collapseFTTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <p>FastText is a pre-trained continuous bag of words model developed by Facebook that uses character n-grams of 2-6 characters length to represent each word. Classification models can be trained on wordNgram of 1-5 words long.</p>
+                                    <ul>
+                                        <li>written in C and work is typically done in the command line: hence it is VERY VERY fast. For example, the typical 100 dimension vector representation, 3 wordNgram model 786k train, 192k test, tookapproximately 5 minutes to train at 25 epochs and test 192k samples</li>
+                                        <li>Only complaints from complaint sub_classes with 100 or more occurances</li> 
+                                        <li>82.9% accuracy on SUB_CLASS</li>
+                                        <li>88.4% accuracy on MAIN_CLASS</li> 
+                                        <li>2nd best model, reserved for future ensemble models</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- -->
+
+            <!--FineTune heading-->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="text-center">
+                        <h3>FineTune:</h3>
+                    </div>
+                </div>
+            </div>
+            <!--/FineTune End-->
+
+            <!--Model panels-->
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -87,6 +159,7 @@
                     </div>
                 </div>
             </div>
+            <!-- -->
 
             <!--Front End heading-->
             <div class="row">
