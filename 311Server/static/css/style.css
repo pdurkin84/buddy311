@@ -818,7 +818,6 @@ input:-webkit-autofill:focus {
     position: relative;
     background-color: #138FC2; /*added later*/
     border-radius: 10px;
-    border:none;
 }
 
 #accordion .panel .panel-collapse {
