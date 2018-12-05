@@ -85,6 +85,9 @@ def about():
 	return render_template('about.html', completed_json_data = response, completed_count = completed_count, 
 			      current_utc_time = current_utc_time)
 
+@app.route("/tech")
+def about():
+	return render_template('tech.html')
 
 @app.route('/version')
 def index():
