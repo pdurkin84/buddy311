@@ -27,25 +27,26 @@
             <div class="row justify-content-center">
 
                 <!-- <div class="col-xs-12 col-sm-4"> -->
-                <div class="col-6" style="min-width: 50%; margin-right: 5px;">
+<!--                 <div class="col-6" style="min-width: 50%; margin-right: 5px;">
                     <div class="card">
                       <div class="card-body">
                         <h5 class="card-title">Pending</h5>
                         <h6 class="metric-big">0</h6>
                         <p class="card-text">New tickets waiting to be classified.</p>
-                        <button type="button" class="btn btn-primary" onclick="location.href='admin'">Refresh</button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='admin'">Refresh</button> -->
                        <!-- <a href="#" class="card-link">Process</a> -->
                         <!-- <a href="#" class="card-link">Another link</a> -->
-                      </div>
+<!--                       </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- <div class="col-xs-12 col-sm-4"> -->
-                <div class="col-6" style="min-width: 50%; margin-left: 5px;">
+                <div class="col-12" style="min-width: 100%; margin-left: 5px;">
                     <div class="card">
                       <div class="card-body">
                         <h5 class="card-title">Completed</h5>
                         <h6 class="metric-big">{{ completed_count }}</h6>
-                        <p class="card-text">Last refresh: {{ current_utc_time }}</p>
+                        <button type="button" class="btn btn-primary" onclick="location.href='admin'">Refresh</button>
+                        <p class="card-text" style="margin-top: 6px">Last refresh: {{ current_utc_time }}</p>
                         <!-- <a href="#" class="card-link">Process</a> -->
                         <!-- <a href="#" class="card-link">Another link</a> -->
                       </div>
@@ -57,7 +58,7 @@
                     <hr class="featurette-divider">
 
                     <!-- Pending -->
-                    <div class="container">
+<!--                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12 table-header-div">
                                 <h6 class="table-header">Pending</h6>
@@ -67,10 +68,10 @@
 
                     <div class="container">
                         <div class="row justify-content-center">
-                            <div class="col-12 table-header-div">
+                            <div class="col-12 table-header-div"> -->
                                 <!-- <table id="example" class="display" style="width:100%"> -->
                                 <!-- <table id="" class="display" style="width:100%"> -->
-                                <table id="pending" class="table table-striped table-bordered" style="width:100%">
+<!--                                 <table id="pending" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>Service Request ID</th>
@@ -96,9 +97,9 @@
                                 </table>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <hr class="featurette-divider">
+<!--                     <hr class="featurette-divider"> -->
 
                     <!-- Completed -->
                     <div class="container">

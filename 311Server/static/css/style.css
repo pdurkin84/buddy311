@@ -247,6 +247,7 @@ input:-webkit-autofill:focus {
     font-size: 14px;
 }
 
+
 /**
 *Box-style
 **/
@@ -411,7 +412,7 @@ input:-webkit-autofill:focus {
 }
 
 .header-tag {
-    font-size: 60px;
+    font-size: 2.5vw; /* old val was 60px */
 }
 
 .header-text .button {
