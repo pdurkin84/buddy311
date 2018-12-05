@@ -842,7 +842,7 @@ input:-webkit-autofill:focus {
 #accordion .panel .panel-title a span:after {
     width: 10px;
     height: 1px;
-    background-color: #ffffff;
+    background-color: #75cbe7; /* #ffffff*/
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%);
