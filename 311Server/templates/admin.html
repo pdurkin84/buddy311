@@ -6,12 +6,9 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/">Home</a></li>
                     <li><a href="/#feature-page">Features</a></li>
-                    <li><a href="/#demo-page">Demo</a></li>
-                    <li><a href="/#business-case-page">User Story</a></li>
+                    <li><a href="/#demo-page">Try It</a></li>
                     <li><a href="/#tech-page">Technology</a></li>
                     <li><a href="/#team-page">Team</a></li>
-<!--                     <li><a href="#faq-page">FAQ</a></li>
-                    <li><a href="#blog-page">Blog</a></li> -->
                     <li><a href="/#contact-page">Contact</a></li>
                     <li class="active"><a href='admin.html#admin-page'>Admin</a></li>
                 </ul>
@@ -47,8 +44,6 @@
                         <h6 class="metric-big">{{ completed_count }}</h6>
                         <button type="button" class="btn btn-primary" onclick="location.href='admin'">Refresh</button>
                         <p class="card-text" style="margin-top: 6px">Last refresh: {{ current_utc_time }}</p>
-                        <!-- <a href="#" class="card-link">Process</a> -->
-                        <!-- <a href="#" class="card-link">Another link</a> -->
                       </div>
                     </div>
                 </div>
@@ -56,50 +51,6 @@
         </div>
 
                     <hr class="featurette-divider">
-
-                    <!-- Pending -->
-<!--                     <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-12 table-header-div">
-                                <h6 class="table-header">Pending</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-12 table-header-div"> -->
-                                <!-- <table id="example" class="display" style="width:100%"> -->
-                                <!-- <table id="" class="display" style="width:100%"> -->
-<!--                                 <table id="pending" class="table table-striped table-bordered" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Service Request ID</th>
-                                            <th>Description</th>
-                                            <th>Service Code</th>
-                                            <th>Service Code Prob</th>
-                                            <th>Jurisdiction ID</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                        {% for ticket in pending_json_data %}
-                                            <tr>
-                                                <td>{{ ticket['service_request_id'] }}</td>
-                                                <td>{{ ticket['description'] }}</td>
-                                                <td>{{ ticket['service_code'] }}</td>
-                                                <td>{{ ticket['service_code_proba'] }}</td>
-                                                <td>{{ ticket['jurisdiction_id'] }}</td>
-                                            </tr>
-                                        {% endfor %}
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div> -->
-
-<!--                     <hr class="featurette-divider"> -->
 
                     <!-- Completed -->
                     <div class="container">
