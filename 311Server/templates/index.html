@@ -236,43 +236,6 @@
                     </div>
                 </div>
             </div>
-
-            <h2>The Model</h2>
-
-            <p>The model we use to classify complaints is based on an open-source pre-trained transformer model called Finetune, developed by OpenAI and Indico. It is built upon TensorFlow.</p>
-            <p>Finetune is a task-agnostic semi-supervised Natural Language Processing algorithm. Word representations are pre-trained on a very large corpus of media of different styles and subjects to obtain a generalized representation of the English language. The pre-trained language model can predict the next word in a sentence, given all the words that came before it. Finetune uses the “Multi-Layer Transformer Decoder” model architecture, which is a deep-learning model that utilizes the concept of attention to selectively focus on different parts of the input while training. For this step, Finetune trained their model on the BooksCorpus dataset, which contains seven thousand unique books. </p>
-
-            <h3>Finetune:</h3>
-
-            <button class="accordion">Transformer Model</button>
-            <div class="panel">
-                <p>A transformer model </p>
-                    <ul>
-                    <li></li> 
-                    <li></li>
-                    </ul>
-            </div>
-
-            <button class="accordion">Pre-training</button>
-            <div class="panel">
-                <ul>
-                <li>The pre-trained model used was trained on the BooksCorpus dataset, containing seven thousand unique books</li> 
-                <li>Pre-training gives us a good generalized language model to starting point.</li> 
-                <li>Our data advances the pre-trained model reaching higher accuracy with fewer required supervised samples than other models.</li>
-                </ul>
-
-            </div>
-
-            <button class="accordion">Supervised Training</button>
-            <div class="panel">
-                <p>The second step of model development is the supervised fine tuning. Supervised training takes the task-appropriate text samples and true classifications to reform the pre-trained model to fit our specific task. </p>
-                <ul/>
-                <li>We use approximately 750,000 real-world 311-type complaints to fine tune the model for 311 complaint classification.</li>
-                <li>Muliple variables were tested to arrive at the optimum parameters for the model.</li>
-                <li>The full model was trained on heavy GPU virtual machines and deployed in the cloud, accessible through our API.</li>
-                </ul>
-            </div>
-
         </div>
     </section>
     <!--Tech-area/-->

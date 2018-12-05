@@ -247,38 +247,6 @@ input:-webkit-autofill:focus {
     font-size: 14px;
 }
 
-/**
-*Accordian
-**/
-
-.accordion {
-    background-color: #003262;
-    color: white;
-    cursor: pointer;
-    padding: 18px;
-    width: 60%;
-    border: #FDB515;
-    border-style: double;
-    border-radius: 10px;
-    border-width: 1px;
-    text-align: left;
-    outline: none;
-    font-size: 15px;
-}
-
-.active, .accordion:hover {
-    background-color: #138fc2;
-}
-
-.panel {
-    padding: 0 18px;
-    display: none;
-    position: relative;
-    width: 60%;
-    overflow: hidden;
-    white-space:normal;
-    color: white;
-}
 
 /**
 *Box-style
