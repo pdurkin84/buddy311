@@ -17,7 +17,7 @@
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}">
+<!--     <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}"> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
@@ -50,10 +50,10 @@
                 console.log('Existing table found')
             };
             $('#completed').DataTable( {
-//                 "destroy": True,
-//                 "order": [[ 0, "desc" ]],
-//                 "lengthMenu": [ 10, 25, 50, 75, 100 ],
-//                 "paging": true
+                "destroy": True,
+                "order": [[ 0, "desc" ]],
+                "lengthMenu": [ 10, 25, 50, 75, 100 ],
+                "paging": true
             } );
             
         } );
