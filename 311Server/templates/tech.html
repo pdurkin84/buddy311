@@ -55,8 +55,32 @@
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapse">Pre-training
-                                    </a>
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapse">Pre-training</a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <p>The second step of model development is the supervised fine tuning. Supervised training takes the task-appropriate text samples and true classifications to reform the pre-trained model to fit our specific task.</p>
+                                        <ul/>
+                                            <li>We use approximately 750,000 real-world 311-type complaints to fine tune the model for 311 complaint classification.</li>
+                                            <li>Muliple variables were tested to arrive at the optimum parameters for the model.</li>
+                                            <li>The full model was trained on heavy GPU virtual machines and deployed in the cloud, accessible through our API.</li>
+                                        </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class=".col-xs-12 .col-md-8">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <!--panel 1-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapse">Supervised Training</a>
                                 </h4>
                             </div>
                             <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
@@ -72,6 +96,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
     <script>
