@@ -1113,3 +1113,11 @@ preloader
         opacity: 0;
     }
 }
+
+.row:before {
+    content: " ";
+    display: table;
+}
+.row:after {
+    clear: both;
+}
