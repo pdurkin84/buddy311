@@ -816,6 +816,7 @@ input:-webkit-autofill:focus {
 #accordion .panel .panel-title {
     padding: 30px 0 30px 60px;
     position: relative;
+    background: #138FC2;
 }
 
 #accordion .panel .panel-collapse {
@@ -842,7 +843,7 @@ input:-webkit-autofill:focus {
 #accordion .panel .panel-title a span:after {
     width: 10px;
     height: 1px;
-    background-color: #75cbe7; /* #ffffff*/
+    background-color: #ffffff; /* #ffffff*/
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%);
