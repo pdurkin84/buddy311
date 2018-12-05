@@ -177,29 +177,16 @@
                         <h3>Front End</h3>
                     
                         <p></p>
-                        <p>This website provides a basic overview of the Buddy311 system. Aside from the background information on our technology, we offer multiple user-friendly options to interact with the Buddy311 complaint classification model.</p>
+                        <p align="left">This website provides a basic overview of the Buddy311 system. Aside from the background information on our technology, we offer multiple user-friendly options to interact with the Buddy311 complaint classification model.</p>
                         <p></p>
-                        <p>The first option is a direct connection with a Google Assistant Agent chatbot that takes user input text or speech-to-text and packages the complaint to query the model using the model's REST API. The second option is a custom Siri shortcut for updated iOS devices which is able to call the same model REST API.</p>
+                        <p align="left">The first option is a direct connection with a Google Assistant Agent chatbot that takes user input text or speech-to-text and packages the complaint to query the model using the model's REST API. The second option is a custom Siri shortcut for updated iOS devices which is able to call the same model REST API.</p>
                         <p></p>
 
                         <h3>Back End</h3>
-                        <p>Behind the scenes, our back end archecture recieves complaint text and metadata from from the front end interface and sends this data to our model classification queue and to our database to log the complaint.</p>
+                        <p align="left">Behind the scenes, our back end archecture recieves complaint text and metadata from from the front end interface and sends this data to our model classification queue and to our database to log the complaint.</p>
                         <p></p>
-                        <p>From the graphic above, we see that the submitted complaint is sent via the OPEN311 API to our database and a Kafka client, giving a submission confirmation back to the user to ensure them that their concern is our concern. The OPEN311 API sends the complaint text and any additional metadata provided by the user to our database. At the same time, it sends the complaint text to a Kafka instance that queues complaints and periodically sends the complaint text to the Buddy311 model server for classification. When the classification is complete, the classification is stored in the system database, ready for use.</p>
+                        <p align="left">From the graphic above, we see that the submitted complaint is sent via the OPEN311 API to our database and a Kafka client, giving a submission confirmation back to the user to ensure them that their concern is our concern. The OPEN311 API sends the complaint text and any additional metadata provided by the user to our database. At the same time, it sends the complaint text to a Kafka instance that queues complaints and periodically sends the complaint text to the Buddy311 model server for classification. When the classification is complete, the classification is stored in the system database, ready for use.</p>
                     </div>
-                </div>
-            </div>
-
-
-
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                    <ul>
-                        <li>Voice Assistants: Google Assistant & Siri</li>
-                        <li>Web Demo</li>
-                        <li>Open311 Standard Compliance</li>
-                        <li>Kafka</li>
-                    </ul>
                 </div>
             </div>
 
