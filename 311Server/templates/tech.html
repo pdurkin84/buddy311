@@ -20,8 +20,9 @@
                         <h2>The Model</h2>
                     </div>
                     <p></p>
-                    <p>The model we use to classify complaints is based on an open-source pre-trained transformer model called Finetune, developed by OpenAI and Indico. It is built upon TensorFlow.</p>
-                    <p>Finetune is a task-agnostic semi-supervised Natural Language Processing algorithm. Word representations are pre-trained on a very large corpus of media of different styles and subjects to obtain a generalized representation of the English language. The pre-trained language model can predict the next word in a sentence, given all the words that came before it. Finetune uses the “Multi-Layer Transformer Decoder” model architecture, which is a deep-learning model that utilizes the concept of attention to selectively focus on different parts of the input while training. For this step, Finetune trained their model on the BooksCorpus dataset, which contains seven thousand unique books. </p>
+                    <p style="text-indent :5em;">The model we use to classify complaints is based on an open-source pre-trained transformer model called Finetune, developed by OpenAI and Indico. It is built upon TensorFlow.</p>
+                    <p></p>
+                    <p style="text-indent :5em;">Finetune is a task-agnostic semi-supervised Natural Language Processing algorithm. Word representations are pre-trained on a very large corpus of media of different styles and subjects to obtain a generalized representation of the English language. The pre-trained language model can predict the next word in a sentence, given all the words that came before it. Finetune uses the “Multi-Layer Transformer Decoder” model architecture, which is a deep-learning model that utilizes the concept of attention to selectively focus on different parts of the input while training. For this step, Finetune trained their model on the BooksCorpus dataset, which contains seven thousand unique books. </p>
                     <p></p>
                     <h3>FineTune:</h3>
                 </div>
@@ -93,15 +94,17 @@
                         <h2>Front End</h2>
                     </div>
                     <p></p>
-                    <p>This website provides a basic overview of the Buddy311 system. Aside from the background information on our technology, we offer multiple user-friendly options to interact with the Buddy311 complaint classification model.</p>
-                    <p>The first option is a direct connection with a Google Assistant Agent chatbot that takes user input text or speech-to-text and packages the complaint to query the model using the model's REST API. The second option is a custom Siri shortcut for updated iOS devices which is able to call the same model REST API.</p>
+                    <p style="text-indent :5em;">This website provides a basic overview of the Buddy311 system. Aside from the background information on our technology, we offer multiple user-friendly options to interact with the Buddy311 complaint classification model.</p>
+                    <p style="text-indent :5em;">The first option is a direct connection with a Google Assistant Agent chatbot that takes user input text or speech-to-text and packages the complaint to query the model using the model's REST API. The second option is a custom Siri shortcut for updated iOS devices which is able to call the same model REST API.</p>
                     <p></p>
                 </div>
             </div>
+            <!--/Front End-->
 
-            <!--Google Assistant-->
+            <!--FE Panels-->
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12">
+                    <!--Google Assistant Heading-->
                     <div class="text-left">
                         <h3>Google Assistant Agent:</h3>
                     </div>
@@ -184,6 +187,7 @@
                             </div>
                         </div>
                     </div>
+                    <!--/Google Assist Accordion Panels-->
 
                     <!--Siri Heading-->
                     <div class="text-left">
@@ -249,11 +253,124 @@
                             </div>
                         </div>
                     </div>
+                    <!--/Siri Accordion Panels-->
 
                 </div>
+                <!-- /width settings-->
+
             </div>
+            <!--/FE Panels-->
+
+            <!--Back End heading-->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <div class="text-center">
+                        <h2>Back End</h2>
+                    </div>
+                    <p></p>
+                    <p style="text-indent :5em;">Behind the scenes, </p>
+                    <p style="text-indent :5em;">From the graphic above, we see that the submitted complaint is sent via the OPEN311 API to our database and a Kafka client, giving a submission confirmation back to the user to ensure them that their concern is our concern. The OPEN311 API sends the complaint text and any additional metadata provided by the user to our database. At the same time, it sends the complaint text to a Kafka instance that queues complaints and periodically sends the complaint text to the Buddy311 model server for classification. When the classification is complete, the classification is stored in the system database, ready for use.</p>
+                    <p></p>
+                </div>
+            </div>
+            <!--/Back End-->
+
+            <!--BE Panels-->
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <!--Back End panel Heading-->
+                    <div class="text-left">
+                        <h3>Back End:</h3>
+                    </div>
+                
+                    <!--Back End Accordion Panels-->
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <!--panel 1-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBEOne" aria-expanded="true" aria-controls="collapse">Model API and Server</a>
+                                </h4>
+                            </div>
+                            <div id="collapseBEOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <p>Our FineTune model is Python-based, so a Flask API would seem like an obvious choice. However, Python is single threaded, so it would not be able to handle many requests at once. We instead chose a <a href="https://sanic.readthedocs.io/en/latest/">Sanic</a> webs erver to run the model and API.</p>
+                                    <p>Sanic web server:</p>
+                                    <ul>
+                                        <li>Flask-like package - works with Python models</li> 
+                                        <li>Less friction implementing with our other Python elements</li>
+                                        <li>Supports asynchronous requests - able to handle both light and heavy loads</li> 
+                                        <li>Able to handle near real-time classification or scheduled batch classification </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--panel 2-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBETwo" aria-expanded="true" aria-controls="collapse">Backend Open311 Server</a>
+                                </h4>
+                            </div>
+                            <div id="collapseBETwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <p>To handle complaint text and metadata, we use the <a href="https://github.com/miamidade/georeport-server">Miami Dade Open311</a> server. Using an open standard server has numerous benefits:</p>
+                                    <ul>
+                                        <li>Open source server that can be adapted to fit our needs</li> 
+                                        <li>Follows Open311 standard for complaint data processing and reporting</li>
+                                        <li>Standardization makes Buddy311 adoption easier for cities and municipalities</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--panel 3-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBEThree" aria-expanded="true" aria-controls="collapse">SQL Database</a>
+                                </h4>
+                            </div>
+                            <div id="collapseBEThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <p>We used a <a href="https://mariadb.org/">MariaDB SQL</a> database to store our complaints and their labels. MariaDB SQL database:</p>
+                                    <ul/>
+                                        <li>Easy to implement</li>
+                                        <li>Meets scale and speed requirements of the current product</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!--panel 4-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBEFour" aria-expanded="true" aria-controls="collapse">Kafka Instance</a>
+                                </h4>
+                            </div>
+                            <div id="collapseBEFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <p>A Kafka instance allows us to separate our backend Open311 server and classification server by facilitating asynchronous communication between them. By separating the classification server from the backend Open311 server we avoided having our backend server lock up and wait for something to get classified before doing anything else. The Kafka Instance:</p>
+                                    <ul/>
+                                        <li>Queues incoming complaints from the backend Open311 server for our complaint classification;</li>
+                                        <li>Prevents backend Open311 server lock up while waiting for classification to complete;</li>
+                                        <li>Able to handle large number of requests, ready for peak demand scenarios (eg. storm, major event, etc.); and</li>
+                                        <li>Allows the classification server to operate separately and deal with varying compaint load.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/Back End Accordion Panels-->
+
+                </div>
+                <!-- /width settings-->
+
+            </div>
+            <!--/BE Panels-->
 
         </div>
+        <!--/container-->
     </section>
 
     <script>
