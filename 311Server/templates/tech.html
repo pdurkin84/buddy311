@@ -28,28 +28,9 @@
             </ul>
         </div>
 
-        <button class="accordion">Pre-training</button>
-        <div class="panel">
-            <ul>
-                <li>The pre-trained model used was trained on the BooksCorpus dataset, containing seven thousand unique books</li> 
-                <li>Pre-training gives us a good generalized language model to starting point.</li> 
-                <li>Our data advances the pre-trained model reaching higher accuracy with fewer required supervised samples than other models.</li>
-            </ul>
-        </div>
-
-        <button class="accordion">Supervised Training</button>
-        <div class="panel">
-            <p>The second step of model development is the supervised fine tuning. Supervised training takes the task-appropriate text samples and true classifications to reform the pre-trained model to fit our specific task. </p>
-            <ul/>
-                <li>We use approximately 750,000 real-world 311-type complaints to fine tune the model for 311 complaint classification.</li>
-                <li>Muliple variables were tested to arrive at the optimum parameters for the model.</li>
-                <li>The full model was trained on heavy GPU virtual machines and deployed in the cloud, accessible through our API.</li>
-            </ul>
-        </div>
-
         <div class="container">
             <div class="row">
-                <div class=".col-xs-12 .col-md-8">
+                <div class="col-xs-12 col-sm-6">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <!--panel 1-->
                         <div class="panel panel-default">
@@ -68,14 +49,32 @@
                                 </div>
                             </div>
                         </div>
+                    <!--panel 2-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapse">Supervised Training</a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <p>The second step of model development is the supervised fine tuning. Supervised training takes the task-appropriate text samples and true classifications to reform the pre-trained model to fit our specific task.</p>
+                                    <ul/>
+                                        <li>We use approximately 750,000 real-world 311-type complaints to fine tune the model for 311 complaint classification.</li>
+                                        <li>Muliple variables were tested to arrive at the optimum parameters for the model.</li>
+                                        <li>The full model was trained on heavy GPU virtual machines and deployed in the cloud, accessible through our API.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class=".col-xs-12 .col-md-8">
+                <div class="col-xs-12 col-sm-6">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                <!--panel 1-->
+                <!--panel 2-->
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingOne">
                                 <h4 class="panel-title">
