@@ -86,7 +86,7 @@ def about():
 			      current_utc_time = current_utc_time)
 
 @app.route("/tech")
-def about():
+def tech():
 	return render_template('tech.html')
 
 @app.route('/version')
