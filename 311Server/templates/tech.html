@@ -5,18 +5,45 @@
             <nav class="collapse navbar-collapse" id="primary-menu">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/">Home</a></li>
+                    <li><a href="#model-page">Model</a></li>
                 </ul>
             </nav>
         </div>
     </div>
     <!--Mainmenu-area/-->
 
+    <!--Data section-->
+    <section class="sky-bg section-padding">
+        <div class="container" id="data-page">
+
+            <!--Data heading-->
+            <div class="row">
+                <div class="col-xs-8 col-sm-8 col-md-8">
+                    <div class="text-center">
+                        <h2>The Data</h2>
+                    </div>
+                    <p>We collected over 1,280,000 free text complaints from over 300 towns and cities in order to fine tune our model. Some of the largest stores of 311 complaint data came from open data portals of cities such as Cincinatti, Chicago, and Baton Rouge. Other data came from public 311-type complaint portals.</p>
+                    <p>Each complaint was tagged with the primary department in charge of handling the complaint, as well as a sub-department and/or a specific complaint category. This data were used to create a list of possible responsibility hierachies. We analyzed the hierarchies and created a new unifying organization of MAIN category and SUB category to which each hierachy could be mapped.</p>
+                    <p>Complaints contained a wide range of additional data such as submission timestamp, resolution timestamp, incident GPS or address, and submission method. These were not used in the classification model but serve as useful data for future exploration.</p>
+                    <p>Each SUB category is directly dependent upon a MAIN category. In order to simplify the classification process, we designed the model to predict the SUB category, since complaints can be easily re-routed within the same MAIN category if the model misclassifies a complaint.</p>
+                    <p></p>
+                    <p>Not all of the free-text complaints were representative of how a Buddy311 would submit a complaint. Many text complaints were a series of service codes, while others were partly or entirely automatically generated messages from the respective 311 system.</p>
+                    <p>After removing numerical service codes and automated system messages, we were left with around 960,000 clear free-text comments to train and test the model.</p>
+                </div>
+            </div>
+
+            <!--/Data heading-->
+        </div> 
+    </section>
+    <!--/Data section-->
+
+
     <section class="sky-bg section-padding">
 
-        <div class="container">
+        <div class="container" id = "model-page">
             <!--Model heading-->
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-8 col-sm-8 col-md-8">
                     <div class="text-center">
                         <h2>The Model</h2>
                     </div>
@@ -29,7 +56,7 @@
 
             <!--Baseline heading-->
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-8 col-sm-8 col-md-8">
                     <div class="text-center">
                         <h3>Baseline:</h3>
                         <p></p>
@@ -42,7 +69,7 @@
 
             <!--Baseline panels-->
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-8 col-sm-8 col-md-8">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <!--panel 1-->
                         <div class="panel panel-default">
@@ -90,7 +117,7 @@
 
             <!--FineTune heading-->
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-8 col-sm-8 col-md-8">
                     <div class="text-center">
                         <h3>FineTune:</h3>
                         <p></p>
@@ -103,7 +130,7 @@
 
             <!--Model panels-->
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-8 col-sm-8 col-md-8">
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <!--panel 1-->
                         <div class="panel panel-default">
@@ -167,7 +194,7 @@
 
             <!--Front End heading-->
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-8 col-sm-8 col-md-8">
                     <div class="text-center">
                         <h2>Front End</h2>
                     </div>
@@ -182,7 +209,7 @@
 
             <!--FE Panels-->
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-8 col-sm-8 col-md-8">
                     <!--Google Assistant Heading-->
                     <div class="text-left">
                         <h3>Google Assistant Agent:</h3>
@@ -342,7 +369,7 @@
 
             <!--Back End heading-->
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-8 col-sm-8 col-md-8">
                     <div class="text-center">
                         <h2>Back End</h2>
                     </div>
@@ -356,7 +383,7 @@
 
             <!--BE Panels-->
             <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="col-xs-8 col-sm-8 col-md-8">
                     <!--Back End panel Heading-->
                     <div class="text-left">
                         <h3>Back End:</h3>
