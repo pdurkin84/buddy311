@@ -29,6 +29,32 @@
                     <p></p>
                     <p>Not all of the free-text complaints were representative of how a Buddy311 would submit a complaint. Many text complaints were a series of service codes, while others were partly or entirely automatically generated messages from the respective 311 system.</p>
                     <p>After removing numerical service codes and automated system messages, we were left with around 960,000 clear free-text comments to train and test the model.</p>
+
+                    <!-- Tab links -->
+                    <div class="tab">
+                      <button class="tablinks" onclick="openTab(event, 'item_data1')">item_data1</button>
+                      <button class="tablinks" onclick="openTab(event, 'item_data2')">item_data2</button>
+                      <button class="tablinks" onclick="openTab(event, 'item_data3')">item_data3</button>
+                    </div>
+                    <!--/Tab links-->
+
+                    <!-- Tab content -->
+                    <div id="item_data1" class="tabcontent">
+                      <h3>item 1</h3>
+                      <p>Good cosas</p>
+                    </div>
+
+                    <div id="item_data2" class="tabcontent">
+                      <h3>item 2</h3>
+                      <p>stuff</p> 
+                    </div>
+
+                    <div id="item_data3" class="tabcontent">
+                      <h3>item 3</h3>
+                      <p>ipsum lorem</p>
+                    </div>
+                    <!--/Tab content -->
+
                 </div>
             </div>
 
@@ -493,6 +519,27 @@
               content.style.display = "block";
             }
           });
+        }
+
+        function openTab(evt, tabName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
         }
     </script>
 
