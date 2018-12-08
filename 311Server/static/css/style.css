@@ -770,7 +770,6 @@ input:-webkit-autofill:focus {
 .tab button {
     background-color: inherit;
     float: left;
-    border: none;
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
@@ -781,7 +780,6 @@ input:-webkit-autofill:focus {
 .tab button:hover {
     background-color: inherit;
     color:#FDB515; /*Berkeley California Gold*/
-    border-bottom: #FDB515;
     border-top: #FDB515;
 }
 
@@ -789,7 +787,6 @@ input:-webkit-autofill:focus {
 .tab button.active {
     background-color: inherit;
     color:#FDB515; /*Berkeley California Gold*/
-    border-bottom: #FDB515;
     border-top: #FDB515;
 }
 
@@ -797,8 +794,7 @@ input:-webkit-autofill:focus {
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
+    border-top: 1px solid white;
 }
 
 /***
