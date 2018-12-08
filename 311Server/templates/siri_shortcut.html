@@ -5,5 +5,18 @@
 <li> Ensure you are running IOS 12 or higher (settings &gt;&gt; General &gt;&gt about &gt&gt Version).
 <li> Navigate to this page with your iPhone or iPad.
 <li> If you have not installed Siri Shortcuts then follow <a href="https://itunes.apple.com/us/app/shortcuts/id915249334"> this link </a>to install it.
-<li> Click <a href="files/Open\ 311\ Request.shortcut">here</a> to download the shortcut.
+<li> Click <a href="{{ url_for('static', filename='files/Open311Request.shortcut') }}">here</a> to download the shortcut.
+<li> This should offer a link to "Open in Shortcuts", select this.
+<li> Shortcuts will ask for permissions to contact, speech recognition, microphone and location.  Click on the "Get Shortcut" button at the bottom.
+</ol>
+<p>
+You now have the shortcut installed.  To use it:
+<ol>
+<li> Open the shortcut
+<li> Check that the access has been granted correctly.  If you see links that say "Allow Access" click them to allow the access.
+<li> Click on the icon in the top right of the shortcut.
+<li> Click the link to "Add to siri".
+<li> Record the message you want to use to trigger this shortcut, for example "Open 3-1-1 request" and click done.
+<li> Press the play icon in the center at the top of the shortcut.  This will confirm if the shortcut is allowed to play, it may ask you the first time as the shortcut was downloaded through a browser.
+<li> After this you can engage the shortcut and submit a ticket to the Buddy311 server by engaging Siri and using the phrase you recorded to trigger it.
 </ol>
