@@ -51,7 +51,8 @@
             
             
             if (typeof $('#completed') !== 'undefined') {
-                $('#completed').destroy();
+               $('#completed').DataTable().destroy();
+//                 $('#completed').destroy();
                 console.log('Existing table found')
             };
             $('#completed').DataTable( {
