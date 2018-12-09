@@ -1,10 +1,17 @@
 {% extends "layout.html" %}
 {% block content %}
-
+    <div>
             <!--Logo/-->
             <nav class="collapse navbar-collapse" id="primary-menu">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/#feature-page">Home</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#feature-page">Features</a></li>
+                    <li><a href="/#demo-page">Demo</a></li>
+                    <li><a href="/#business-case-page">User Story</a></li>
+                    <li><a href="/#tech-page">Technology</a></li>
+                    <li><a href="/#team-page">Team</a></li>
+                    <li><a href="/#contact-page">Contact</a></li>
+                    <li class="active"><a href='admin'>Admin</a></li>
                 </ul>
             </nav>
         </div>
@@ -15,8 +22,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/buddy.carousel.css') }}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<br>
-<br>
+
 <div class="container">
   <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="100000">
     <!-- Indicators -->
