@@ -46,6 +46,9 @@
         $(document).ready(function() {
             var owl = $(".owl-carousel").data('owlCarousel');
             console.log(owl);
+            owl.owlCarousel('update');
+            owl.options.autoPlay:false;
+            console.log(owl);
             
 //             var owl = $('#owl-carousel');
             
@@ -92,6 +95,9 @@
 //                   pullDrag: false
 //                 });
             
+            owl.owlCarousel('update');
+            
+//             .data('owlCarousel')
 //             $('#completed').DataTable( {
 //             $('#owl-carousel').data('owlCarousel').reinit({touchDrag: false, mouseDrag: false;});
 //             $('#owl-carousel').data('owlCarousel').options.autoplay = false;
