@@ -122,11 +122,6 @@
                 </div>
             </div>
             
-<!--             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
-                        <iframe height="530" width="450" id="frame" class="b_frame" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/017b7308-ba93-40e2-baaf-54fde9ff39c8"></iframe>
-                </div>
-            </div> -->
 
             <div class="embed-responsive embed-responsive-4by3 text-center" style="height: unset; padding-bottom: 0">
                 <div class="row text-center" style="justify-content: center">
@@ -140,6 +135,28 @@
 			<center>
 			<a href="{{ url_for('siri') }}" class="btn btn-warning btn-lg" role="button">Try With Siri</a>
 			<center>
+
+	    <!--Siri Accordion Panels-->
+	    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		<!--panel 1-->
+		<div class="panel panel-default">
+		    <div class="panel-heading" role="tab" id="headingOne">
+			<h4 class="panel-title">
+			    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAppleShortcut" aria-expanded="true" aria-controls="collapse">Shortcuts</a>
+			</h4>
+		    </div>
+		    <div id="collapseAppleShortcut" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+			<div class="panel-body">
+			    <p>Siri shortcuts are user-programmable actions that expand and enhance Apple Siri capabilities.</p>
+			    <ul>
+				<li>GUI-based or scripted shortcuts</li> 
+				<li>Can collect user-authorized location information for complaint routing</li> 
+				<li>Once installed on user's device, can be used seemlessly</li>
+			    </ul>
+			</div>
+		    </div>
+		</div>
+				
         </div>
     </section>
 
