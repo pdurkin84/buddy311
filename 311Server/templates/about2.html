@@ -53,7 +53,8 @@
             
             var $carousel = $('#owl-carousel');
             var owl = $carousel.data('owlCarousel');  
-
+            owl.options.autoplay = false;
+            
             w = $( window ).width();
             var animateStyle = 'fadeOut';
             if(w <= 768){
