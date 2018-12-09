@@ -44,24 +44,24 @@
     <script type="text/javascript">
         $(document).ready(function() {
 //             $('#completed').DataTable( {
-            $('#testimonials').data('owlCarousel').reinit({touchDrag: false, mouseDrag: false;});
-            $('#testimonials').owlCarousel({
-    //             animateOut: 'fadeOut',
-                autoplay: false,
-    //             autoplayHoverPause: false,
-    //             autoplaySpeed: 10,
-    //             dots: false,
-    //             lazyLoad: true,
-    //             loop: true,
-                mouseDrag: false,
-                pullDrag: false,
-                touchDrag: false,
-                nav: true,
-                navText: [
-                    "&lsaquo;",
-                    "&rsaquo;"
-                ]
-            });
+            $('#owl-carousel').data('owlCarousel').reinit({touchDrag: false, mouseDrag: false;});
+//             $('#testimonials').owlCarousel({
+//     //             animateOut: 'fadeOut',
+//                 autoplay: false,
+//     //             autoplayHoverPause: false,
+//     //             autoplaySpeed: 10,
+//     //             dots: false,
+//     //             lazyLoad: true,
+//     //             loop: true,
+//                 mouseDrag: false,
+//                 pullDrag: false,
+//                 touchDrag: false,
+//                 nav: true,
+//                 navText: [
+//                     "&lsaquo;",
+//                     "&rsaquo;"
+//                 ]
+//             });
         } );
     </script>
     
@@ -112,7 +112,7 @@
             <div class="row">
 <!--                 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-12"> -->
                 <div class="col-md-12">
-                    <div class="testimonials" id="testimonials">
+                    <div class="testimonials" id="owl-carousel">
                         <div class="testimonial">
                             <div class="testimonial-photo">
                                 <img src="{{ url_for('static', filename='slides/Slide01.png') }}" alt="">
