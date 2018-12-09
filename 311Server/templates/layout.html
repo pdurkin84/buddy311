@@ -43,10 +43,11 @@
 
     <script type="text/javascript">
         $(document).ready(function() { 
-            if (typeof $('#siri-collapse') !== 'undefined') {
-                document.getElementById("siri-collapse").style.borderBottomLeftRadius = "10px";
-                document.getElementById("siri-collapse").style.borderBottomRightRadius  = "10px";
-            };
+            try{
+                if (typeof $('#siri-collapse') !== 'undefined') {
+                    document.getElementById("siri-collapse").style.borderBottomLeftRadius = "10px";
+                    document.getElementById("siri-collapse").style.borderBottomRightRadius  = "10px";
+                }; } catch(e) {};
             
             
             if (typeof $('#completed') !== 'undefined') {
