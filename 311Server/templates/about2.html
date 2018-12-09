@@ -53,6 +53,11 @@
                   autoplay: false,
                 });
             owl.trigger('change', { property: { name: 'mouseDrag', value: false } });
+            owl.trigger('change.owl.carousel', {
+                  mouseDrag: false,
+                  touchDrag: false,
+                  pullDrag: false
+                });
 //             $('#completed').DataTable( {
 //             $('#owl-carousel').data('owlCarousel').reinit({touchDrag: false, mouseDrag: false;});
 //             $('#owl-carousel').data('owlCarousel').options.autoplay = false;
