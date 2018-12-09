@@ -46,6 +46,13 @@
         $(document).ready(function() {
             var owl = $('#owl-carousel');
             owl.trigger('stop.owl.autoplay');
+            owl.trigger('changeOption.owl.carousel', {
+                  mouseDrag: false,
+                  touchDrag: false,
+                  pullDrag: false,
+                  autoplay: false,
+                });
+            
 //             $('#completed').DataTable( {
 //             $('#owl-carousel').data('owlCarousel').reinit({touchDrag: false, mouseDrag: false;});
 //             $('#owl-carousel').data('owlCarousel').options.autoplay = false;
