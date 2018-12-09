@@ -42,32 +42,11 @@
     <![endif]-->    
     
     <script type="text/javascript">
+        $(document).ready(function(){
+            $(".owl-carousel").owlCarousel();
+        });
         
-        $(document).ready(function() {
-              var owl = $("#owl-carousel");
-
-              owl.owlCarousel({
-                  items : 10, //10 items above 1000px browser width
-                  itemsDesktop : [1000,5], //5 items between 1000px and 901px
-                  itemsDesktopSmall : [900,3], // betweem 900px and 601px
-                  itemsTablet: [600,2], //2 items between 600 and 0
-                  itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
-              });
-
-              // Custom Navigation Events
-              $(".next").click(function(){
-                owl.trigger('owl.next');
-              })
-              $(".prev").click(function(){
-                owl.trigger('owl.prev');
-              })
-              $(".play").click(function(){
-                owl.trigger('owl.play',1000); //owl.play event accept autoPlay speed as second parameter
-              })
-              $(".stop").click(function(){
-                owl.trigger('owl.stop');
-              })
-            
+//         $(document).ready(function() {
 //             var owl = $(".owl-carousel").data('owlCarousel');
 //             console.log(owl);
 
@@ -142,7 +121,7 @@
 //                     "&rsaquo;"
 //                 ]
 //             });
-        });
+//         });
     </script>
     
 </head>
@@ -182,6 +161,22 @@
     </div>
     <!--Mainmenu-area/-->
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="owl-carousel">
+      <div> Your Content </div>
+      <div> Your Content </div>
+      <div> Your Content </div>
+      <div> Your Content </div>
+      <div> Your Content </div>
+      <div> Your Content </div>
+      <div> Your Content </div>
+    </div>
+    
+    
+    
     <section class="testimonial-area section-padding gray-bg overlay">
         <div class="container">
             <div class="row">
