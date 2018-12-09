@@ -1030,6 +1030,7 @@ input:-webkit-autofill:focus {
 .article-img {
     width: 100%;
     margin-bottom: 3vw;
+    margin: auto;
 }
 
 .article-title {
