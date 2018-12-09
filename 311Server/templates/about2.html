@@ -42,10 +42,13 @@
     <![endif]-->    
     
     <script type="text/javascript">
+        
         $(document).ready(function() {
+            var owl = $('#owl-carousel');
+            owl.trigger('stop.owl.autoplay');
 //             $('#completed').DataTable( {
 //             $('#owl-carousel').data('owlCarousel').reinit({touchDrag: false, mouseDrag: false;});
-            $('#owl-carousel').data('owlCarousel').options.autoplay = false;
+//             $('#owl-carousel').data('owlCarousel').options.autoplay = false;
 //             $('#testimonials').owlCarousel({
 //     //             animateOut: 'fadeOut',
 //                 autoplay: false,
