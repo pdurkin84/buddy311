@@ -49,7 +49,7 @@
                     document.getElementById("siri-collapse").style.borderBottomRightRadius  = "10px";
                 }; } catch(e) {};
             
-            
+            try{
             if (typeof $('#completed') !== 'undefined') {
                $('#completed').DataTable().destroy();
 //                 $('#completed').destroy();
@@ -60,7 +60,7 @@
                 "order": [[ 0, "desc" ]],
                 "lengthMenu": [ 10, 25, 50, 75, 100 ],
                 "paging": true
-            } );
+            } ); } catch(e) {};
             
 
             
