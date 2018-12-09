@@ -45,19 +45,26 @@
         
         $(document).ready(function() {
             var owl = $('#owl-carousel');
-            owl.trigger('stop.owl.autoplay');
-            owl.trigger('changeOption.owl.carousel', {
-                  mouseDrag: false,
-                  touchDrag: false,
-                  pullDrag: false,
-                  autoplay: false,
-                });
-            owl.trigger('change', { property: { name: 'mouseDrag', value: false } });
-            owl.trigger('change.owl.carousel', {
-                  mouseDrag: false,
-                  touchDrag: false,
-                  pullDrag: false
-                });
+            
+            var carouselData = owl.data();
+            var carouselOptions = carouselData['owl.carousel'].options;
+                carouselOptions.loop = false;
+            owl.trigger('refresh.owl.carousel');
+            
+//             owl.trigger('stop.owl.autoplay');
+//             owl.trigger('changeOption.owl.carousel', {
+//                   mouseDrag: false,
+//                   touchDrag: false,
+//                   pullDrag: false,
+//                   autoplay: false,
+//                 });
+//             owl.trigger('change', { property: { name: 'mouseDrag', value: false } });
+//             owl.trigger('change.owl.carousel', {
+//                   mouseDrag: false,
+//                   touchDrag: false,
+//                   pullDrag: false
+//                 });
+            
 //             $('#completed').DataTable( {
 //             $('#owl-carousel').data('owlCarousel').reinit({touchDrag: false, mouseDrag: false;});
 //             $('#owl-carousel').data('owlCarousel').options.autoplay = false;
