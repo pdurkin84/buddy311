@@ -44,6 +44,9 @@
     <script type="text/javascript">
         
         $(document).ready(function() {
+            var owl = $(".owl-carousel").data('owlCarousel');
+            console.log(owl)
+            
 //             var owl = $('#owl-carousel');
             
 //             var carouselData = owl.data();
@@ -62,17 +65,18 @@
 //             if(w <= 768){
 //                 animateStyle = false;
 //             } 
-            owl.options.animateOut = 'false';  
             
-            var owl = $('#owl-carousel');
-            owl.owlCarousel({
-//                 items:4,
-                loop:true,
-                margin:10,
-                autoplay:false,
-                autoplayTimeout:1000,
-                autoplayHoverPause:true
-            });
+//             owl.options.animateOut = 'false';  
+            
+//             var owl = $('#owl-carousel');
+//             owl.owlCarousel({
+// //                 items:4,
+//                 loop:true,
+//                 margin:10,
+//                 autoplay:false,
+//                 autoplayTimeout:1000,
+//                 autoplayHoverPause:true
+//             });
             
 //             owl.trigger('stop.owl.autoplay');
 //             owl.trigger('changeOption.owl.carousel', {
