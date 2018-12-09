@@ -46,9 +46,9 @@
         $(document).ready(function() {
             var owl = $(".owl-carousel").data('owlCarousel');
             console.log(owl);
-            owl.owlCarousel('update');
+            owl.stop()
             owl.options.autoPlay=false;
-            owl.owlCarousel('update');
+//             owl.owlCarousel('update');
             console.log(owl);
             
 //             var owl = $('#owl-carousel');
