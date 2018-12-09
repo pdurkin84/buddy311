@@ -42,7 +42,13 @@
     <![endif]-->
 
     <script type="text/javascript">
-        $(document).ready(function() {           
+        $(document).ready(function() { 
+            if (typeof $('#siri-collapse') !== 'undefined') {
+                document.getElementById("siri-collapse").style.borderBottomLeftRadius = "10px";
+                document.getElementById("siri-collapse").style.borderBottomRightRadius  = "10px";
+            };
+            
+            
             if (typeof $('#completed') !== 'undefined') {
                 $('#completed').destroy();
                 console.log('Existing table found')
@@ -54,12 +60,7 @@
                 "paging": true
             } );
             
-            if (typeof $('#siri-collapse') !== 'undefined') {
-                document.getElementById("siri-collapse").style.borderBottomLeftRadius = "10px";
-                document.getElementById("siri-collapse").style.borderBottomRightRadius  = "10px";
-//                 $('#siri-collapse').style.border-bottom-left-radius = 10px;
-//                 $('#siri-collapse').style.border-bottom-right-radius = 10px;
-            };
+
             
             
             
