@@ -41,24 +41,27 @@
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->    
     
-    <script>
-        $('.owl-carousel').owlCarousel({
-//             animateOut: 'fadeOut',
-            autoplay: false,
-//             autoplayHoverPause: false,
-//             autoplaySpeed: 10,
-//             dots: false,
-//             lazyLoad: true,
-//             loop: true,
-            mouseDrag: true,
-            pullDrag: true,
-            touchDrag: true,
-            nav: true,
-            navText: [
-                "&lsaquo;",
-                "&rsaquo;"
-            ]
-        });
+    <script type="text/javascript">
+        $(document).ready(function() {
+//             $('#completed').DataTable( {
+            $('#testimonials').owlCarousel({
+    //             animateOut: 'fadeOut',
+                autoplay: false,
+    //             autoplayHoverPause: false,
+    //             autoplaySpeed: 10,
+    //             dots: false,
+    //             lazyLoad: true,
+    //             loop: true,
+                mouseDrag: true,
+                pullDrag: true,
+                touchDrag: true,
+                nav: true,
+                navText: [
+                    "&lsaquo;",
+                    "&rsaquo;"
+                ]
+            });
+        } );
     </script>
     
 </head>
@@ -108,7 +111,7 @@
             <div class="row">
 <!--                 <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-12"> -->
                 <div class="col-md-12">
-                    <div class="testimonials">
+                    <div class="testimonials" id="testimonials">
                         <div class="testimonial">
                             <div class="testimonial-photo">
                                 <img src="{{ url_for('static', filename='slides/Slide01.png') }}" alt="">
