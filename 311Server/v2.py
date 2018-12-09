@@ -72,18 +72,26 @@ def admin():
 	return render_template('admin.html', completed_json_data = response, completed_count = completed_count, 
 			      current_utc_time = current_utc_time)
 
+@app.route("/references")
+def references():
+	return render_template('references.html')
+
+@app.route("/siri")
+def siri():
+	return render_template('siri_shortcut.html')
+
 # added for testing Paul
 @app.route("/about")
 def about():
 	api_url_base = 'https://buddy311.org/requests/get'
 	response = requests.get(api_url_base).text
-
-	# Seriously ensure it's json
-	response = json.loads(json.loads(response))
-	completed_count = len(response)
-	current_utc_time = datetime.datetime.utcnow().strftime("%I:%M %p UTC - %B %d, %Y")
-	return render_template('about.html', completed_json_data = response, completed_count = completed_count, 
-			      current_utc_time = current_utc_time)
+	return render_template('about.html')
+#	# Seriously ensure it's json
+#	response = json.loads(json.loads(response))
+#	completed_count = len(response)
+#	current_utc_time = datetime.datetime.utcnow().strftime("%I:%M %p UTC - %B %d, %Y")
+#	return render_template('about.html', completed_json_data = response, completed_count = completed_count, 
+#			      current_utc_time = current_utc_time)
 
 @app.route("/tech")
 def tech():
