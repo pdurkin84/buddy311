@@ -44,12 +44,22 @@
     <script type="text/javascript">
         
         $(document).ready(function() {
-            var owl = $('#owl-carousel');
+//             var owl = $('#owl-carousel');
             
-            var carouselData = owl.data();
-            var carouselOptions = carouselData['owl.carousel'].options;
-                carouselOptions.loop = false;
-            owl.trigger('refresh.owl.carousel');
+//             var carouselData = owl.data();
+//             var carouselOptions = carouselData['owl.carousel'].options;
+//                 carouselOptions.loop = false;
+//             owl.trigger('refresh.owl.carousel');
+            
+            var $carousel = $('#owl-carousel');
+            var owl = $carousel.data('owlCarousel');  
+
+            w = $( window ).width();
+            var animateStyle = 'fadeOut';
+            if(w <= 768){
+                animateStyle = false;
+            } 
+            owl.options.animateOut = animateStyle;  
             
 //             owl.trigger('stop.owl.autoplay');
 //             owl.trigger('changeOption.owl.carousel', {
