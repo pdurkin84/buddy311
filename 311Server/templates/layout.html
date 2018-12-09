@@ -42,9 +42,7 @@
     <![endif]-->
 
     <script type="text/javascript">
-        $(document).ready(function() {
-//             $('#pending').DataTable();
-            
+        $(document).ready(function() {           
             if (typeof $('#completed') !== 'undefined') {
                 $('#completed').destroy();
                 console.log('Existing table found')
@@ -55,6 +53,13 @@
                 "lengthMenu": [ 10, 25, 50, 75, 100 ],
                 "paging": true
             } );
+            
+            if (typeof $('#siri-collapse') !== 'undefined') {
+                $('#siri-collapse').style.border-bottom-left-radius = 10px;
+                $('#siri-collapse').style.border-bottom-right-radius = 10px;
+            };
+            
+            
             
         } );
     </script>
