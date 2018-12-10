@@ -555,6 +555,15 @@ input:-webkit-autofill:focus {
 }
 
 /**
+*Caption
+**/
+
+.caption{
+    font-size:12;
+}
+
+
+/**
 *Caption-slider
 **/
 

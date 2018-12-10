@@ -46,6 +46,12 @@
         padding-bottom: 100px;
         height: auto;
     }
+
+    .caption{
+        font-size:10;
+    }
+
+
     .page-title h2,
     .header-text h2 {
         font-size: 20px;
