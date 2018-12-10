@@ -1172,8 +1172,3 @@ preloader
 .row:after {
     clear: both;
 }
-
-.extra-images {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
