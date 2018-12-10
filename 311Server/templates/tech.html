@@ -23,6 +23,11 @@
                     <div class="text-center">
                         <h2>The Data</h2>
                     </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-8 col-sm-8 col-md-8">
                     <p>We collected over 1,280,000 free text complaints from over 300 towns and cities in order to fine tune our model. Some of the largest stores of 311 complaint data came from open data portals of cities such as Cincinatti, Chicago, and Baton Rouge. Other data came from public 311-type complaint portals.</p>
                     <p>Each complaint was tagged with the primary department in charge of handling the complaint, as well as a sub-department and/or a specific complaint category. This data were used to create a list of possible responsibility hierachies. We analyzed the hierarchies and created a new unifying organization of MAIN category and SUB category to which each hierachy could be mapped.</p>
                     <p>Complaints contained a wide range of additional data such as submission timestamp, resolution timestamp, incident GPS or address, and submission method. These were not used in the classification model but serve as useful data for future exploration.</p>
@@ -30,7 +35,8 @@
                     <p></p>
                     <p>Not all of the free-text complaints were representative of how a Buddy311 would submit a complaint. Many text complaints were a series of service codes, while others were partly or entirely automatically generated messages from the respective 311 system.</p>
                     <p>After removing numerical service codes and automated system messages, we were left with around 960,000 clear free-text comments to train and test the model.</p>
-
+                </div>
+            </div>
                     <!-- Tab links -->
                     <div class="tab">
                       <button class="tablinks" onclick="openTab(event, 'item_data1')">item_data1</button>
