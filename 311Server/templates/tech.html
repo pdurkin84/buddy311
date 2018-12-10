@@ -40,37 +40,14 @@
                     <p></p>
                     <p>Not all of the free-text complaints were representative of how a Buddy311 would submit a complaint. Many text complaints were a series of service codes, while others were partly or entirely automatically generated messages from the respective 311 system.</p>
                     <p>After removing numerical service codes and automated system messages, we were left with around 960,000 clear free-text comments to train and test the model.</p>
-                </div>
-            </div>
-                    <!-- Tab links -->
-                    <div class="tab">
-                      <button class="tablinks" onclick="openTab(event, 'item_data1')">item_data1</button>
-                      <button class="tablinks" onclick="openTab(event, 'item_data2')">item_data2</button>
-                      <button class="tablinks" onclick="openTab(event, 'item_data3')">item_data3</button>
+                    <div>
+                        <center>
+                        <img src="{{ url_for('static', filename='images/tSNE_1pct.png') }}" alt="" width="50%">
+                        </center>
                     </div>
-                    <!--/Tab links-->
-
-                    <!-- Tab content -->
-                    <div id="item_data1" class="tabcontent">
-                      <h3>item 1</h3>
-                      <p>Good cosas</p>
-                    </div>
-
-                    <div id="item_data2" class="tabcontent">
-                      <h3>item 2</h3>
-                      <p>stuff</p> 
-                    </div>
-
-                    <div id="item_data3" class="tabcontent">
-                      <h3>item 3</h3>
-                      <p>ipsum lorem</p>
-                    </div>
-                    <!--/Tab content -->
-
                 </div>
             </div>
 
-            <!--/Data heading-->
         </div> 
     </section>
     <!--/Data section-->
@@ -135,53 +112,7 @@
 
             <!--/Tab content -->
 
-            <!--Baseline panels-->
-            <div class="row">
-                <div class="col-xs-8 col-sm-8 col-md-8">
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                <!--panel 1-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBLOne" aria-expanded="true" aria-controls="collapse">sklearn Support Vector Machine classifier</a>
-                                </h4>
-                            </div>
-                            <div id="collapseBLOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li>TF-IDF vectors</li>
-                                        <li>Only complaints from complaint sub_classes with 100 or more occurances</li> 
-                                        <li>81% accuracy on SUB_CLASS</li>
-                                        <li>87% accuracy on MAIN_CLASS</li> 
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                <!--panel 2-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBLTwo" aria-expanded="true" aria-controls="collapse">Pre-training</a>
-                                </h4>
-                            </div>
-                            <div id="collapseBLTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p>FastText is a pre-trained continuous bag of words model developed by Facebook that uses character n-grams of 2-6 characters length to represent each word. Classification models can be trained on wordNgram of 1-5 words long.</p>
-                                    <ul>
-                                        <li>written in C and work is typically done in the command line: hence it is VERY VERY fast. For example, the typical 100 dimension vector representation, 3 wordNgram model 786k train, 192k test, tookapproximately 5 minutes to train at 25 epochs and test 192k samples</li>
-                                        <li>Only complaints from complaint sub_classes with 100 or more occurances</li> 
-                                        <li>83% accuracy on SUB_CLASS</li>
-                                        <li>88% accuracy on MAIN_CLASS</li> 
-                                        <li>2nd best model, reserved for future ensemble models</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- -->
+            
 
             <!--FineTune heading-->
             <div class="row">
@@ -238,62 +169,7 @@
                         </div>
 
                         <!--/Model Tab content -->
-
-                        <!--panel 1-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFTOne" aria-expanded="true" aria-controls="collapse">Transformer Network</a>
-                                </h4>
-                            </div>
-                            <div id="collapseFTOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p>A Transformer network is a type of artificial intelligence neural network that can be trained to take in certain inputs (i.e. text), encode the input, and then decode the given information to a specific output. This output could be the next most probable word in a sentence, the sentiment of the sentence, or in our case a classification of a complaint.</p>
-                                    <ul>
-                                        <li>Positional encoding means that word order matters - better "understanding" of keywords and their context</li>
-                                        <li>Encoder processes input, outputs directly to decoder</li> 
-                                        <li>Attention mechanism passes on high value information from word to word</li> 
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                <!--panel 2-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFTTwo" aria-expanded="true" aria-controls="collapse">Pre-training</a>
-                                </h4>
-                            </div>
-                            <div id="collapseFTTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <ul>
-                                        <li>The pre-trained model used was trained on the BooksCorpus dataset, containing seven thousand unique books</li> 
-                                        <li>Pre-training gives us a good generalized language model to starting point.</li> 
-                                        <li>Our data advances the pre-trained model reaching higher accuracy with fewer required supervised samples than other models.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                <!--panel 3-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFTThree" aria-expanded="true" aria-controls="collapse">Supervised Training</a>
-                                </h4>
-                            </div>
-                            <div id="collapseFTThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p>The second step of model development is the supervised fine tuning. Supervised training takes the task-appropriate text samples and true classifications to reform the pre-trained model to fit our specific task.</p>
-                                    <ul/>
-                                        <li>We use approximately 750,000 real-world 311-type complaints to fine tune the model for 311 complaint classification.</li>
-                                        <li>Muliple variables were tested to arrive at the optimum parameters for the model.</li>
-                                        <li>The full model was trained on heavy GPU virtual machines and deployed in the cloud, accessible through our API.</li>
-                                        <li>Though it increases training time, grid searching is helpful way to hone model performance.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                
                     </div>
                 </div>
             </div>
@@ -372,87 +248,6 @@
 
                     <!--/Google Tab content -->
 
-                
-                    <!--Google Assist Accordion Panels-->
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <!--panel 1-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseGoogleOne" aria-expanded="true" aria-controls="collapse">DialogFlow Platform</a>
-                                </h4>
-                            </div>
-                            <div id="collapseGoogleOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p>Google Dialogflow allows us to:</p>
-                                    <ul>
-                                        <li>Specify the phrase which invokes our agent</li> 
-                                        <li>Structure the conversation the agent will have with the user</li> 
-                                        <li>Specify what inputs we expect the user to give, as well as how the agent should respond in different cases</li>
-                                        <li>Where the user’s inputs should be sent to for processing and storage</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--panel 2-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseGoogleTwo" aria-expanded="true" aria-controls="collapse">Intents</a>
-                                </h4>
-                            </div>
-                            <div id="collapseGoogleTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p><a href="https://dialogflow.com/docs/intents">Intents</a>, which are triggered on specific phrases said by the user. Dialogflow actually allowed us to specify a list of potential phrases the user might say, and then it trained itself to recognize variations of these phrases.</p>
-                                    <ul>
-                                        <li><a href="https://dialogflow.com/docs/intents">Intents</a> are triggered on specific phrases said by the user.</li> 
-                                        <li>Dialogflow allows specific lists of potential phrases the user might say.</li> 
-                                        <li>Dialogflow is able to recognize variations of these phrases.</li>
-                                        <li>Dialogflow Intents capture information and can provide simple responses or pass captured info to Fullfillment.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--panel 3-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseGoogleThree" aria-expanded="true" aria-controls="collapse">Fullfillments</a>
-                                </h4>
-                            </div>
-                            <div id="collapseGoogleThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p>Fullfillments:</p>
-                                    <ul/>
-                                        <li>Packages user input into text;</li>
-                                        <li>Sends text information to REST server.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--panel 4-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseGoogleFour" aria-expanded="true" aria-controls="collapse">REST Server</a>
-                                </h4>
-                            </div>
-                            <div id="collapseGoogleFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p>REST Server:</p>
-                                    <ul/>
-                                        <li>Extracts complaint text and accompanying data;</li>
-                                        <li>Stores complaint text and accompanying data in external database;</li>
-                                        <li>Processes batch complaints and returns results to external database; and</li>
-                                        <li>Returns confirmation receipt to user.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/Google Assist Accordion Panels-->
-
                     <!--Siri Heading-->
                     <div class="text-left">
                         <h3>Apple Siri:</h3>
@@ -493,73 +288,9 @@
                             <li>Returns confirmation receipt to user.</li>
                         </ul> 
                     </div>
-
                     <!--/Siri Tab content -->
-
-                    <!--Siri Accordion Panels-->
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <!--panel 1-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAppleShortcut" aria-expanded="true" aria-controls="collapse">Shortcuts</a>
-                                </h4>
-                            </div>
-                            <div id="collapseAppleShortcut" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p>Siri shortcuts are user-programmable actions that expand and enhance Apple Siri capabilities.</p>
-                                    <ul>
-                                        <li>GUI-based or scripted shortcuts</li> 
-                                        <li>Can collect user-authorized location information for complaint routing</li> 
-                                        <li>Once installed on user's device, can be used seemlessly</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-                        <!--panel 2-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAppleAction" aria-expanded="true" aria-controls="collapse">Actions</a>
-                                </h4>
-                            </div>
-                            <div id="collapseAppleAction" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p>Actions:</p>
-                                    <ul/>
-                                        <li>Packages user input into text;</li>
-                                        <li>Sends text information to REST server.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--panel REST-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseAppleRest" aria-expanded="true" aria-controls="collapse">REST Server</a>
-                                </h4>
-                            </div>
-                            <div id="collapseAppleRest" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p>REST Server:</p>
-                                    <ul/>
-                                        <li>Extracts complaint text and accompanying data;</li>
-                                        <li>Stores complaint text and accompanying data in external database;</li>
-                                        <li>Processes batch complaints and returns results to external database; and</li>
-                                        <li>Returns confirmation receipt to user.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/Siri Accordion Panels-->
-
                 </div>
                 <!-- /width settings-->
-
             </div>
             <!--/FE Panels-->
 
@@ -639,94 +370,10 @@
 
 
                     <!--/Siri Tab content -->
-
-                
-                    <!--Back End Accordion Panels-->
-                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                        <!--panel 1-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBEOne" aria-expanded="true" aria-controls="collapse">Model API and Server</a>
-                                </h4>
-                            </div>
-                            <div id="collapseBEOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p>Our FineTune model is Python-based, so a Flask API would seem like an obvious choice. However, Python is single threaded, so it would not be able to handle many requests at once. We instead chose a <a href="https://sanic.readthedocs.io/en/latest/">Sanic</a> webs erver to run the model and API.</p>
-                                    <p>Sanic web server:</p>
-                                    <ul>
-                                        <li>Flask-like package - works with Python models</li> 
-                                        <li>Less friction implementing with our other Python elements</li>
-                                        <li>Supports asynchronous requests - able to handle both light and heavy loads</li> 
-                                        <li>Able to handle near real-time classification or scheduled batch classification </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--panel 2-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBETwo" aria-expanded="true" aria-controls="collapse">Backend Open311 Server</a>
-                                </h4>
-                            </div>
-                            <div id="collapseBETwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p>To handle complaint text and metadata, we use the <a href="https://github.com/miamidade/georeport-server">Miami Dade Open311</a> server. Using an open standard server has numerous benefits:</p>
-                                    <ul>
-                                        <li>Open source server that can be adapted to fit our needs</li> 
-                                        <li>Follows Open311 standard for complaint data processing and reporting</li>
-                                        <li>Standardization makes Buddy311 adoption easier for cities and municipalities</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--panel 3-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBEThree" aria-expanded="true" aria-controls="collapse">SQL Database</a>
-                                </h4>
-                            </div>
-                            <div id="collapseBEThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p>We used a <a href="https://mariadb.org/">MariaDB SQL</a> database to store our complaints and their labels. MariaDB SQL database:</p>
-                                    <ul/>
-                                        <li>Easy to implement</li>
-                                        <li>Meets scale and speed requirements of the current product</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!--panel 4-->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingOne">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseBEFour" aria-expanded="true" aria-controls="collapse">Kafka Instance</a>
-                                </h4>
-                            </div>
-                            <div id="collapseBEFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="panel-body">
-                                    <p>A Kafka instance allows us to separate our backend Open311 server and classification server by facilitating asynchronous communication between them. By separating the classification server from the backend Open311 server we avoided having our backend server lock up and wait for something to get classified before doing anything else. The Kafka Instance:</p>
-                                    <ul/>
-                                        <li>Queues incoming complaints from the backend Open311 server for our complaint classification;</li>
-                                        <li>Prevents backend Open311 server lock up while waiting for classification to complete;</li>
-                                        <li>Able to handle large number of requests, ready for peak demand scenarios (eg. storm, major event, etc.); and</li>
-                                        <li>Allows the classification server to operate separately and deal with varying compaint load.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/Back End Accordion Panels-->
-
                 </div>
                 <!-- /width settings-->
-
             </div>
             <!--/BE Panels-->
-
         </div>
         <!--/container-->
     </section>
