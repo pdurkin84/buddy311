@@ -99,9 +99,9 @@
 
                     <!-- Baseline Tab content -->
                     <div id="BL1" class="tabcontent">
-                            <span onclick="this.parentElement.style.display='none'">
-                                <div class="text-right"><a>Close</a></div>
-                            </span>
+                        <span onclick="this.parentElement.style.display='none'">
+                            <div class="text-right"><a>Close</a></div>
+                        </span>
                         <ul>
                             <li>TF-IDF vectors</li>
                             <li>Only complaints from complaint sub_classes with 100 or more occurances</li> 
@@ -111,6 +111,9 @@
                     </div>
 
                     <div id="BL2" class="tabcontent">
+                        <span onclick="this.parentElement.style.display='none'">
+                            <div class="text-right"><a>Close</a></div>
+                        </span>
                         <p>FastText is a pre-trained continuous bag of words model developed by Facebook that uses character n-grams of 2-6 characters length to represent each word. Classification models can be trained on wordNgram of 1-5 words long.</p>
                         <ul>
                             <li>written in C and work is typically done in the command line: hence it is VERY VERY fast. For example, the typical 100 dimension vector representation, 3 wordNgram model 786k train, 192k test, tookapproximately 5 minutes to train at 25 epochs and test 192k samples</li>
@@ -158,6 +161,9 @@
 
                         <!-- Model Tab content -->
                         <div id="model1" class="tabcontent">
+                            <span onclick="this.parentElement.style.display='none'">
+                                <div class="text-right"><a>Close</a></div>
+                            </span>
                             <p>A Transformer network is a type of artificial intelligence neural network that can be trained to take in certain inputs (i.e. text), encode the input, and then decode the given information to a specific output. This output could be the next most probable word in a sentence, the sentiment of the sentence, or in our case a classification of a complaint.</p>
                             <ul>
                                 <li>Positional encoding means that word order matters - better "understanding" of keywords and their context</li>
@@ -167,6 +173,9 @@
                         </div>
 
                         <div id="model2" class="tabcontent">
+                            <span onclick="this.parentElement.style.display='none'">
+                                <div class="text-right"><a>Close</a></div>
+                            </span>
                             <ul>
                                 <li>The pre-trained model used was trained on the BooksCorpus dataset, containing seven thousand unique books</li> 
                                 <li>Pre-training gives us a good generalized language model to starting point.</li> 
@@ -175,6 +184,9 @@
                         </div>
 
                         <div id="model3" class="tabcontent">
+                            <span onclick="this.parentElement.style.display='none'">
+                                <div class="text-right"><a>Close</a></div>
+                            </span>
                             <p>The second step of model development is the supervised fine tuning. Supervised training takes the task-appropriate text samples and true classifications to reform the pre-trained model to fit our specific task.</p>
                             <ul/>
                                 <li>We use approximately 750,000 real-world 311-type complaints to fine tune the model for 311 complaint classification.</li>
@@ -228,6 +240,9 @@
 
                     <!-- Google Tab content -->
                     <div id="G1" class="tabcontent">
+                        <span onclick="this.parentElement.style.display='none'">
+                                <div class="text-right"><a>Close</a></div>
+                            </span>
                         <p>Google Dialogflow allows us to:</p>
                         <ul>
                             <li>Specify the phrase which invokes our agent</li> 
@@ -238,6 +253,9 @@
                     </div>
 
                     <div id="G2" class="tabcontent">
+                        <span onclick="this.parentElement.style.display='none'">
+                            <div class="text-right"><a>Close</a></div>
+                        </span>
                         <p><a href="https://dialogflow.com/docs/intents">Intents</a>, which are triggered on specific phrases said by the user. Dialogflow actually allowed us to specify a list of potential phrases the user might say, and then it trained itself to recognize variations of these phrases.</p>
                         <ul>
                             <li><a href="https://dialogflow.com/docs/intents">Intents</a> are triggered on specific phrases said by the user.</li> 
@@ -248,6 +266,9 @@
                     </div>
 
                     <div id="G3" class="tabcontent">
+                        <span onclick="this.parentElement.style.display='none'">
+                            <div class="text-right"><a>Close</a></div>
+                        </span>
                         <p>Fullfillments:</p>
                         <ul/>
                             <li>Packages user input into text;</li>
@@ -256,6 +277,9 @@
                     </div>
 
                     <div id="G4" class="tabcontent">
+                        <span onclick="this.parentElement.style.display='none'">
+                            <div class="text-right"><a>Close</a></div>
+                        </span>
                         <p>REST Server:</p>
                         <ul/>
                             <li>Extracts complaint text and accompanying data;</li>
@@ -283,6 +307,9 @@
 
                     <!-- Siri Tab content -->
                     <div id="Siri1" class="tabcontent">
+                        <span onclick="this.parentElement.style.display='none'">
+                            <div class="text-right"><a>Close</a></div>
+                        </span>
                         <p>Siri shortcuts are user-programmable actions that expand and enhance Apple Siri capabilities.</p>
                         <ul>
                             <li>GUI-based or scripted shortcuts</li> 
@@ -292,6 +319,9 @@
                     </div>
 
                     <div id="Siri2" class="tabcontent">
+                        <span onclick="this.parentElement.style.display='none'">
+                            <div class="text-right"><a>Close</a></div>
+                        </span>
                         <p>Actions:</p>
                         <ul/>
                             <li>Packages user input into text;</li>
@@ -300,6 +330,9 @@
                     </div>
 
                     <div id="Siri4" class="tabcontent">
+                        <span onclick="this.parentElement.style.display='none'">
+                            <div class="text-right"><a>Close</a></div>
+                        </span>
                         <p>REST Server:</p>
                         <ul/>
                             <li>Extracts complaint text and accompanying data;</li>
@@ -351,6 +384,9 @@
 
                     <!-- Back End Tab content -->
                     <div id="BE1" class="tabcontent">
+                        <span onclick="this.parentElement.style.display='none'">
+                            <div class="text-right"><a>Close</a></div>
+                        </span>
                         <p>To handle complaint text and metadata, we use the <a href="https://github.com/miamidade/georeport-server">Miami Dade Open311</a> server. Using an open standard server has numerous benefits:</p>
                         <ul>
                             <li>Open source server that can be adapted to fit our needs</li> 
@@ -360,6 +396,9 @@
                     </div>
 
                     <div id="BE2" class="tabcontent">
+                        <span onclick="this.parentElement.style.display='none'">
+                            <div class="text-right"><a>Close</a></div>
+                        </span>
                         <p>We used a <a href="https://mariadb.org/">MariaDB SQL</a> database to store our complaints and their labels. MariaDB SQL database:</p>
                         <ul/>
                             <li>Easy to implement</li>
@@ -368,6 +407,9 @@
                     </div>
 
                     <div id="BE3" class="tabcontent">
+                        <span onclick="this.parentElement.style.display='none'">
+                            <div class="text-right"><a>Close</a></div>
+                        </span>
                         <p>A Kafka instance allows us to separate our backend Open311 server and classification server by facilitating asynchronous communication between them. By separating the classification server from the backend Open311 server we avoided having our backend server lock up and wait for something to get classified before doing anything else. The Kafka Instance:</p>
                         <ul/>
                             <li>Queues incoming complaints from the backend Open311 server for our complaint classification;</li>
@@ -378,6 +420,9 @@
                     </div>
 
                     <div id="BE4" class="tabcontent">
+                        <span onclick="this.parentElement.style.display='none'">
+                            <div class="text-right"><a>Close</a></div>
+                        </span>
                         <p>Our FineTune model is Python-based, so a Flask API would seem like an obvious choice. However, Python is single threaded, so it would not be able to handle many requests at once. We instead chose a <a href="https://sanic.readthedocs.io/en/latest/">Sanic</a> webs erver to run the model and API.</p>
                         <p>Sanic web server:</p>
                         <ul>
