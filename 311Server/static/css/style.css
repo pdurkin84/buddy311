@@ -42,7 +42,7 @@ a {
     outline: none;
     -webkit-transition: 0.4s;
     transition: 0.4s;
-    color: #333333;
+    color: #FDB515;; /* #333333*/
 }
 
 input:focus,
@@ -799,6 +799,8 @@ input:-webkit-autofill:focus {
     display: none;
     padding: 6px 12px;
     border-top: 1px solid white;
+    border-bottom: 1px solid white;
+
 }
 
 /***
