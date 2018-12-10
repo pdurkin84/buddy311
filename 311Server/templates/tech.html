@@ -29,11 +29,18 @@
             <div class="row">
                 <div class="col-md-10 col-md-offset-1 col-xs-12 col-sm-6 col-sm-offset-3">
                     <div>
-                        <div class="text-center" style="margin-top: 0px; margin-bottom:20px;">
+                        <div class="text-center extra-images">
                             <img src="{{ url_for('static', filename='images/data_01.png') }}" alt="" width="50%">
                         </div>
                     </div>
                     <p>To build natural language models that could understand wide ranges of complaints, we needed a lot of data. To this end, we collected more than 1,280,000 free text complaints from over 300 towns and cities. Some of the largest stores of 311 complaint data came from open data portals of cities such as Cincinatti, Chicago, and Baton Rouge while other data came from a multitude of public 311-type complaint portals and services from across the world.</p>
+
+                    <div>
+                        <div class="text-center extra-images">
+                            <img src="{{ url_for('static', filename='images/categories_01.png') }}" alt="" width="50%">
+                        </div>
+                    </div>
+
                     <p>Each complaint was tagged with the primary department in charge of handling the complaint, as well as a sub-department and/or a specific complaint category. This data were used to create a list of possible responsibility hierachies. We analyzed the hierarchies and created a new unifying organization of MAIN category and SUB category to which each hierachy could be mapped.</p>
                     <p>Complaints contained a wide range of additional data such as submission timestamp, resolution timestamp, incident GPS or address, and submission method. These were not used in the classification model but serve as useful data for future exploration.</p>
                     <p>Each SUB category is directly dependent upon a MAIN category. In order to simplify the classification process, we designed the model to predict the SUB category, since complaints can be easily re-routed within the same MAIN category if the model misclassifies a complaint.</p>
