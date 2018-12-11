@@ -83,8 +83,6 @@ def siri():
 # added for testing Paul
 @app.route("/about")
 def about():
-	api_url_base = 'https://buddy311.org/requests/get'
-	response = requests.get(api_url_base).text
 	return render_template('about.html')
 
 @app.route("/tech")
@@ -99,6 +97,10 @@ def index():
 @app.route("/about2")
 def about2():
 	return render_template('about2.html')
+
+@app.rout("/about3")
+def about3():
+    return render_template('about3.html')
 
 @app.route('/discovery.<format>')
 def discovery(format):
