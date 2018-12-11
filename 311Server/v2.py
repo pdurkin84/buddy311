@@ -100,11 +100,6 @@ def index():
 def about2():
 	return render_template('about2.html')
 
-# Test only
-@app.route("/about3")
-def about3():
-	return render_template('about3.html')
-
 @app.route('/discovery.<format>')
 def discovery(format):
 	"""Service discovery mechanism required for Open311 APIs."""
