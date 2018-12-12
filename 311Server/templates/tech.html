@@ -207,7 +207,7 @@
     </div>
 </section>
                 
-<section class="gray-bg section-padding"">
+<section class="gray-bg section-padding" id="frontend-page">
      <div class="container">        
             <!--Front End heading-->
             <div class="row">
@@ -434,7 +434,7 @@
                         <span onclick="this.parentElement.style.display='none'">
                             <div class="text-right"><a>Close</a></div>
                         </span>
-                        <p>Our FineTune model is Python-based, so a Flask API would seem like an obvious choice. However, Python is single threaded, so it would not be able to handle many requests at once. We instead chose a <a href="https://sanic.readthedocs.io/en/latest/">Sanic</a> webs erver to run the model and API.</p>
+                        <p>Our FineTune model is Python-based, so a Flask API would seem like an obvious choice. However, Python is single threaded, so it would not be able to handle many requests at once. We instead chose a <a href="https://sanic.readthedocs.io/en/latest/">Sanic</a> web server to run the model and API.</p>
                         <p>Sanic web server:</p>
                         <ul>
                             <li>Flask-like package - works with Python models</li> 
@@ -442,6 +442,11 @@
                             <li>Supports asynchronous requests - able to handle both light and heavy loads</li> 
                             <li>Able to handle near real-time classification or scheduled batch classification </li>
                         </ul> 
+                    </div>
+
+                    <!--link to github-->
+                    <div class="text-left">
+                        <p>For more detail on the model development and implementation process, and to see some of the code used by Buddy311, please check out our public <a href="https://github.com/chrisdanicic/buddy311pub">github</a> page.</p>
                     </div>
     </div>
 </section>
