@@ -186,6 +186,7 @@
                         <h2>Machine Learning</h2>
                         <p class="section-subtitle">Combining extensive data sources with state-of-the-art NLP classification technology.</p>
                         <p></p>
+			<br>
                         <h3>The Model</h3>
                             <p align="left">The model we use to classify complaints is based on an open-source pre-trained transformer model called Finetune, developed by OpenAI and Indico. It is built upon TensorFlow.</p>
                             <p align="left"> Finetune is a task-agnostic semi-supervised Natural Language Processing algorithm. Word representations are pre-trained on a very large corpus of media of different styles and subjects to obtain a generalized representation of the English language. The pre-trained language model can predict the next word in a sentence, given all the words that came before it. Finetune uses the “Multi-Layer Transformer Decoder” model architecture, which is a deep-learning model that utilizes the concept of attention to selectively focus on different parts of the input while training. For this step, Finetune trained their model on the BooksCorpus dataset, which contains seven thousand unique books. </p>
@@ -210,6 +211,7 @@
                 <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
                     <div class="page-title">
                         <h2>System Architecture</h2>
+			<br>
                         <h3>Front End</h3>
                     
                         <p></p>
@@ -217,7 +219,7 @@
                         <p></p>
                         <p align="left">The first option is a direct connection with a Google Assistant Agent chatbot that takes user input text or speech-to-text and packages the complaint to query the model using the model's REST API. The second option is a custom Siri shortcut for updated iOS devices which is able to call the same model REST API.</p>
                         <p></p>
-
+			<br>
                         <h3>Back End</h3>
                         <p align="left">Behind the scenes, our back end archecture recieves complaint text and metadata from from the front end interface and sends this data to our model classification queue and to our database to log the complaint.</p>
                         <p></p>
