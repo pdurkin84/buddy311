@@ -1,0 +1,172 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="John Doe">
+    <meta name="description" content="">
+    <meta name="keywords" content="HTML,CSS,XML,JavaScript">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Home</title>
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    <link rel="shortcut icon" type="image/ico" href="{{ url_for('static', filename='images/favicon.ico') }}" />
+    <!-- Plugin-CSS -->
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!--     <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css') }}"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css') }}">
+    <!-- Main-Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3.min.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+    <!-- <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script> -->
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Raleway:400,800" rel="stylesheet">
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript">
+        $(document).ready(function() { 
+            try{
+                if (typeof $('#siri-collapse') !== 'undefined') {
+                    document.getElementById("siri-collapse").style.borderBottomLeftRadius = "10px";
+                    document.getElementById("siri-collapse").style.borderBottomRightRadius  = "10px";
+                }; } catch(e) {};
+            
+            try{
+            if (typeof $('#completed') !== 'undefined') {
+               $('#completed').DataTable().destroy();
+//                 $('#completed').destroy();
+                console.log('Existing table found')
+            };
+            $('#completed').DataTable( {
+                "destroy": true,
+                "order": [[ 0, "desc" ]],
+                "lengthMenu": [ 10, 25, 50, 75, 100 ],
+                "paging": true
+            } ); } catch(e) {};
+            
+
+            
+            
+            
+        } );
+    </script>
+    
+    
+</head>
+
+<body data-spy="scroll" data-target="#primary-menu">
+
+    <div class="preloader-filterless">
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+    </div>
+    <!--Mainmenu-area-->
+    <div class="mainmenu-area" id="admin-nav" data-spy="affix" data-offset-top="100">
+        <div class="container">
+            <!--Logo-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-menu">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand logo">
+                    <h2 class="nav-logo">buddy311</h2>
+                </a>
+            </div>
+
+
+{% block content %}{% endblock %}
+
+    <!-- Contact -->
+    <footer class="footer-area relative sky-bg-filterless" id="contact-page">
+        <div class="absolute footer-bg"></div>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                        <div class="page-title">
+                            <h2>Contact Us</h2>
+                            <!-- <p class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates, temporibus at, facere harum fugiat!</p> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                        <p>Questions? Comments? Let us know!</p>
+                        <a href = "mailto: info@buddy311.org" style="color: #EEAE4E">info@buddy311.org</a>
+<!--                         <form action="process.php" id="contact-form" method="post" class="contact-form">
+                            <div class="form-double">
+                                <input type="text" id="form-name" name="form-name" placeholder="Your name" class="form-control" required="required">
+                                <input type="email" id="form-email" name="form-email" class="form-control" placeholder="E-mail address" required="required">
+                            </div>
+                            <input type="text" id="form-subject" name="form-subject" class="form-control" placeholder="Message topic">
+                            <textarea name="message" id="form-message" name="form-message" rows="5" class="form-control" placeholder="Your message" required="required"></textarea>
+                            <button type="sibmit" class="button">Submit</button>
+                        </form> -->
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <p>&copy;Copyright 2018 All right reserved.  This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com">Colorlib</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+    <!--Vendor-JS-->
+    <script src="{{ url_for('static', filename='js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/vendor/bootstrap.min.js') }}"></script>
+
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <!--Plugin-JS-->
+    <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/contact-form.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.parallax-1.1.3.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scrollUp.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/magnific-popup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/wow.min.js') }}"></script>
+    <!--Main-active-JS-->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/buddy311.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/web_voice_transcribe.js') }}"></script>
+
+</body>
+
+</html>
