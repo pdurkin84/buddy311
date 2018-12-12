@@ -363,7 +363,9 @@
                     </div>
                     <p></p>
                     <center>
-                    <img src="{{ url_for('static', filename='images/Architecture.png') }}" alt="" width="50%" style="margin-top:20px; margin-bottom:20px;">
+                    <br>
+                    <img src="{{ url_for('static', filename='images/Architecture.png') }}" alt="" width="50%">
+                    <br>
                     </center>
                     <p>Behind the scenes, our back end archecture recieves complaint text and metadata from the front end interface and sends this data to our model classification queue and to our database to log the complaint.</p>
                     <p>From the graphic above, we see that the submitted complaint is sent via the OPEN311 API to our database and a Kafka client, giving a submission confirmation back to the user to ensure them that their concern is our concern. The OPEN311 API sends the complaint text and any additional metadata provided by the user to our database. At the same time, it sends the complaint text to a Kafka instance that queues complaints and periodically sends the complaint text to the Buddy311 model server for classification. When the classification is complete, the classification is stored in the system database, ready for use.</p>
