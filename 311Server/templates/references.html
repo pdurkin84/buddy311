@@ -1,34 +1,82 @@
+<!DOCTYPE html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body { background-color: #75cbe7;}
+.navvar-header {background-color: #138fc2; background: #138fc2; color:#ffffff;}
+.mainmenu-area {background-color: #138fc2; background: #138fc2; color:#ffffff;height:100px}
+.admin-nav {background-color: #138fc2; background: #138fc2; color:#ffffff;}
+.logo {color:#ffffff;}
+.nav-logo {color:#ffffff;}
+</style>
+</head>
+<body>
+<!--Mainmenu-area-->
+<div class="mainmenu-area" id="admin-nav" data-spy="affix" data-offset-top="100">
+    <div class="container">
+    <!--Logo-->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand logo">
+                <h2 class="nav-logo">buddy311</h2>
+            </a>
+        </div>
 
-<h3> Uses of AI</h3>
-https://datasmart.ash.harvard.edu/news/article/using-predictive-analytics-to-combat-rodents-in-chicago-271
-<a href="https://www.abqjournal.com/1224386/city-receives-innovative-award-for-311-alexa-service.html"> Alba award for embedding in alexa </a> + <a href="https://www.youtube.com/watch?v=Di9-ister8A"> youtube commercial</a>
+    </div>
+</div>
+<!--Mainmenu-area/-->
+<br>
+<br>
+<h3> Data Sources</h3>
+
+<ul>
+<li> <a href="https://nycopendata.socrata.com/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9"> New York Open Data</a>
+<li> <a href="https://performance.chattanooga.gov/Government/311-Service-Requests/9iep-6yhz/data"> Chattanooga</a>
+<li> <a href="https://seeclickfix.com/api/v2/issues/"> SeeClickFix REST API</a>
+<li> <a href="https://data.bloomington.in.gov/"> Bloomington</a>
+<li> <a href="https://data.brla.gov/Government/311-Citizen-Requests-for-Service/7ixm-mnvx"> Baton Rouge</a>
+</ul>
+
+<h3> 311 and Open311</h3>
+
+<ul>
+<li> <a href="https://en.wikipedia.org/wiki/3-1-1"> 311 Wikipedia</a>
+<li> <a href="http://www.open311.org/learn/"> Open311</a>
+</ul>
 
 
 <h3> Costs and Budgets</h3>
 
-NYC Budget: https://www1.nyc.gov/site/operations/performance/mmr.page
+<ul>
+<li> <a href="https://www8.miamidade.gov/global/government/budget/fy-2018-budget.page"> Miami-Dade County (in Volume 3)</a>
+<li> <a href="https://www1.nyc.gov/site/operations/performance/mmr.page"> New York Citys' Mayor's Management Reports</a>
+<li> <a href="https://www.toronto.ca/wp-content/uploads/2018/06/910e-311-2018-Op-Public-Book.pdf"> Toronto 311 Budget 2018</a>
+<li> <a href="https://globalnews.ca/news/2508246/vancouver-311-service-popular-but-costly/"> Vancouver</a>
+<li> <a href="https://budget.boston.gov/operating-budget/cabinets/civic-engagement/neighborhood-services/boston-311/"> Boston</a>
+<li> <a href="https://bbmr.baltimorecity.gov/sites/default/files/Final%20SOTA%20FY19-compressed.pdf"> Baltimore (page 127)</a>
+<li> <a href="https://www.latimes.com/local/lanow/la-me-ln-costs-more-311-los-angeles-20140512-story.html"> Los Angeles</a>
+<li> <a href="http://houstontx.gov/budget/19budprop/FY2019_Proposed_Budget.pdf"> Houston </a>
+</ul>
 
-http://www.governing.com/topics/urban/gov-311-systems-cost.html
-Minneapolis: http://www.startribune.com/minneapolis-311-best-run-but-most-costly/164156006/
-NYC: http://www.gothamgazette.com/city/6524-inside-311-the-city-s-front-door-to-government
-Toronto: https://www.toronto.ca/wp-content/uploads/2018/06/910e-311-2018-Op-Public-Book.pdf
-Vancouver: https://globalnews.ca/news/2508246/vancouver-311-service-popular-but-costly/
-Miami-Dade: http://www.miamidade.gov/budget/library/fy2017-18/adopted/volume-3/communications.pdf
-Chicago: https://www.cityofchicago.org/city/en/depts/311/supp_info/311hist.html
-Boston: https://budget.boston.gov/operating-budget/cabinets/civic-engagement/neighborhood-services/boston-311/
-Baltimore: https://bbmr.baltimorecity.gov/sites/default/files/Final%20SOTA%20FY19-compressed.pdf
-LA: https://www.latimes.com/local/lanow/la-me-ln-costs-more-311-los-angeles-20140512-story.html
-Houston: http://houstontx.gov/budget/19budprop/FY2019_Proposed_Budget.pdf
-http://www.tpr.org/post/cost-overrun-could-raise-price-tag-san-antonios-311-app
-https://globalnews.ca/news/2508246/vancouver-311-service-popular-but-costly/
-http://www.governing.com/columns/tech-talk/gov-tulsa-technology-311.html
-https://www.citysourced.com/blog/6-ways-your-assets-benefit-from-a-311-mobile-app/
-https://www1.nyc.gov/assets/globalpartners/downloads/pdf/NYC_Technology_311.pdf
-
-<h3> Data Sources</h3>
-
-<a href="https://nycopendata.socrata.com/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9"> New York Open Data</a>
-<a href="https://seeclickfix.com/api/v2/issues/"> SeeClickFix REST API</a>
 
 <h3> News Articles</h3>
-<a href="http://www.miamidade.gov/releases/2015-01-14-311-hub.asp"> Miami-Dade 311 server innovation accolades from Harvard</a>
+<ul>
+<li> <a href="http://www.governing.com/topics/urban/gov-311-systems-cost.html"> Is the Cost of 311 Systems Worth the Price of Knowing?</a>
+<li> <a href="https://www.cityofchicago.org/city/en/depts/311/supp_info/311hist.html"> Chicago 311 history</a>
+<li> <a href="http://www.tpr.org/post/cost-overrun-could-raise-price-tag-san-antonios-311-app"> Article on San Antonio showing flat fee mobile application costs</a>
+<li> <a href="https://www.citysourced.com/blog/6-ways-your-assets-benefit-from-a-311-mobile-app/"> Opinion article on how to save money on 311</a>
+</ul>
+
+<h3> Uses of Data Science in 311</h3>
+<ul>
+<li> <a href="https://datasmart.ash.harvard.edu/news/article/using-predictive-analytics-to-combat-rodents-in-chicago-271"> Chicagos rat prediction</a>
+<li> <a href="https://www.abqjournal.com/1224386/city-receives-innovative-award-for-311-alexa-service.html"> Albuquerque award for embedding 311 application in alexa </a> + <a href="https://www.youtube.com/watch?v=Di9-ister8A"> youtube commercial</a>
+<li> <a href="http://www.miamidade.gov/releases/2015-01-14-311-hub.asp"> Miami-Dade 311 server innovation accolades from Harvard</a>
+<li> <a href="https://www.crainsnewyork.com/article/20170112/TECHNOLOGY/170119941/ibm-s-watson-will-soon-answer-your-311-calls-as-part-of-a-24-million-upgrade-to-the-system"> NYC 311 implementation of Watson</a>
+<li> <a href="https://www.youtube.com/watch?v=_WI09GvveFE"> News about Houston 311 using Microsoft</a>
+</ul>
