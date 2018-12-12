@@ -45,8 +45,6 @@
                     <p>Complaints contained a wide range of additional data such as submission timestamp, resolution timestamp, incident GPS or address, and submission method. These were not used in the classification model but serve as useful data for future exploration.</p>
                     <p>Each SUB category is directly dependent upon a MAIN category. In order to simplify the classification process, we designed the model to predict the SUB category, since complaints can be easily re-routed within the same MAIN category if the model misclassifies a complaint.</p>
                     <p></p>
-                    <p>Not all of the free-text complaints were representative of how a Buddy311 would submit a complaint. Many text complaints were a series of service codes, while others were partly or entirely automatically generated messages from the respective 311 system.</p>
-                    <p>After removing numerical service codes and automated system messages, we were left with around 960,000 clear free-text comments to train and test the model.</p>
                     <div>
                         <center>
                         <img src="{{ url_for('static', filename='images/tSNE_1pct.png') }}" alt="" width="50%">
